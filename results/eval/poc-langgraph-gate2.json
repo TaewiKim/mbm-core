@@ -1,0 +1,47 @@
+{
+  "framework": "@langchain/langgraph",
+  "store": "InMemoryStore (cross-thread shared store)",
+  "topology": "fork-join: START -> {branch_a || branch_b} -> merge_executor",
+  "api": false,
+  "scope": "REAL framework + real fork-join topology on a CONSTRUCTED multi-agent workload (not ecological prevalence)",
+  "active_message": "mMerge (true multi-parent merge of mA, mB)",
+  "ungated": {
+    "admitted": [
+      "rA",
+      "rB"
+    ],
+    "retention": "AMBIGUOUS",
+    "laundered": true
+  },
+  "gated_unresolved": {
+    "admitted": [],
+    "retention": null
+  },
+  "gated_resolved": {
+    "admitted": [
+      "rB"
+    ],
+    "retention": 30
+  },
+  "checks": [
+    {
+      "name": "ungated merge launders BOTH conflicting branch records",
+      "ok": true
+    },
+    {
+      "name": "Gate 2.0 (unresolved) admits NEITHER -- coherent view denies the merge laundering",
+      "ok": true
+    },
+    {
+      "name": "Gate 2.0 (resolved) admits ONLY the adopted branch -> correct 30-day retention",
+      "ok": true
+    },
+    {
+      "name": "replay reconstructs the in-framework reads",
+      "ok": true
+    }
+  ],
+  "passed": 4,
+  "total": 4,
+  "ok": true
+}

@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-25T03:12:26.570Z",
+  "script": "scripts/analyze_context_experiments.mjs",
+  "experiment": "E11",
+  "title": "Native-framework integration (contextual)",
+  "claim": "The message-bound gate integrates into representative agent frameworks as a wrapper around their communication/memory interfaces; C5 succeeds on scenarios where C4 fails.",
+  "not_claim": "ACM-CP beats LangGraph or AutoGen.",
+  "frameworks": [
+    {
+      "framework": "LangGraph",
+      "adapter": "native-sdk",
+      "c5_successes": 27,
+      "c5_cases": 27,
+      "c4_failures": 27,
+      "c4_cases": 27,
+      "status": "PASS"
+    }
+  ]
+}

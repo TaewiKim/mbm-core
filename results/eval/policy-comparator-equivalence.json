@@ -1,0 +1,176 @@
+{
+  "generated_for": "RG1 independent conventional-policy comparator (review M1)",
+  "total": 27,
+  "equivalent_admitted_set": 27,
+  "all_equivalent": true,
+  "families": 9,
+  "ancestry_load_bearing_families": [
+    "audit_reconstruction",
+    "graph_only_sibling_branch_provenance"
+  ],
+  "conclusion": "MBM-Core's admitted set is reproduced exactly by a generic ABAC+ReBAC contextual policy; the contribution is systematic application, not a new authorization primitive.",
+  "rows": [
+    {
+      "scenario_id": "twin_run_contamination_001",
+      "family": "twin_run_shared_memory_contamination",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "twin_run_contamination_002",
+      "family": "twin_run_shared_memory_contamination",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "twin_run_contamination_003",
+      "family": "twin_run_shared_memory_contamination",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "family": "pause_resume_deferred_constraint",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "pause_resume_deferred_constraint_002",
+      "family": "pause_resume_deferred_constraint",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "pause_resume_deferred_constraint_003",
+      "family": "pause_resume_deferred_constraint",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "crash_retry_superseded_policy_001",
+      "family": "crash_retry_with_superseded_policy",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "crash_retry_superseded_policy_002",
+      "family": "crash_retry_with_superseded_policy",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "crash_retry_superseded_policy_003",
+      "family": "crash_retry_with_superseded_policy",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "branch_merge_conflict_001",
+      "family": "branch_merge_with_conflicting_memories",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "branch_merge_conflict_002",
+      "family": "branch_merge_with_conflicting_memories",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "branch_merge_conflict_003",
+      "family": "branch_merge_with_conflicting_memories",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "artifact_handoff_001",
+      "family": "artifact_dependent_handoff",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "artifact_handoff_002",
+      "family": "artifact_dependent_handoff",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "artifact_handoff_003",
+      "family": "artifact_dependent_handoff",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "private_memory_summary_001",
+      "family": "private_memory_summary",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "private_memory_summary_002",
+      "family": "private_memory_summary",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "private_memory_summary_003",
+      "family": "private_memory_summary",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "long_horizon_drift_001",
+      "family": "long_horizon_drift",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "long_horizon_drift_002",
+      "family": "long_horizon_drift",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "long_horizon_drift_003",
+      "family": "long_horizon_drift",
+      "equivalent": true,
+      "ancestry_load_bearing": false
+    },
+    {
+      "scenario_id": "audit_reconstruction_001",
+      "family": "audit_reconstruction",
+      "equivalent": true,
+      "ancestry_load_bearing": true
+    },
+    {
+      "scenario_id": "audit_reconstruction_002",
+      "family": "audit_reconstruction",
+      "equivalent": true,
+      "ancestry_load_bearing": true
+    },
+    {
+      "scenario_id": "audit_reconstruction_003",
+      "family": "audit_reconstruction",
+      "equivalent": true,
+      "ancestry_load_bearing": true
+    },
+    {
+      "scenario_id": "graph_provenance_sibling_branch_001",
+      "family": "graph_only_sibling_branch_provenance",
+      "equivalent": true,
+      "ancestry_load_bearing": true
+    },
+    {
+      "scenario_id": "graph_provenance_sibling_branch_002",
+      "family": "graph_only_sibling_branch_provenance",
+      "equivalent": true,
+      "ancestry_load_bearing": true
+    },
+    {
+      "scenario_id": "graph_provenance_sibling_branch_003",
+      "family": "graph_only_sibling_branch_provenance",
+      "equivalent": true,
+      "ancestry_load_bearing": true
+    }
+  ]
+}

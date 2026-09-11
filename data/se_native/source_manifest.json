@@ -1,0 +1,625 @@
+{
+  "dataset": "se_native",
+  "synthetic": true,
+  "count": 100,
+  "families": [
+    "issue_triage_capability",
+    "bug_evidence_conflict",
+    "pr_delegation_drift",
+    "incident_memory_privacy",
+    "ci_context_manifest"
+  ],
+  "per_family": 20,
+  "inspired_by_repos": {
+    "issue_triage_capability": "langchain-ai/langgraph",
+    "bug_evidence_conflict": "All-Hands-AI/OpenHands",
+    "pr_delegation_drift": "microsoft/autogen",
+    "incident_memory_privacy": "modelcontextprotocol/modelcontextprotocol",
+    "ci_context_manifest": "a2aproject/A2A"
+  },
+  "note": "Synthetic, repository-inspired scenarios; identifiers and hashes refer to generated objects, not mined repository sources.",
+  "manifest_hash": "sha256:a0e4694bcac3e0340aafc392a420d1cfd5420742630abb2d26c2890ac3c93e6c",
+  "output": "data/se_native/se_native_100.json",
+  "per_case_sources": [
+    {
+      "scenario_id": "issue_triage_capability_001",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-001",
+      "content_hash": "sha256:3588ea0453d1b0c2d40345ec119929eb2b1a97740290451d7ef7fd720914f38c"
+    },
+    {
+      "scenario_id": "issue_triage_capability_002",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-002",
+      "content_hash": "sha256:6372a2350baba0b84afab29102abff92b3212bbb3cc69d3ba35918283e5b47b0"
+    },
+    {
+      "scenario_id": "issue_triage_capability_003",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-003",
+      "content_hash": "sha256:e0a9e2776b42e01d360ba72ed4a515bebe5d2489f7be8b22ed396416ed3cad75"
+    },
+    {
+      "scenario_id": "issue_triage_capability_004",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-004",
+      "content_hash": "sha256:b0949180dcef5f354337dafec192037a096636507b8be1fe414181053a61fe25"
+    },
+    {
+      "scenario_id": "issue_triage_capability_005",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-005",
+      "content_hash": "sha256:13c923bcd341ab10ff0254170a1fab52a075f57c2047bfbf5546183d6c187011"
+    },
+    {
+      "scenario_id": "issue_triage_capability_006",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-006",
+      "content_hash": "sha256:63c0201add3d0f6656db0f48165f52e07e6d26b8ac066b7021adf7c356d1424d"
+    },
+    {
+      "scenario_id": "issue_triage_capability_007",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-007",
+      "content_hash": "sha256:f2751db9f3801e779da27bf54fde4076717b7f903fd04554fe4a65a848da3961"
+    },
+    {
+      "scenario_id": "issue_triage_capability_008",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-008",
+      "content_hash": "sha256:3874f7b5967d9ae6bf418f66a0fd07fec3437f5ea00cc2b89b623396bf48ec2b"
+    },
+    {
+      "scenario_id": "issue_triage_capability_009",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-009",
+      "content_hash": "sha256:8278985ab301b4f32a2f7de41474ae0dccf8b3ba4ef94a388db035a6dc8922f4"
+    },
+    {
+      "scenario_id": "issue_triage_capability_010",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-010",
+      "content_hash": "sha256:460a48a002e6ffc577afb1b14f16070fa88bfb8e2fa2f9a7f384c6051853b385"
+    },
+    {
+      "scenario_id": "issue_triage_capability_011",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-011",
+      "content_hash": "sha256:b70cf791f0660af4d315eda6f91802f3f18e05867e48e2fbb50338d786743953"
+    },
+    {
+      "scenario_id": "issue_triage_capability_012",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-012",
+      "content_hash": "sha256:1900f9c14d1c90c71b9732948e8a361b36bac33c2ad8e59ff07776ce882a94f6"
+    },
+    {
+      "scenario_id": "issue_triage_capability_013",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-013",
+      "content_hash": "sha256:88c643240729087108e087562a650c9bed26b874c9b4c0afd1c433ee8e4dc045"
+    },
+    {
+      "scenario_id": "issue_triage_capability_014",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-014",
+      "content_hash": "sha256:633fbd3daf01a8078b8c2ca6b177f6cb792b31db9c16323ea36f8602d7269fe3"
+    },
+    {
+      "scenario_id": "issue_triage_capability_015",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-015",
+      "content_hash": "sha256:2d0fc1fe464727e4169de6e57bbc73d45e31ff608c771473a0ee95306d2d1db9"
+    },
+    {
+      "scenario_id": "issue_triage_capability_016",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-016",
+      "content_hash": "sha256:af8f68324f5b1524d4f3ecdedf1af80f5363350d2c24bb12bf068cb5f14af896"
+    },
+    {
+      "scenario_id": "issue_triage_capability_017",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-017",
+      "content_hash": "sha256:08547e4ef2d53d868ea36acae22706d85a4c589529ee1c134d489a414730c237"
+    },
+    {
+      "scenario_id": "issue_triage_capability_018",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-018",
+      "content_hash": "sha256:72795155d65a544ec1d567aacad6526179d0300141f749be7f836dd928fe17a9"
+    },
+    {
+      "scenario_id": "issue_triage_capability_019",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-019",
+      "content_hash": "sha256:c4551657e6c49b36d4d75326e803faf5226ea3cc6721f9e6d142cd80c25fcf98"
+    },
+    {
+      "scenario_id": "issue_triage_capability_020",
+      "inspired_by_repo": "langchain-ai/langgraph",
+      "synthetic_scenario_id": "synthetic:issue_triage_capability-020",
+      "content_hash": "sha256:2d202a1da885bf4600fab31e6852e2862778ca936911aea0b8070e9beeca9b6f"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_001",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-001",
+      "content_hash": "sha256:ffe9fc755d72261d9203b31523f75a586e24114b12cdd3a61b13bf7579c478da"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_002",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-002",
+      "content_hash": "sha256:4edf94b976d8bc8fbe10e17a190045d3e1923eb314a7904e5f39e2206a42c1ac"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_003",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-003",
+      "content_hash": "sha256:c4e921480073e4ad321c4df0ae506fec638de276091ac94f079cfbb99a152c83"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_004",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-004",
+      "content_hash": "sha256:6ff81557c3b96dc4c2def9deadeb145e1f373b9fb12aab5ec860f6e7204fb245"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_005",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-005",
+      "content_hash": "sha256:1095f4b94c11e7fce18f542b758adb89e0d0f1c0f6403e59d109f4f1c309c1be"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_006",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-006",
+      "content_hash": "sha256:ce4052e3a24013d4f27cc819d8e264ddd4e220a7f76bf2e7babcaaad3fbf6761"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_007",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-007",
+      "content_hash": "sha256:1e86b6963de8baf423fe22805c465ca2afa9e2591b21eb286452433ab75cd363"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_008",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-008",
+      "content_hash": "sha256:2a22a8f233daed25cb5708f06e0be66a5e49b208df9b9a3873c153fb0c816a16"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_009",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-009",
+      "content_hash": "sha256:a19424c07748b67f455c307acbcbed561613c8a5e9c6c583f863fcadaa44aeca"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_010",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-010",
+      "content_hash": "sha256:1f60535403bb602780ef9862e46e2943ba0fce94c85375111085c930d128c99a"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_011",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-011",
+      "content_hash": "sha256:d2c2626cce532707eced3d3fa1f0f6d526ea818f5ef359f4b444a11adac36195"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_012",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-012",
+      "content_hash": "sha256:836a2070b62ff18e6ef8c6c821034705dde9d5a748b16cc18a4acbc1c9a5ccac"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_013",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-013",
+      "content_hash": "sha256:13e70c131caccc04bc4cb298cc68fabdd75795b038bd6c2361612298f8333ddd"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_014",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-014",
+      "content_hash": "sha256:ffc65c71b4eef6fafaa932f4a7877991b647921221e804a2a70e54fc922ea168"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_015",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-015",
+      "content_hash": "sha256:39422d6b740f9cfd9415de462ab09e51c15d94c268e3979e7eaea6eddd44f69d"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_016",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-016",
+      "content_hash": "sha256:777bb6b8d1c41085e77995ff83cd2abe3fde090686e962f7358eabec9c915f96"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_017",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-017",
+      "content_hash": "sha256:9d38d1c160288a418a596236a528a597712675637ebb19800fefe282b48940b8"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_018",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-018",
+      "content_hash": "sha256:f1fac3188e7615bf44121e2f1bfe0ef6611bcb524bf998c24efdccdd5ac824a9"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_019",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-019",
+      "content_hash": "sha256:5cef48cec40937c4a437cecbe6a124b9873bb72bc2a3967d6edd3135c1ba7946"
+    },
+    {
+      "scenario_id": "bug_evidence_conflict_020",
+      "inspired_by_repo": "All-Hands-AI/OpenHands",
+      "synthetic_scenario_id": "synthetic:bug_evidence_conflict-020",
+      "content_hash": "sha256:1dcae29efe354566bbca4dd37cd881d95ef8acec9459f788e9f3ee1d2a45c0e1"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_001",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-001",
+      "content_hash": "sha256:8da8eccae5e287f1020599575e27d890fc8b02318dee04a65a8bbe02f59bbab8"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_002",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-002",
+      "content_hash": "sha256:5161b3a5e10b042b6d41f62a1b7031d1d011b3a7c1f02336c9521d65c93b0519"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_003",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-003",
+      "content_hash": "sha256:8524df2f9a772098997d7eda70bfefe6721ca57c4abe907913d15162f742bab4"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_004",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-004",
+      "content_hash": "sha256:d42b40e5a8f6ebc5d81c4f5fd45e2dd90308f910bcf2995f83cf989ff980f3e1"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_005",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-005",
+      "content_hash": "sha256:bbfd52621b0821e7ca2ae1aff72eae72db9a06d4602127ffe9303729252a55fe"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_006",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-006",
+      "content_hash": "sha256:aeda95da4417c1ebaf0d436fcce33b3c3f5ca1457bb0bb3daca30d8c71996ad5"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_007",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-007",
+      "content_hash": "sha256:263619a48d71165d7d7bae12710cd1cb1408cff1f4fe072dc861d81d30f693c5"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_008",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-008",
+      "content_hash": "sha256:51bc64da2be2290ab364b57d62f104ba1e7531393422965d34730dd67b7584a9"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_009",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-009",
+      "content_hash": "sha256:5ff1b81f90cb21564b680736bf8553b95e1d21c2b88dedab2b60976bb35d7bce"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_010",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-010",
+      "content_hash": "sha256:552dc89e3876962f92e6646ef65ead4b310410d3ea71bfd6818a9fba2aec5f27"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_011",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-011",
+      "content_hash": "sha256:94e5a0ca1e6c87a75b61749598ef20b2c09b0dbd388fe311b4e4029b6a0be1d7"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_012",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-012",
+      "content_hash": "sha256:40dbb44c24af222ffd04387390ebc44b1bc7ae592cc6a69e7ee2176a7825f622"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_013",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-013",
+      "content_hash": "sha256:e9701a48eb72c7c708f7fc3505e5fb06e779ebf84956680ce2230fe6d64fe625"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_014",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-014",
+      "content_hash": "sha256:e591f9f62deaf6111a652a85067a82b3945df2c5b82dc0384df3827a471112ea"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_015",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-015",
+      "content_hash": "sha256:3f88b74c083e4aa6618c6a794843d3a95251107305266244a259dae45cc64b7b"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_016",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-016",
+      "content_hash": "sha256:602fdd4908d3f29036530be255840b3327410ac6b928061906521776ba93c0c7"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_017",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-017",
+      "content_hash": "sha256:82c282b8806ae910a66531721969dacb4339da7a6fed5626228e78596c4e2726"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_018",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-018",
+      "content_hash": "sha256:a57a70a24a6f0d9374e5c8015fd4b4359a2ab7688e59c05bb926d4b6ca5619c0"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_019",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-019",
+      "content_hash": "sha256:0706452ddb3d8b595c21677fa2e26a89a32be1167ae65c6acec44af640ed95eb"
+    },
+    {
+      "scenario_id": "pr_delegation_drift_020",
+      "inspired_by_repo": "microsoft/autogen",
+      "synthetic_scenario_id": "synthetic:pr_delegation_drift-020",
+      "content_hash": "sha256:f234ca9dbc242b4b0019fffd66794e596170f3a6df1148c43094cfa52b53f7a3"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_001",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-001",
+      "content_hash": "sha256:f8ec45bb1168ef14736302f77fc697e242173067cf2612a0968380bcf7426f2b"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_002",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-002",
+      "content_hash": "sha256:ae8928bb51e9ff025e6f6f7dc9b2b41f67226bced47b56d562a71db86c04f912"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_003",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-003",
+      "content_hash": "sha256:c9c4ac75435382e732c621fdbbeca92cf2c4fc3cbedffe00fddef8315f48dbf9"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_004",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-004",
+      "content_hash": "sha256:0169361554153c16cf065e3a9ac67a9dc1c4f6750d293ed0a302bdbe63eec89d"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_005",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-005",
+      "content_hash": "sha256:2e36b99f3e0b7134d6fce930a327c8ba63f451e3d297eab018406af26a73dc6d"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_006",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-006",
+      "content_hash": "sha256:8f99c835264b56aa69391ad6df13b1e54830ce3699f5900160c959952b2a2ec8"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_007",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-007",
+      "content_hash": "sha256:a148c6310fd96da6065c72d615dd82ff9a86ffad5a58e8125f82d8ceaa1267cd"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_008",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-008",
+      "content_hash": "sha256:3591ec8993c8c6b1abf55f7314fe93fd94e3b83b79cd32ec3e3e7213dc71fccf"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_009",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-009",
+      "content_hash": "sha256:62c054b63cc2bbd4db91d65419f37cf9fa9383d382c7d0476925b8bfbc07f2bf"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_010",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-010",
+      "content_hash": "sha256:fc474a821c8205a245ba53a84cec12c39361c8a6d72dc6c9110f3c9b67e8f3d7"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_011",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-011",
+      "content_hash": "sha256:f06d5717b243ff9c60ef72049cbbd8e7d1da064c263cff5cdfd5d4d19a1034d0"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_012",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-012",
+      "content_hash": "sha256:1671a2370fddd481aaec61baf762260cde821bb74a319bf4162bb8354e5be5d1"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_013",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-013",
+      "content_hash": "sha256:c96eae6f746b72c74ef12152528c04b2e6d1f19093e5553acf9dc618f969ed1b"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_014",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-014",
+      "content_hash": "sha256:6a9960f97e9ccc52843dfd925803c1093656236e70105136dbbf7bb9527790f2"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_015",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-015",
+      "content_hash": "sha256:f155eea1f196f8e947eb5dede892144dafd59437395362d7c6fb93c96142b9b6"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_016",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-016",
+      "content_hash": "sha256:31f15c4ca53050513e4dfd33650a6802b54724217b4e75ffc7a82adf008d96bc"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_017",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-017",
+      "content_hash": "sha256:71f7ff63e8d7c66845fb82dc707cccc1c6b5956346bd0d70d868bdc11f8c4431"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_018",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-018",
+      "content_hash": "sha256:73f8fecb6fb9a4ce3114fd531f76266794b44dc6b9e071f20211a5e9b30f72d9"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_019",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-019",
+      "content_hash": "sha256:af4b7ecd0797e211d4d5af6e62b82074e5fbb4617efcaba5de96cd0115720fc6"
+    },
+    {
+      "scenario_id": "incident_memory_privacy_020",
+      "inspired_by_repo": "modelcontextprotocol/modelcontextprotocol",
+      "synthetic_scenario_id": "synthetic:incident_memory_privacy-020",
+      "content_hash": "sha256:7bd815c1f0c131f8cbd17cc4876780de230563e101dd8c72710d6b1991fe46bd"
+    },
+    {
+      "scenario_id": "ci_context_manifest_001",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-001",
+      "content_hash": "sha256:1374f8c03d7e949384b9f8973f9552815383e07c74c32f1be53784fad7e65b26"
+    },
+    {
+      "scenario_id": "ci_context_manifest_002",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-002",
+      "content_hash": "sha256:ed6f7c90613a39742008435cd5f07e3441de73f61b17a654a8ad4cfaf14c0e3b"
+    },
+    {
+      "scenario_id": "ci_context_manifest_003",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-003",
+      "content_hash": "sha256:10ad39c02a0f122cb33db3ad0763a14104f4c71fd3dd57d837896280cd8a7175"
+    },
+    {
+      "scenario_id": "ci_context_manifest_004",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-004",
+      "content_hash": "sha256:55905f37315e5cd050f82d206959041a2d1d387600e57470e9b78e544e873026"
+    },
+    {
+      "scenario_id": "ci_context_manifest_005",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-005",
+      "content_hash": "sha256:2c84d8ca542a78b9135a672eaaa54ca253abfa10028983068920a90ed06a8a77"
+    },
+    {
+      "scenario_id": "ci_context_manifest_006",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-006",
+      "content_hash": "sha256:62fdb43c6d688132e5400e5e62e4aa0efc90be8be2438111a42140a48c071ae1"
+    },
+    {
+      "scenario_id": "ci_context_manifest_007",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-007",
+      "content_hash": "sha256:3f1f185072a9b1e8729ded5d974f0dacce2e6af1a6c933e34d515a2806bac5bc"
+    },
+    {
+      "scenario_id": "ci_context_manifest_008",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-008",
+      "content_hash": "sha256:c0d41167860c3440adc296805f213f84406e614cb93d62538414be5366b17acb"
+    },
+    {
+      "scenario_id": "ci_context_manifest_009",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-009",
+      "content_hash": "sha256:86eda7e866671d3cd403835cd491824c0517e6694cd42d97c16a4b17856643e5"
+    },
+    {
+      "scenario_id": "ci_context_manifest_010",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-010",
+      "content_hash": "sha256:1336a5aad9364953150e7ab09d9b67e456947ebda5297a8509f8dd28f6b4a9ce"
+    },
+    {
+      "scenario_id": "ci_context_manifest_011",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-011",
+      "content_hash": "sha256:da05489d0e115f55ba7edf9c2b31157693d21dff0142b6626e52dd0ea9518abf"
+    },
+    {
+      "scenario_id": "ci_context_manifest_012",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-012",
+      "content_hash": "sha256:ebe7658e2208534f13a862dd6b7bb594735c3ef734950181555420a011000ab8"
+    },
+    {
+      "scenario_id": "ci_context_manifest_013",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-013",
+      "content_hash": "sha256:6c286a0cc6d4ea5ce969398bf3dc41d18ebc1596f26571987038713178b3ad12"
+    },
+    {
+      "scenario_id": "ci_context_manifest_014",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-014",
+      "content_hash": "sha256:c538573cce8bebd98922f8ab91a061b12739c1c1095fc6cbba35b86f99f03c9f"
+    },
+    {
+      "scenario_id": "ci_context_manifest_015",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-015",
+      "content_hash": "sha256:d82f08fa6d43b379c50bb7b3335f00661f826913f0c8392a3c0bfb5290c91a8d"
+    },
+    {
+      "scenario_id": "ci_context_manifest_016",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-016",
+      "content_hash": "sha256:57e80fa97b23d88f1e3d859663156bb952a55498ff17d19f5b547a6c4e0abf46"
+    },
+    {
+      "scenario_id": "ci_context_manifest_017",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-017",
+      "content_hash": "sha256:4a9def8541f575ee5ea0d1e7f53ad12d39b38932132e72f1305d4bbb341058b7"
+    },
+    {
+      "scenario_id": "ci_context_manifest_018",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-018",
+      "content_hash": "sha256:0abdb3ef965f0280bb73495d4de2b682a6f7d43610d29b7ff8dcb92f1fc20858"
+    },
+    {
+      "scenario_id": "ci_context_manifest_019",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-019",
+      "content_hash": "sha256:51013a251d1e9d93c903c9764712161772dcec4cc1b336d0188c7439e0596801"
+    },
+    {
+      "scenario_id": "ci_context_manifest_020",
+      "inspired_by_repo": "a2aproject/A2A",
+      "synthetic_scenario_id": "synthetic:ci_context_manifest-020",
+      "content_hash": "sha256:9d8a5df2edbf8c9d8c4ecfdbed35edc6a16422b939b5457675c78504c429083d"
+    }
+  ]
+}

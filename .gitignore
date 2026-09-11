@@ -1,0 +1,26 @@
+# Runtime-downloaded official benchmark repositories
+external/official/
+
+# Local logs and environment files
+*.log
+.env
+.venv/
+
+# Dependency and build/runtime caches
+node_modules/
+__pycache__/
+*.pyc
+
+# OMC/OMX tooling artifacts
+.omc/
+.omx/
+build/
+
+# Third-party datasets and the fixtures derived from them.
+# Not redistributed here -- see data/THIRD_PARTY.md.
+data/external/locomo10.json
+data/raw_derived/protocol_memory_hotpotqa_evidence_context_20.json
+data/raw_derived/protocol_memory_raw_derived_hard10.json
+data/raw_derived/protocol_memory_raw_derived_hard20.json
+data/raw_sources/hotpotqa_distractor_validation_rows20.json
+data/raw_sources/magpie_train_rows20.json

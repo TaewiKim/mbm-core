@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-01T08:07:53.296Z",
+  "script": "scripts/analyze_cost_pareto.mjs",
+  "source": "results/eval/e10-stress-gpt54nano.json",
+  "model": "gpt-5.4-nano",
+  "cost_model": {
+    "overhead_chars": 420,
+    "per_candidate_chars": 92,
+    "chars_per_token": 4,
+    "note": "prompt tokens estimated from candidate-set size under the stress sweep; not metered API tokens"
+  },
+  "x_label": "prompt tokens (est.)",
+  "points": [
+    {
+      "id": "acmcp-core",
+      "label": "MBM-Core",
+      "cost": 128,
+      "mean_candidates": 1,
+      "ffcr": 1
+    },
+    {
+      "id": "C4+all-static-filters",
+      "label": "C4+all-static-filters",
+      "cost": 1626,
+      "mean_candidates": 66.1,
+      "ffcr": 0.2188
+    },
+    {
+      "id": "C4",
+      "label": "C4 (scoped memory)",
+      "cost": 1646,
+      "mean_candidates": 67,
+      "ffcr": 0.0313
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "generated_from": {
+    "coupledLive": "results/coupled-memory-phase6-live-main40-r3-combined-2models-analysis.json",
+    "dropinLive": "results/dropin-protocol-replacement-live-main40-r3-combined-analysis.json",
+    "rawMechanism": "results/raw-hard20-live-gpt54-mini-nano-c10-r1-repair1-combined-analysis.json",
+    "hotpotLive": "results/hotpotqa-validation-live-gpt54-mini-nano-c20-r1-repair1-combined-analysis.json",
+    "phase4MainCheck": "results/coupled-memory-phase4-main-check.json",
+    "dropinMainCheck": "results/dropin-protocol-replacement-main-check.json"
+  },
+  "claim": "ACM-CP is a Pareto reliability winner for multi-agent communication-memory control.",
+  "boundary": "This is not a pure wire-byte SOTA or universal accuracy-only SOTA claim.",
+  "headline_rows": [
+    {
+      "track": "Deterministic coupled-memory main",
+      "setting": "160 scenarios",
+      "treatment": "C5 160/160",
+      "control": "C4 failures 160/160",
+      "primary_effect": "C5-only success under fixed scenarios",
+      "safety_effect": "wrong/stale/forbidden memory blocked",
+      "status": "PASS"
+    },
+    {
+      "track": "Deterministic drop-in protocol replacement main",
+      "setting": "160 scenarios",
+      "treatment": "ACM-CP 160/160",
+      "control": "legacy failures 160/160",
+      "primary_effect": "same app/backend/tools; only wrapper changes",
+      "safety_effect": "wrong/stale/forbidden memory blocked",
+      "status": "PASS"
+    },
+    {
+      "track": "Live coupled-memory main40 r3",
+      "setting": "gpt-5-mini, gpt-5-nano; paired n=240",
+      "treatment": "C5 233/240",
+      "control": "C4 64/240",
+      "primary_effect": "success delta 0.7042 CI [0.6458, 0.7625]",
+      "safety_effect": "forbidden-memory 175->0",
+      "status": "PASS"
+    },
+    {
+      "track": "Live drop-in protocol replacement main40 r3",
+      "setting": "gpt-5.4-mini, gpt-5.4-nano; paired n=240",
+      "treatment": "ACM-CP 240/240",
+      "control": "legacy 101/240",
+      "primary_effect": "success delta 0.5792 CI [0.5125, 0.6417]",
+      "safety_effect": "forbidden-memory 139->0",
+      "status": "PASS"
+    },
+    {
+      "track": "HotpotQA raw-derived live c20",
+      "setting": "gpt-5.4-mini, gpt-5.4-nano; calls=480",
+      "treatment": "ACM-CP evidence 82.5%",
+      "control": "no-evidence 0.0%",
+      "primary_effect": "evidence delta 0.8250 CI [0.7000, 0.9250]",
+      "safety_effect": "context saves 48111.0 bytes CI [48079.8, 48143.8]",
+      "status": "PASS"
+    },
+    {
+      "track": "Broad raw-derived live hard20 c10",
+      "setting": "gpt-5.4-mini, gpt-5.4-nano; calls=1200; 5 scenarios",
+      "treatment": "ACM-CP evidence 80.0%, proof 65.0%",
+      "control": "ablations evidence 0.0%, proof 0.0%",
+      "primary_effect": "evidence delta 0.8000; proof delta 0.6500",
+      "safety_effect": "context saves 48107.9 bytes; leaks blocked in scope/policy ablations",
+      "status": "PASS"
+    }
+  ],
+  "mechanism_rows": [
+    {
+      "mechanism": "H1 Evidence Capsules",
+      "scenario": "evidence_conflict",
+      "metric": "success",
+      "treatment": "evidence-capsule=0.800",
+      "control": "typed-envelope=0.000",
+      "delta": "0.800",
+      "ci95": "[0.600, 0.950]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "H2 Proof Capability",
+      "scenario": "capability_deception",
+      "metric": "success",
+      "treatment": "proof-capability=0.500",
+      "control": "typed-envelope=0.000",
+      "delta": "0.500",
+      "ci95": "[0.300, 0.700]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "H3 Commitment Receipt",
+      "scenario": "delegation_drift",
+      "metric": "success",
+      "treatment": "commitment-receipt=0.700",
+      "control": "proof-capability=0.000",
+      "delta": "0.700",
+      "ci95": "[0.500, 0.900]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "H4 Scoped Memory",
+      "scenario": "scoped_memory_privacy",
+      "metric": "secret_leak_events",
+      "treatment": "scoped-memory=0.000",
+      "control": "commitment-receipt=1.000",
+      "delta": "1.000",
+      "ci95": "[1.000, 1.000]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "H5 Context Manifest",
+      "scenario": "context_manifest_stress",
+      "metric": "wire_bytes",
+      "treatment": "acmcp-full=2728.3",
+      "control": "evidence-capsule=50754.5",
+      "delta": "48026.2",
+      "ci95": "[47986.4, 48065.7]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "Ablation Evidence",
+      "scenario": "evidence_conflict",
+      "metric": "success",
+      "treatment": "acmcp-full=0.800",
+      "control": "acmcp-no-evidence=0.000",
+      "delta": "0.800",
+      "ci95": "[0.600, 0.950]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "Ablation Proof",
+      "scenario": "capability_deception",
+      "metric": "success",
+      "treatment": "acmcp-full=0.650",
+      "control": "acmcp-no-proof=0.000",
+      "delta": "0.650",
+      "ci95": "[0.450, 0.850]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "Ablation Commitment",
+      "scenario": "delegation_drift",
+      "metric": "success",
+      "treatment": "acmcp-full=0.450",
+      "control": "acmcp-no-commitment=0.000",
+      "delta": "0.450",
+      "ci95": "[0.250, 0.650]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "Ablation Scope",
+      "scenario": "scoped_memory_privacy",
+      "metric": "secret_leak_events",
+      "treatment": "acmcp-full=0.000",
+      "control": "acmcp-no-scope=1.000",
+      "delta": "1.000",
+      "ci95": "[1.000, 1.000]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "Ablation Policy Trace",
+      "scenario": "scoped_memory_privacy",
+      "metric": "secret_leak_events",
+      "treatment": "acmcp-full=0.000",
+      "control": "acmcp-no-policy-trace=1.000",
+      "delta": "1.000",
+      "ci95": "[1.000, 1.000]",
+      "paired_n": 20
+    },
+    {
+      "mechanism": "Ablation Context Manifest",
+      "scenario": "context_manifest_stress",
+      "metric": "wire_bytes",
+      "treatment": "acmcp-full=2728.3",
+      "control": "acmcp-no-context-manifest=50836.3",
+      "delta": "48107.9",
+      "ci95": "[48075.2, 48137.4]",
+      "paired_n": 20
+    }
+  ],
+  "health": {
+    "coupled_live_api_errors": 0,
+    "dropin_live_api_errors": 0,
+    "raw_live_api_errors": 0,
+    "raw_live_parse_errors": 0,
+    "hotpot_live_api_errors": 0,
+    "hotpot_live_parse_errors": 0
+  }
+}

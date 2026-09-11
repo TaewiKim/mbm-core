@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-06-18T13:13:06.775Z",
+  "script": "scripts/analyze_context_experiments.mjs",
+  "experiment": "E4",
+  "title": "Protocol-family matched-transcript comparison (contextual)",
+  "runner": "matched transcript",
+  "model": "gpt-5.4-mini",
+  "health": {
+    "cases": 70,
+    "api_calls": 210,
+    "api_errors": 0,
+    "invalid_or_parse_errors": 0
+  },
+  "claim": "ACM-CP has the strongest reliability envelope on communication-memory failure modes among the evaluated protocol-family baselines under a matched transcript runner.",
+  "not_claim": "ACM-CP beats A2A/AutoGen/MPAC/Mesh/Q-KVComm in their native implementations.",
+  "rows": [
+    {
+      "baseline": "typed-envelope",
+      "acmcp_success": 0.9,
+      "baseline_success": 0,
+      "delta": 0.9,
+      "ci95": [
+        0.7,
+        1
+      ],
+      "paired_n": 10
+    },
+    {
+      "baseline": "a2a-task-artifact",
+      "acmcp_success": 0.9,
+      "baseline_success": 0,
+      "delta": 0.9,
+      "ci95": [
+        0.7,
+        1
+      ],
+      "paired_n": 10
+    },
+    {
+      "baseline": "autogen-conversation",
+      "acmcp_success": 0.9,
+      "baseline_success": 0,
+      "delta": 0.9,
+      "ci95": [
+        0.7,
+        1
+      ],
+      "paired_n": 10
+    },
+    {
+      "baseline": "mpac-coordination",
+      "acmcp_success": 0.9,
+      "baseline_success": 0.1,
+      "delta": 0.8,
+      "ci95": [
+        0.5,
+        1
+      ],
+      "paired_n": 10
+    },
+    {
+      "baseline": "mesh-memory",
+      "acmcp_success": 0.9,
+      "baseline_success": 0.2,
+      "delta": 0.7,
+      "ci95": [
+        0.3,
+        1
+      ],
+      "paired_n": 10
+    },
+    {
+      "baseline": "q-kvcomm-compressed",
+      "acmcp_success": 0.9,
+      "baseline_success": 0.2,
+      "delta": 0.7,
+      "ci95": [
+        0.4,
+        1
+      ],
+      "paired_n": 10
+    }
+  ]
+}

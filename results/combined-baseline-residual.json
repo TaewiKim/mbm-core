@@ -1,0 +1,88 @@
+{
+  "check": "combined-baseline-residual",
+  "description": "Strong combined conventional baseline vs MBM on the 180-case per-record suite (deterministic, no API).",
+  "status": "PASS",
+  "failures": [],
+  "total_cases": 180,
+  "treatment": "C5",
+  "treatment_mediated": 180,
+  "combined_causal_mediated": 180,
+  "combined_conventional_exists_mediated": 160,
+  "sibling_family": "graph_only_sibling_branch_provenance",
+  "combined_exists_sibling_pass": "0/20",
+  "per_family": {
+    "twin_run_shared_memory_contamination": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "pause_resume_deferred_constraint": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "crash_retry_with_superseded_policy": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "branch_merge_with_conflicting_memories": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "artifact_dependent_handoff": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "private_memory_summary": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "long_horizon_drift": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "audit_reconstruction": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 20
+      }
+    },
+    "graph_only_sibling_branch_provenance": {
+      "total": 20,
+      "pass": {
+        "C5": 20,
+        "C4+combined-causal": 20,
+        "C4+combined-conventional-exists": 0
+      }
+    }
+  },
+  "honest_finding": "On the per-record suite a maximal CONVENTIONAL combination (all static + ABAC + ReBAC-referential + capability) reaches 160/180, defeated by the graph-only sibling-branch plant because referential integrity is not recomputed write-event causal reachability. The only combined baseline that ties MBM (combined-causal) does so by adopting MBM's reachability predicate. MBM's irreducible residual over even that combination is on two non-access-control axes evaluated separately: P8 integrity flow (S4) and set-level non-compositionality on a true merge (Proposition 1)."
+}

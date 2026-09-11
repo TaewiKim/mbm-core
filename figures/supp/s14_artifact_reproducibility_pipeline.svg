@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="345.6pt" height="216pt" viewBox="0 0 345.6 216" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 216 
+L 345.6 216 
+L 345.6 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 17.34912 103.68 
+L 72.50688 103.68 
+Q 72.576 103.68 72.576 103.6368 
+L 72.576 73.4832 
+Q 72.576 73.44 72.50688 73.44 
+L 17.34912 73.44 
+Q 17.28 73.44 17.28 73.4832 
+L 17.28 103.6368 
+Q 17.28 103.68 17.34912 103.68 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #eef4ff; stroke: #0072b2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 79.55712 103.68 
+L 134.71488 103.68 
+Q 134.784 103.68 134.784 103.6368 
+L 134.784 73.4832 
+Q 134.784 73.44 134.71488 73.44 
+L 79.55712 73.44 
+Q 79.488 73.44 79.488 73.4832 
+L 79.488 103.6368 
+Q 79.488 103.68 79.55712 103.68 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #eef4ff; stroke: #0072b2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 141.76512 103.68 
+L 196.92288 103.68 
+Q 196.992 103.68 196.992 103.6368 
+L 196.992 73.4832 
+Q 196.992 73.44 196.92288 73.44 
+L 141.76512 73.44 
+Q 141.696 73.44 141.696 73.4832 
+L 141.696 103.6368 
+Q 141.696 103.68 141.76512 103.68 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #eef4ff; stroke: #0072b2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 203.97312 103.68 
+L 259.13088 103.68 
+Q 259.2 103.68 259.2 103.6368 
+L 259.2 73.4832 
+Q 259.2 73.44 259.13088 73.44 
+L 203.97312 73.44 
+Q 203.904 73.44 203.904 73.4832 
+L 203.904 103.6368 
+Q 203.904 103.68 203.97312 103.68 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #eef4ff; stroke: #0072b2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 266.18112 103.68 
+L 321.33888 103.68 
+Q 321.408 103.68 321.408 103.6368 
+L 321.408 73.4832 
+Q 321.408 73.44 321.33888 73.44 
+L 266.18112 73.44 
+Q 266.112 73.44 266.112 73.4832 
+L 266.112 103.6368 
+Q 266.112 103.68 266.18112 103.68 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #eef4ff; stroke: #0072b2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 72.576 88.56 
+Q 76.032 88.56 78.146359 88.56 
+" clip-path="url(#pe4c08f604b)" style="fill: none; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 73.346359 86.16 
+L 78.146359 88.56 
+L 73.346359 90.96 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #6b7280; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 134.784 88.56 
+Q 138.24 88.56 140.354359 88.56 
+" clip-path="url(#pe4c08f604b)" style="fill: none; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 135.554359 86.16 
+L 140.354359 88.56 
+L 135.554359 90.96 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #6b7280; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 196.992 88.56 
+Q 200.448 88.56 202.562359 88.56 
+" clip-path="url(#pe4c08f604b)" style="fill: none; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 197.762359 86.16 
+L 202.562359 88.56 
+L 197.762359 90.96 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #6b7280; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 259.2 88.56 
+Q 262.656 88.56 264.770359 88.56 
+" clip-path="url(#pe4c08f604b)" style="fill: none; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 259.970359 86.16 
+L 264.770359 88.56 
+L 259.970359 90.96 
+z
+" clip-path="url(#pe4c08f604b)" style="fill: #6b7280; stroke: #6b7280; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 6.6px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="44.928" y="90.381187" transform="rotate(-0 44.928 90.381187)">npm ci</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 6.6px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="107.136" y="90.381187" transform="rotate(-0 107.136 90.381187)">analyze results</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 6.6px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="169.344" y="90.381187" transform="rotate(-0 169.344 90.381187)">tables</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 6.6px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="231.552" y="90.381187" transform="rotate(-0 231.552 90.381187)">figures</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 6.6px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="293.76" y="90.381187" transform="rotate(-0 293.76 90.381187)">check</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="172.8" y="131.476375" transform="rotate(-0 172.8 131.476375)">verifies: figure+table hashes · paper↔manifest coverage</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 6.8px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="172.8" y="148.756375" transform="rotate(-0 172.8 148.756375)">forbidden-claim audit · anonymization · reliability gates · metadata convention</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #009e73" x="172.8" y="179.024219" transform="rotate(-0 172.8 179.024219)">overall = PASS  ·  deterministic (mulberry32 bootstrap, fixed svg hashsalt)</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe4c08f604b">
+   <rect x="0" y="0" width="345.6" height="216"/>
+  </clipPath>
+ </defs>
+</svg>

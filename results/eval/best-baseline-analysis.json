@@ -1,0 +1,300 @@
+{
+  "generated_at": "2026-06-25T03:12:29.971Z",
+  "script": "scripts/analyze_sota_best_baseline.mjs",
+  "treatment": "MBM-Core (C5)",
+  "headline_metric": "Memory-Selection Accuracy (oracle set: all expected selected, no forbidden selected)",
+  "secondary_metric": "Failure-Free Completion Rate (FFCR) = selection accuracy AND reconstructable decision (Section 4 conjunction)",
+  "metric": "Memory-Selection Accuracy (oracle set)",
+  "bootstrap_iterations": 10000,
+  "inference": {
+    "holm_correction_unit": "per-experiment hypotheses (E1,E2,E3,E5,E7)",
+    "per_row_significance_rule": "instance-bootstrap CI lower > 0 AND Holm-adjusted reject",
+    "aggregate_significance_rule": "instance-bootstrap CI lower > 0 AND family-cluster bootstrap CI lower > 0"
+  },
+  "rows": [
+    {
+      "id": "controlled_protocol_swap",
+      "label": "controlled protocol-swap (E1)",
+      "experiment": "E1",
+      "best_baseline_label": "C4 (ungated control)",
+      "sources": [
+        "results/coupled-memory-phase6-live-main40-r3-combined-2models.json"
+      ],
+      "status": "ready",
+      "paired_n": 270,
+      "baseline_ffcr": 0.8778,
+      "treatment_ffcr": 1,
+      "ffcr_delta": 0.1222,
+      "baseline_selection_accuracy": 0.8778,
+      "treatment_selection_accuracy": 1,
+      "selection_accuracy_delta": 0.1222,
+      "ffcr_full_measured": true,
+      "ffcr_full_n": 270,
+      "baseline_ffcr_full": 0,
+      "treatment_ffcr_full": 1,
+      "ffcr_full_delta": 1,
+      "ffcr_full_ci95": [
+        1,
+        1
+      ],
+      "ci95": [
+        0.0852,
+        0.163
+      ],
+      "significant_after_correction": true,
+      "mcnemar_statistic": 31.0303,
+      "mcnemar_p": 0,
+      "discordant_pairs": 33,
+      "families": 9,
+      "family_win_tie": 9,
+      "family_win_tie_rate": 1,
+      "chosen_baseline_by_family": {
+        "twin_run_shared_memory_contamination": "C4",
+        "pause_resume_deferred_constraint": "C4",
+        "crash_retry_with_superseded_policy": "C4",
+        "branch_merge_with_conflicting_memories": "C4",
+        "artifact_dependent_handoff": "C4",
+        "private_memory_summary": "C4",
+        "long_horizon_drift": "C4",
+        "audit_reconstruction": "C4",
+        "graph_only_sibling_branch_provenance": "C4"
+      },
+      "holm_adjusted_p": 0,
+      "holm_reject": true
+    },
+    {
+      "id": "dropin_replacement",
+      "label": "drop-in replacement (E2)",
+      "experiment": "E2",
+      "best_baseline_label": "legacy shared-memory wrapper",
+      "sources": [
+        "results/dropin-protocol-replacement-live-main40-r3-combined.json"
+      ],
+      "status": "ready",
+      "paired_n": 270,
+      "baseline_ffcr": 0.8667,
+      "treatment_ffcr": 1,
+      "ffcr_delta": 0.1333,
+      "baseline_selection_accuracy": 0.8667,
+      "treatment_selection_accuracy": 1,
+      "selection_accuracy_delta": 0.1333,
+      "ffcr_full_measured": true,
+      "ffcr_full_n": 270,
+      "baseline_ffcr_full": 0,
+      "treatment_ffcr_full": 1,
+      "ffcr_full_delta": 1,
+      "ffcr_full_ci95": [
+        1,
+        1
+      ],
+      "ci95": [
+        0.0926,
+        0.1741
+      ],
+      "significant_after_correction": true,
+      "mcnemar_statistic": 34.0278,
+      "mcnemar_p": 0,
+      "discordant_pairs": 36,
+      "families": 9,
+      "family_win_tie": 9,
+      "family_win_tie_rate": 1,
+      "chosen_baseline_by_family": {
+        "twin_run_shared_memory_contamination": "C4",
+        "pause_resume_deferred_constraint": "C4",
+        "crash_retry_with_superseded_policy": "C4",
+        "branch_merge_with_conflicting_memories": "C4",
+        "artifact_dependent_handoff": "C4",
+        "private_memory_summary": "C4",
+        "long_horizon_drift": "C4",
+        "audit_reconstruction": "C4",
+        "graph_only_sibling_branch_provenance": "C4"
+      },
+      "holm_adjusted_p": 0,
+      "holm_reject": true
+    },
+    {
+      "id": "se_native_workflow",
+      "label": "SE-native workflow (E3)",
+      "experiment": "E3",
+      "best_baseline_label": "C4 (ungated control)",
+      "sources": [
+        "results/eval/e3-se-native-combined.json"
+      ],
+      "status": "ready",
+      "paired_n": 200,
+      "baseline_ffcr": 0.87,
+      "treatment_ffcr": 1,
+      "ffcr_delta": 0.13,
+      "baseline_selection_accuracy": 0.87,
+      "treatment_selection_accuracy": 1,
+      "selection_accuracy_delta": 0.13,
+      "ffcr_full_measured": false,
+      "ffcr_full_n": 0,
+      "baseline_ffcr_full": null,
+      "treatment_ffcr_full": null,
+      "ffcr_full_delta": null,
+      "ffcr_full_ci95": null,
+      "ci95": [
+        0.085,
+        0.18
+      ],
+      "significant_after_correction": true,
+      "mcnemar_statistic": 24.0385,
+      "mcnemar_p": 0.000001,
+      "discordant_pairs": 26,
+      "families": 5,
+      "family_win_tie": 5,
+      "family_win_tie_rate": 1,
+      "chosen_baseline_by_family": {
+        "issue_triage_capability": "C4",
+        "bug_evidence_conflict": "C4",
+        "pr_delegation_drift": "C4",
+        "incident_memory_privacy": "C4",
+        "ci_context_manifest": "C4"
+      },
+      "holm_adjusted_p": 0.000003,
+      "holm_reject": true
+    },
+    {
+      "id": "strong_baseline_rescue",
+      "label": "strong-baseline rescue (E5)",
+      "experiment": "E5",
+      "best_baseline_label": "best conventional-authorization baseline (static / FK / ABAC / ReBAC / capability / oracle)",
+      "sources": [
+        "results/eval/e5-strong-baseline-combined.json"
+      ],
+      "status": "ready",
+      "paired_n": 90,
+      "baseline_ffcr": 1,
+      "treatment_ffcr": 1,
+      "ffcr_delta": 0,
+      "baseline_selection_accuracy": 1,
+      "treatment_selection_accuracy": 1,
+      "selection_accuracy_delta": 0,
+      "ffcr_full_measured": false,
+      "ffcr_full_n": 0,
+      "baseline_ffcr_full": null,
+      "treatment_ffcr_full": null,
+      "ffcr_full_delta": null,
+      "ffcr_full_ci95": null,
+      "ci95": [
+        0,
+        0
+      ],
+      "significant_after_correction": false,
+      "mcnemar_statistic": 0,
+      "mcnemar_p": 1,
+      "discordant_pairs": 0,
+      "families": 9,
+      "family_win_tie": 9,
+      "family_win_tie_rate": 1,
+      "chosen_baseline_by_family": {
+        "twin_run_shared_memory_contamination": "C4",
+        "pause_resume_deferred_constraint": "C4",
+        "crash_retry_with_superseded_policy": "C4",
+        "branch_merge_with_conflicting_memories": "C4+task-filter",
+        "artifact_dependent_handoff": "C4",
+        "private_memory_summary": "C4",
+        "long_horizon_drift": "C4",
+        "audit_reconstruction": "C4+task-filter",
+        "graph_only_sibling_branch_provenance": "C4"
+      },
+      "holm_adjusted_p": 1,
+      "holm_reject": false
+    },
+    {
+      "id": "blinded_holdout",
+      "label": "blinded adversarial holdout (E7)",
+      "experiment": "E7",
+      "best_baseline_label": "best holdout baseline (incl. source-exists FK)",
+      "sources": [
+        "results/eval/e7-holdout-combined.json"
+      ],
+      "status": "ready",
+      "paired_n": 160,
+      "baseline_ffcr": 1,
+      "treatment_ffcr": 1,
+      "ffcr_delta": 0,
+      "baseline_selection_accuracy": 1,
+      "treatment_selection_accuracy": 1,
+      "selection_accuracy_delta": 0,
+      "ffcr_full_measured": false,
+      "ffcr_full_n": 0,
+      "baseline_ffcr_full": null,
+      "treatment_ffcr_full": null,
+      "ffcr_full_delta": null,
+      "ffcr_full_ci95": null,
+      "ci95": [
+        0,
+        0
+      ],
+      "significant_after_correction": false,
+      "mcnemar_statistic": 0,
+      "mcnemar_p": 1,
+      "discordant_pairs": 0,
+      "families": 8,
+      "family_win_tie": 8,
+      "family_win_tie_rate": 1,
+      "chosen_baseline_by_family": {
+        "adv_twin_run_neutral": "C4+all-static-filters+source-exists",
+        "adv_pause_resume_neutral": "C4+all-static-filters+source-exists",
+        "adv_superseded_policy_neutral": "C4+all-static-filters+source-exists",
+        "adv_branch_merge_neutral": "C4+all-static-filters+source-exists",
+        "adv_artifact_handoff_neutral": "C4+all-static-filters+source-exists",
+        "adv_private_summary_neutral": "C4+all-static-filters+source-exists",
+        "adv_long_horizon_neutral": "C4+all-static-filters+source-exists",
+        "adv_audit_provenance_neutral": "C4+all-static-filters+source-exists"
+      },
+      "holm_adjusted_p": 1,
+      "holm_reject": false
+    }
+  ],
+  "aggregate": {
+    "id": "aggregate",
+    "label": "aggregate (E6)",
+    "experiment": "E6",
+    "best_baseline_label": "per-family best non-C5 baseline (ungated C4 on treatment-aligned families E1/E2/E3; best strong/oracle baseline on E5/E7)",
+    "status": "ready",
+    "paired_n": 990,
+    "baseline_ffcr": 0.904,
+    "treatment_ffcr": 1,
+    "ffcr_delta": 0.096,
+    "baseline_selection_accuracy": 0.904,
+    "treatment_selection_accuracy": 1,
+    "selection_accuracy_delta": 0.096,
+    "ffcr_full_measured": true,
+    "ffcr_full_n": 540,
+    "baseline_ffcr_full": 0,
+    "treatment_ffcr_full": 1,
+    "ffcr_full_delta": 1,
+    "ffcr_full_ci95": [
+      1,
+      1
+    ],
+    "ci95": [
+      0.0778,
+      0.1152
+    ],
+    "cluster_count": 22,
+    "cluster_ci95": [
+      0.0185,
+      0.2234
+    ],
+    "ffcr_full_cluster_ci95": [
+      1,
+      1
+    ],
+    "leave_one_family_out": {
+      "min": 0.0402,
+      "max": 0.1033,
+      "all_positive": true
+    },
+    "cluster_significant": true,
+    "significant_after_correction": true,
+    "families": 22,
+    "family_win_tie": 22,
+    "family_win_tie_rate": 1,
+    "max_single_family_gain_share": 0.6105,
+    "max_single_family_gain_name": "branch_merge_with_conflicting_memories"
+  }
+}

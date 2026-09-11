@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "benchmark": "coupled-memory-phase6-live-model",
+    "model": "gpt-5-mini",
+    "cases": 48,
+    "paired_cases": 24,
+    "api_errors": 0,
+    "c4_successes": 9,
+    "c4_cases": 24,
+    "c5_successes": 24,
+    "c5_cases": 24,
+    "paired_delta_success_rate": 0.625
+  }
+}

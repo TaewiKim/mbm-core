@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-09-11T00:50:10.622Z",
+  "script": "scripts/export_tables.mjs",
+  "tables": [
+    {
+      "id": "table1_failure_modes",
+      "title": "Failure Modes in Long-Running Agent Workflows",
+      "output_tex": "results/latex/tables/table1_failure_modes.tex",
+      "output_md": "results/latex/tables/table1_failure_modes.md",
+      "sha256_tex": "sha256:8e920b5296dc9f113a2aa802e2355da36c4a57f0bf899a2128e5a90e11e76473"
+    },
+    {
+      "id": "table2_conditions",
+      "title": "Protocol Conditions and Baselines",
+      "output_tex": "results/latex/tables/table2_conditions.tex",
+      "output_md": "results/latex/tables/table2_conditions.md",
+      "sha256_tex": "sha256:f9584556ccc9bde84126c18a660a1daf68532e3475a76f6692d5a1fa5c1423af"
+    },
+    {
+      "id": "table3_eval_matrix",
+      "title": "Evaluation Matrix",
+      "output_tex": "results/latex/tables/table3_eval_matrix.tex",
+      "output_md": "results/latex/tables/table3_eval_matrix.md",
+      "sha256_tex": "sha256:6733b926ca570a7f0ecfb1cfea37d9b2b1a631c33022808243802f4e0bbf16bb"
+    },
+    {
+      "id": "table4_main_results",
+      "title": "Main Quantitative Results",
+      "output_tex": "results/latex/tables/table4_main_results.tex",
+      "output_md": "results/latex/tables/table4_main_results.md",
+      "sha256_tex": "sha256:5a4ec0621debc56eafd683df6ee914eae418617a16f122139688580181ef35c8"
+    },
+    {
+      "id": "table5_cost_repro",
+      "title": "Cost and Reproducibility Summary",
+      "output_tex": "results/latex/tables/table5_cost_repro.tex",
+      "output_md": "results/latex/tables/table5_cost_repro.md",
+      "sha256_tex": "sha256:85034c3b9d6264f8fbdd8b706235cb13b03f128d6bddcd25aa41f87b3626cebe"
+    }
+  ]
+}

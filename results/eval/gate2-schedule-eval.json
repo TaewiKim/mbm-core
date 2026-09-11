@@ -1,0 +1,189 @@
+{
+  "conditions": [
+    {
+      "key": "C5_per_record",
+      "coherent": false,
+      "commit": false
+    },
+    {
+      "key": "C6_coherent_view",
+      "coherent": true,
+      "commit": false
+    },
+    {
+      "key": "C7_commit_tx",
+      "coherent": false,
+      "commit": true
+    },
+    {
+      "key": "GATE2_full",
+      "coherent": true,
+      "commit": true
+    }
+  ],
+  "matrix": {
+    "merge_unresolved_conflict": {
+      "C5_per_record": {
+        "blocked": false,
+        "admitted": true
+      },
+      "C6_coherent_view": {
+        "blocked": true,
+        "admitted": false
+      },
+      "C7_commit_tx": {
+        "blocked": false,
+        "admitted": true
+      },
+      "GATE2_full": {
+        "blocked": true,
+        "admitted": false
+      }
+    },
+    "same_key_write_after_prepare": {
+      "C5_per_record": {
+        "blocked": false,
+        "admitted": true
+      },
+      "C6_coherent_view": {
+        "blocked": false,
+        "admitted": true
+      },
+      "C7_commit_tx": {
+        "blocked": true,
+        "admitted": false
+      },
+      "GATE2_full": {
+        "blocked": true,
+        "admitted": false
+      }
+    },
+    "token_replay": {
+      "C5_per_record": {
+        "blocked": false,
+        "admitted": true
+      },
+      "C6_coherent_view": {
+        "blocked": false,
+        "admitted": true
+      },
+      "C7_commit_tx": {
+        "blocked": true,
+        "admitted": false
+      },
+      "GATE2_full": {
+        "blocked": true,
+        "admitted": false
+      }
+    },
+    "action_substitution": {
+      "C5_per_record": {
+        "blocked": false,
+        "admitted": true
+      },
+      "C6_coherent_view": {
+        "blocked": false,
+        "admitted": true
+      },
+      "C7_commit_tx": {
+        "blocked": true,
+        "admitted": false
+      },
+      "GATE2_full": {
+        "blocked": true,
+        "admitted": false
+      }
+    },
+    "resolution_accepts_both": {
+      "C5_per_record": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "issuance"
+      },
+      "C6_coherent_view": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "issuance"
+      },
+      "C7_commit_tx": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "issuance"
+      },
+      "GATE2_full": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "issuance"
+      }
+    },
+    "adoption_authority_forgery": {
+      "C5_per_record": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "send"
+      },
+      "C6_coherent_view": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "send"
+      },
+      "C7_commit_tx": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "send"
+      },
+      "GATE2_full": {
+        "blocked": true,
+        "admitted": false,
+        "blockedAt": "send"
+      }
+    },
+    "logical_key_aliasing": {
+      "C5_per_record": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-assumption: logical_key labeling trusted"
+      },
+      "C6_coherent_view": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-assumption: logical_key labeling trusted"
+      },
+      "C7_commit_tx": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-assumption: logical_key labeling trusted"
+      },
+      "GATE2_full": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-assumption: logical_key labeling trusted"
+      }
+    },
+    "reasoning_executor_influence": {
+      "C5_per_record": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-limitation: reasoning/executor split is retrieval-time, not an integrity guarantee"
+      },
+      "C6_coherent_view": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-limitation: reasoning/executor split is retrieval-time, not an integrity guarantee"
+      },
+      "C7_commit_tx": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-limitation: reasoning/executor split is retrieval-time, not an integrity guarantee"
+      },
+      "GATE2_full": {
+        "blocked": false,
+        "admitted": true,
+        "note": "stated-limitation: reasoning/executor split is retrieval-time, not an integrity guarantee"
+      }
+    }
+  },
+  "gate2_blocked": 6,
+  "total": 8,
+  "mismatches": []
+}

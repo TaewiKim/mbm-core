@@ -1,0 +1,256 @@
+{
+  "generated_at": "2026-09-11T09:51:04.523328+09:00",
+  "script": "tools/build_figures.py",
+  "figures": [
+    {
+      "id": "fig1",
+      "title": "Communication-Memory Mismatch",
+      "output_svg": "figures/fig1_workflow_mismatch.svg",
+      "output_png": "figures/fig1_workflow_mismatch.png",
+      "output_pdf": "figures/fig1_workflow_mismatch.pdf",
+      "sha256_svg": "sha256:48515fa3eac09b4248af882604176d40fa8adae39ed896c21962f37991bc035a",
+      "sha256_png": "sha256:c027cb2138dd46f5c087cfd118923d41ba33760816c534ff51a822c7d1960d23",
+      "sha256_pdf": "sha256:267b2edacb852b88cd6df87445a3077f5cd584a9f7d9956d20e67259ae196eb7"
+    },
+    {
+      "id": "fig10",
+      "title": "Complete-Mediation Coverage Matrix",
+      "output_svg": "figures/fig10_coverage_matrix.svg",
+      "output_png": "figures/fig10_coverage_matrix.png",
+      "output_pdf": "figures/fig10_coverage_matrix.pdf",
+      "sha256_svg": "sha256:bb4fc6fae50566762aa3c8b7e31cddf83a8a55f58d19bb075561c2cb6685734b",
+      "sha256_png": "sha256:68cdb63cd6dabcbc5007904fc488ed9e3212f5d78b8767db5a786aeb74e22b5b",
+      "sha256_pdf": "sha256:2856cb55e6303ea5b4936dc68a98f07a65924012301a1a0b98087e8e543491d9"
+    },
+    {
+      "id": "fig11",
+      "title": "Core performance results (accuracy/FFCR, effect sizes, controls)",
+      "output_svg": "figures/fig11_results_panels.svg",
+      "output_png": "figures/fig11_results_panels.png",
+      "output_pdf": "figures/fig11_results_panels.pdf",
+      "sha256_svg": "sha256:d4fc78c630ff24bcb47d21ef141cc5d1e48faa82ab799ee542d7831d4c814f2e",
+      "sha256_png": "sha256:68de12b5c38b2625f2dbc26848b0b4a09d6cc680bca8efb0eb33c44f70b93849",
+      "sha256_pdf": "sha256:298860b97d00e3f8c5c282e4095bc8affc72de09356cb77987cee6c62e009bc0"
+    },
+    {
+      "id": "fig12",
+      "title": "Gate 2.0 Schedule Ablation",
+      "output_svg": "figures/fig12_gate2_ablation.svg",
+      "output_png": "figures/fig12_gate2_ablation.png",
+      "output_pdf": "figures/fig12_gate2_ablation.pdf",
+      "sha256_svg": "sha256:072e987960f48398c1f81c9516fa0abacd321627ca96882cb4e92861fe5105bc",
+      "sha256_png": "sha256:c2f1e04604ade23428d5d032809bae95d98288a5248e320de0aebd8e8e6ecac6",
+      "sha256_pdf": "sha256:34f1c221c6d317a07a8dfe47e57791421f4b905e30376d719b33ac798cc7cb9c"
+    },
+    {
+      "id": "fig13",
+      "title": "Hard C4-vs-Kernel Separation",
+      "output_svg": "figures/fig13_hard_separation.svg",
+      "output_png": "figures/fig13_hard_separation.png",
+      "output_pdf": "figures/fig13_hard_separation.pdf",
+      "sha256_svg": "sha256:93bb6adb67e50c6d93cd090a98b092bac1062f59be6efcf197f9469e290b1506",
+      "sha256_png": "sha256:9ccaed2f7d1ada8fba995fb2519887bf491806de9124eaca04b65933d4a36d8d",
+      "sha256_pdf": "sha256:77bae76c03b8f519f8077346c61ea7458c3dc4cb6cf6921da808f9913791b672"
+    },
+    {
+      "id": "fig2",
+      "title": "Two-Stage Message-Bound Shared-Memory Gate",
+      "output_svg": "figures/fig2_message_bound_gate.svg",
+      "output_png": "figures/fig2_message_bound_gate.png",
+      "output_pdf": "figures/fig2_message_bound_gate.pdf",
+      "sha256_svg": "sha256:c99ebeccee6bfc05bdd5d0cc5f80b2943df2985c1c1bf3a5dcd7f2cf5035df65",
+      "sha256_png": "sha256:2f8ab38869589867d1c551d936263f3e1eadc2054ceecb09c000a3220695d6ff",
+      "sha256_pdf": "sha256:921530dbdb5b47078479a5c523f01b1f0aeb3a3454780adf3abff232c7fa4de2"
+    },
+    {
+      "id": "fig4",
+      "title": "Robustness and Mechanism Validation",
+      "output_svg": "figures/fig4_robustness_summary.svg",
+      "output_png": "figures/fig4_robustness_summary.png",
+      "output_pdf": "figures/fig4_robustness_summary.pdf",
+      "sha256_svg": "sha256:53f24980bcd37dfd1eb97a160eeadba4e8f536e3475da0e22f1b318317b87a26",
+      "sha256_png": "sha256:225bdd0f089d8c5a0e017785dd97e805021955083824a859a85c15d2ca06e7ff",
+      "sha256_pdf": "sha256:d445bd4a05feec677e82d85beffb8a1ea7985db5d4364d0b72e2e14c5e14f013"
+    },
+    {
+      "id": "fig7",
+      "title": "Long-Running Multi-Agent Workflows",
+      "output_svg": "figures/fig7_longrun_multiagent.svg",
+      "output_png": "figures/fig7_longrun_multiagent.png",
+      "output_pdf": "figures/fig7_longrun_multiagent.pdf",
+      "sha256_svg": "sha256:36f2374a60bd6db3cde117f2d843423aec24d0422f4220f557a52b9bfaa18468",
+      "sha256_png": "sha256:d0c25ac323ec7845c7c9916db1410795da47f0c64bdb5adccc34b56a359fea33",
+      "sha256_pdf": "sha256:1c2569507ed8fe6e39f36e3dc43a462f5e84470c31c78495079b5ad3a741da0a"
+    },
+    {
+      "id": "fig8",
+      "title": "Main Quantitative Results: Memory-Selection Accuracy, Baseline vs MBM-Core",
+      "output_svg": "figures/fig8_main_results.svg",
+      "output_png": "figures/fig8_main_results.png",
+      "output_pdf": "figures/fig8_main_results.pdf",
+      "sha256_svg": "sha256:26576dd0feba4a9178349b895b02e13b636cf5b0e520e8c7fae3e8a0f6aff692",
+      "sha256_png": "sha256:5e7ae4e4e86f37eb5138c347a172e6d6e028ebc829b918378a7254bc0210e16e",
+      "sha256_pdf": "sha256:9c0bc22df3909dbd55b3891fee5c4b0e5c5bb76c1edcb2a498edccc59456a3ab"
+    },
+    {
+      "id": "fig9",
+      "title": "Real-world prompt-injection action-hijack (OpenClaw, Hermes)",
+      "output_svg": "figures/fig9_assistant_hijack.svg",
+      "output_png": "figures/fig9_assistant_hijack.png",
+      "output_pdf": "figures/fig9_assistant_hijack.pdf",
+      "sha256_svg": "sha256:1198beedb7008d923dfc6f35416fb76b69ec0e32c6c35cd5da35a12a0196a1f2",
+      "sha256_png": "sha256:81bd44015b71e0279016d6286032a2fa677ea18240802f7e0a16a22efcc1d2fa",
+      "sha256_pdf": "sha256:b61d497bd07b5d4709ee87fc60a8a8b07ebc4e98e6756f9122b17a114bf4c59f"
+    },
+    {
+      "id": "figob",
+      "title": "Measured outcomes (C4 vs C5) across models",
+      "output_svg": "figures/fig_outcomes_bars.svg",
+      "output_png": "figures/fig_outcomes_bars.png",
+      "output_pdf": "figures/fig_outcomes_bars.pdf",
+      "sha256_svg": "sha256:370837dc4e6356416c112374fbeb983b1107625aff2f1ec351478e8924df5d1d",
+      "sha256_png": "sha256:1faa4d2bdad53cb11cc7d98c3670cdc5cecd392ff00aeb000bea6c0b44ac625a",
+      "sha256_pdf": "sha256:dc766fc031cbced613e93b8003584ba311ca5bdd69fef490d8c78e35f5f781b0"
+    },
+    {
+      "id": "figpm",
+      "title": "Mismatch and message-bound gate",
+      "output_svg": "figures/fig_problem_mechanism.svg",
+      "output_png": "figures/fig_problem_mechanism.png",
+      "output_pdf": "figures/fig_problem_mechanism.pdf",
+      "sha256_svg": "sha256:e29afe114a831c011bfa0aae6c7014c2eaf2dac0b80bceb96ca123a8fe8f7849",
+      "sha256_png": "sha256:f40496b2f1585ed495af58c8ed7c6085082863b675fd5cf3e2d195503b2a7253",
+      "sha256_pdf": "sha256:e0e6976e6aab37ed80361c3f0e5321bde7a114327c463c891f99fbae99d43001"
+    },
+    {
+      "id": "figsc",
+      "title": "Defense capability scorecard",
+      "output_svg": "figures/fig_headline_scorecard.svg",
+      "output_png": "figures/fig_headline_scorecard.png",
+      "output_pdf": "figures/fig_headline_scorecard.pdf",
+      "sha256_svg": "sha256:a5832d55594cce5032d8856026739dfc41289f8a8235eda35f9f67137dec60da",
+      "sha256_png": "sha256:e27cccc2992a13f678945475f076e16665acca89bbe9a0b8ca3d30476c9e5c20",
+      "sha256_pdf": "sha256:3719cdbe10579e1fd695c9ef5b8aedccaf5aae3cf5c61cb5358bcc3d4799b812"
+    },
+    {
+      "id": "s01",
+      "title": "Full Benchmark Pipeline",
+      "output_svg": "figures/supp/s01_full_benchmark_pipeline.svg",
+      "output_png": "figures/supp/s01_full_benchmark_pipeline.png",
+      "output_pdf": "figures/supp/s01_full_benchmark_pipeline.pdf",
+      "sha256_svg": "sha256:e89a2cb87ae0ad0f04819a8166e9641da4e9e45ae0352b248438a712a5912bd7",
+      "sha256_png": "sha256:fce54e785849b6043f254a80f8c57139a873632295d1c409560350c2eaead016",
+      "sha256_pdf": "sha256:7b2f18c753a4802fa123ca523908d2f77b5cff3beeaec239fe17069dcd20b424"
+    },
+    {
+      "id": "s02",
+      "title": "Complete Condition Matrix",
+      "output_svg": "figures/supp/s02_complete_condition_matrix.svg",
+      "output_png": "figures/supp/s02_complete_condition_matrix.png",
+      "output_pdf": "figures/supp/s02_complete_condition_matrix.pdf",
+      "sha256_svg": "sha256:582ba979be6c839218e35cf9f507d8a16726b8d8b616c528cec2fafe6d576c88",
+      "sha256_png": "sha256:0a25a57f3a3f0f46320af49673afec4009a21c090ff4d48167a4a8d59e866b12",
+      "sha256_pdf": "sha256:f613ea945528c35165f3ec130c42f700b2261e0a37f62fc105e67eeefba10c70"
+    },
+    {
+      "id": "s03",
+      "title": "Per-Scenario C4 vs C5 Effects",
+      "output_svg": "figures/supp/s03_per_scenario_c4_vs_c5_effects.svg",
+      "output_png": "figures/supp/s03_per_scenario_c4_vs_c5_effects.png",
+      "output_pdf": "figures/supp/s03_per_scenario_c4_vs_c5_effects.pdf",
+      "sha256_svg": "sha256:f53e2a412090ce2b2fda14ef9baf66860434d59cbefbeb5eb1632c4aa02be478",
+      "sha256_png": "sha256:be2753c7a1bd4e96df09e1d09db6d605f83817d40ad32d3c320790ec6b753bb5",
+      "sha256_pdf": "sha256:24f7356d6017c04934aa8d62392e0821010a112d144241fd99ac6957a1344c3d"
+    },
+    {
+      "id": "s04",
+      "title": "Drop-In Replacement by Model",
+      "output_svg": "figures/supp/s04_drop_in_replacement_by_model.svg",
+      "output_png": "figures/supp/s04_drop_in_replacement_by_model.png",
+      "output_pdf": "figures/supp/s04_drop_in_replacement_by_model.pdf",
+      "sha256_svg": "sha256:cedfc73596545f6f45b8c96a08d1fac09d45b964a9e249c59609ea261d330b62",
+      "sha256_png": "sha256:68dcd6d9aee1e7fe7e431dae8c07ca2f84fa2514af10133951bed186134f8f7b",
+      "sha256_pdf": "sha256:b01a34c002db6870e1e79412f206c7e7803fa6063e92b990b47001f7d9b3a2c1"
+    },
+    {
+      "id": "s05",
+      "title": "SE-Native Dataset Composition",
+      "output_svg": "figures/supp/s05_se_native_dataset_composition.svg",
+      "output_png": "figures/supp/s05_se_native_dataset_composition.png",
+      "output_pdf": "figures/supp/s05_se_native_dataset_composition.pdf",
+      "sha256_svg": "sha256:9f8071fbcd851fbc45c0e55dea47760c5c0576e70f8ef9e4fe046aecc2c6674e",
+      "sha256_png": "sha256:935c010c38366aae5a196dabaf25ce4699f52a48c256d8be235361d92c13fe7a",
+      "sha256_pdf": "sha256:697fa573921a409143839030b70d8f6bea03fd3e0c44b2eee7dd77187d2a97e5"
+    },
+    {
+      "id": "s06",
+      "title": "Strong-Baseline Rescue Results",
+      "output_svg": "figures/supp/s06_strong_baseline_rescue_results.svg",
+      "output_png": "figures/supp/s06_strong_baseline_rescue_results.png",
+      "output_pdf": "figures/supp/s06_strong_baseline_rescue_results.pdf",
+      "sha256_svg": "sha256:30ff74897a1098c53776ca5a9764626030ea449e9881ae1ebad36e155c1f0317",
+      "sha256_png": "sha256:ff538e9f7ac9471404e0622e4b30ec8c658503470ab06570a49d0d004410e019",
+      "sha256_pdf": "sha256:78cde5b471b2c5e72a875968b2202158090586ec69e99a8cfc8d4b50b43cfa32"
+    },
+    {
+      "id": "s07",
+      "title": "Blinded Holdout Results",
+      "output_svg": "figures/supp/s07_blinded_holdout_results.svg",
+      "output_png": "figures/supp/s07_blinded_holdout_results.png",
+      "output_pdf": "figures/supp/s07_blinded_holdout_results.pdf",
+      "sha256_svg": "sha256:946531a82c136c48c60c1a9afdb082a6633908116c91ef1d6465a6dbf34cdf8d",
+      "sha256_png": "sha256:d374c2d8f5240be6fc278070217ccac24e5947a6d7f33036741dd16ca8256ecf",
+      "sha256_pdf": "sha256:bac31cd5255fa33dfcdf915f169e5c416de05aaaec64cffe95faca6b87709423"
+    },
+    {
+      "id": "s11",
+      "title": "Error Taxonomy Distribution",
+      "output_svg": "figures/supp/s11_error_taxonomy_distribution.svg",
+      "output_png": "figures/supp/s11_error_taxonomy_distribution.png",
+      "output_pdf": "figures/supp/s11_error_taxonomy_distribution.pdf",
+      "sha256_svg": "sha256:66d551cb150f22165735a1dc715a8f8cfe55892ba9b861e9f6db659ff119d9dd",
+      "sha256_png": "sha256:0345cb8b40836648a929a3f6d4c39887aca99a16679c2e2e564dd24fe18f0073",
+      "sha256_pdf": "sha256:bb79cba7823f222bb4c71248b5a8692f522580fa787df9dec6a9143dbdebed1b"
+    },
+    {
+      "id": "s12",
+      "title": "Cross-Model Robustness",
+      "output_svg": "figures/supp/s12_cross_model_robustness.svg",
+      "output_png": "figures/supp/s12_cross_model_robustness.png",
+      "output_pdf": "figures/supp/s12_cross_model_robustness.pdf",
+      "sha256_svg": "sha256:ad7c26f55d4817459925abb234f5157aaf3aed07c5c4dcf55662fd42d5952bc7",
+      "sha256_png": "sha256:39f5921b0638f56b400b67eee51a57f3a4fe17db4072189ae69e3736821b0502",
+      "sha256_pdf": "sha256:5f153f500053697e2995dde01b3a93542797fb798326a7cf82b36231b4158c31"
+    },
+    {
+      "id": "s13",
+      "title": "Native Framework Integration",
+      "output_svg": "figures/supp/s13_native_framework_integration.svg",
+      "output_png": "figures/supp/s13_native_framework_integration.png",
+      "output_pdf": "figures/supp/s13_native_framework_integration.pdf",
+      "sha256_svg": "sha256:49eb03a362efbb2f6ceb7a94bd5be1a4f79037fbeec492a8bcfe47c23c725353",
+      "sha256_png": "sha256:68610634a680ba38a63a075e1c0e0d5da69897b68fcf4ab487f60f72dee8c696",
+      "sha256_pdf": "sha256:3b2bcb72d517c22d6910e598b2c089a7ec8edce2934266426389385377cc9d85"
+    },
+    {
+      "id": "s14",
+      "title": "Artifact Reproducibility Pipeline",
+      "output_svg": "figures/supp/s14_artifact_reproducibility_pipeline.svg",
+      "output_png": "figures/supp/s14_artifact_reproducibility_pipeline.png",
+      "output_pdf": "figures/supp/s14_artifact_reproducibility_pipeline.pdf",
+      "sha256_svg": "sha256:248f8839eb8ce338f4ef3694eb6e269e219356335d77ed8d12e63aabdaf245b8",
+      "sha256_png": "sha256:c1142ef61bd4bc7b008bf25d250f029fa837b3ee1861bf2f816ec17d7794fc00",
+      "sha256_pdf": "sha256:2c9039be677afcb9cb99a8ab8c05a586182c6f851e07f8dd61b91dccb69254d5"
+    },
+    {
+      "id": "s15",
+      "title": "Prompt and Schema Validation",
+      "output_svg": "figures/supp/s15_prompt_and_schema_validation.svg",
+      "output_png": "figures/supp/s15_prompt_and_schema_validation.png",
+      "output_pdf": "figures/supp/s15_prompt_and_schema_validation.pdf",
+      "sha256_svg": "sha256:92566cc38f15314dc1098d46a92a4a7da3f2730655e4eeea4872978163dd454e",
+      "sha256_png": "sha256:51b262a335ce9305f5dcd110ed23928c866be75e80b326b5a014d793a9a78845",
+      "sha256_pdf": "sha256:3f37bffa558aee94e31b5964658b8d1750c54247fab389b3565c44da797a06b9"
+    }
+  ]
+}

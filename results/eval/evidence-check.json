@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-09-11T00:51:08.469Z",
+  "script": "scripts/check_evidence.mjs",
+  "overall": "PASS",
+  "summary": {
+    "pass": 4,
+    "warn": 0,
+    "fail": 0,
+    "pending": 2
+  },
+  "checks": [
+    {
+      "name": "figure_hashes",
+      "status": "pass",
+      "detail": "25 figures hash-verified"
+    },
+    {
+      "name": "paper_figure_coverage",
+      "status": "pending",
+      "detail": "paper not found"
+    },
+    {
+      "name": "forbidden_claims",
+      "status": "pending",
+      "detail": "no .tex files yet"
+    },
+    {
+      "name": "anonymization",
+      "status": "pass",
+      "detail": "no local-path/institution markers across 192 paper/results/data files"
+    },
+    {
+      "name": "evidence_gates",
+      "status": "pass",
+      "detail": "10/10 gates evaluable now"
+    },
+    {
+      "name": "result_metadata_convention",
+      "status": "pass",
+      "detail": "result-metadata convention defines all required fields"
+    }
+  ],
+  "evidence_gates": {
+    "G1 aggregate memory-selection accuracy exceeds best deployable baseline": true,
+    "G2 cluster (family) bootstrap CI lower bound > 0": true,
+    "G3 win/tie >= 80% of families": true,
+    "G4 full FFCR (auditability) exceeds best conventional baseline": true,
+    "G5 graph-only causal separation holds (deterministic)": true,
+    "G6 blinded holdout: MBM-Core reaches selection ceiling": true,
+    "G7 negative controls fail to reproduce": true,
+    "G8 SE-native direction agrees": true,
+    "G9 selection gain robust to dropping any single family (LOFO>0 + cluster CI>0)": true,
+    "G10 figure/table/result hashes pass": "see figure_hashes check"
+  }
+}

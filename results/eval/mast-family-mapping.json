@@ -1,0 +1,25 @@
+{
+  "source_taxonomy": "MAST (Multi-Agent System Failure Taxonomy), Cemri et al. 2025, \"Why Do Multi-Agent LLM Systems Fail?\" — 14 failure modes across 3 categories, derived by inter-annotator analysis of real multi-agent system traces (independent of this work).",
+  "note": "Author-assigned thematic association between our 9 scenario families and independently-defined MAST modes. This is a face-valid mapping by the authors, NOT an independent annotation: there is no inter-rater agreement or third-party labeling, so it should be read as 'each family can be manually associated with a MAST category', not as external taxonomy validation. It mitigates (does not eliminate) the circularity concern that families merely rename the gate's checks.",
+  "mast_categories": {
+    "FC1": "Specification & System Design",
+    "FC2": "Inter-Agent Misalignment",
+    "FC3": "Task Verification & Termination"
+  },
+  "families": [
+    { "family": "twin_run", "our_failure_mode": "wrong-run memory use", "mast_category": "FC1", "mast_mode": "FM-1.4 Loss of conversation history", "rationale": "An agent grounds on context belonging to a different concurrent run/history." },
+    { "family": "pause_resume", "our_failure_mode": "stale / superseded", "mast_category": "FC1", "mast_mode": "FM-1.1 Disobey task specification (superseded constraint)", "rationale": "A pre-pause constraint that has been superseded is still acted upon." },
+    { "family": "superseded_policy", "our_failure_mode": "stale / superseded", "mast_category": "FC1", "mast_mode": "FM-1.1 Disobey (updated) task/policy specification", "rationale": "A retired compliance policy is followed after it was replaced." },
+    { "family": "branch_merge", "our_failure_mode": "wrong-task / scope leak", "mast_category": "FC2", "mast_mode": "FM-2.3 Task derailment", "rationale": "State from a sibling branch leaks into the active task scope." },
+    { "family": "artifact_handoff", "our_failure_mode": "missing critical memory", "mast_category": "FC2", "mast_mode": "FM-2.4 Information withholding", "rationale": "A required upstream artifact is not propagated to the downstream agent." },
+    { "family": "private_summary", "our_failure_mode": "unauthorized access", "mast_category": "FC1", "mast_mode": "FM-1.2 Disobey role specification (reader authorization)", "rationale": "A record is read by a receiver outside its allowed-reader set." },
+    { "family": "long_horizon_drift", "our_failure_mode": "missing critical memory", "mast_category": "FC1", "mast_mode": "FM-1.4 Loss of conversation history", "rationale": "The critical record is crowded out over a long horizon." },
+    { "family": "audit_reconstruction", "our_failure_mode": "unreconstructable decision", "mast_category": "FC3", "mast_mode": "FM-3.2 No or incomplete verification", "rationale": "The final decision cannot be justified/verified from the event graph." },
+    { "family": "graph_only_sibling_branch_provenance", "our_failure_mode": "graph-invalid provenance (sibling branch)", "mast_category": "FC2", "mast_mode": "FM-2.3 Task derailment (cross-branch provenance leak)", "rationale": "A record whose static attributes all match but whose source lies on an abandoned sibling branch (not in the active message's causal ancestry) governs the answer. Distinct from branch_merge: here every visible field is valid and only causal-graph reachability separates it." }
+  ],
+  "coverage": {
+    "FC1": ["twin_run", "pause_resume", "superseded_policy", "private_summary", "long_horizon_drift"],
+    "FC2": ["branch_merge", "artifact_handoff", "graph_only_sibling_branch_provenance"],
+    "FC3": ["audit_reconstruction"]
+  }
+}

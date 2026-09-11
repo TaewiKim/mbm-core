@@ -1,0 +1,29 @@
+// Cedar schema for the MBM-Core memory-read decision. Used to type-check (validate) the policy and
+// every request against a declared shape, exactly as a deployed Cedar/AWS Verified Permissions
+// application would. A memory record is the resource; the reader agent is the principal; the active
+// message's run/task/policy/intent context and its causal-ancestor closure travel in the request
+// context.
+entity Agent;
+entity Memory = {
+  run_id: String,
+  task_id: String,
+  scope: String,
+  status: String,
+  allowed_readers: Set<String>,
+  policy_context: String,
+  memory_type: String,
+  source_message_id: String,
+};
+action ReadMemory appliesTo {
+  principal: [Agent],
+  resource: [Memory],
+  context: {
+    run_id: String,
+    task_id: String,
+    receiver: String,
+    policy_context: String,
+    ancestors: Set<String>,
+    intent_constrained: Bool,
+    allowed_memory_types: Set<String>,
+  }
+};

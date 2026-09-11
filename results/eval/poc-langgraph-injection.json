@@ -1,0 +1,86 @@
+{
+  "framework": "@langchain/langgraph",
+  "store": "InMemoryStore (cross-thread shared store)",
+  "graph_nodes": [
+    "planner",
+    "compromised_writer",
+    "executor"
+  ],
+  "api": false,
+  "active_message": "m3",
+  "causal_closure": [
+    "m0",
+    "m2",
+    "m3"
+  ],
+  "ungated": {
+    "admitted": [
+      "mem-good",
+      "mem-trap",
+      "mem-trap-ancestor"
+    ],
+    "retention_days": 1,
+    "contaminated": true
+  },
+  "gated": {
+    "admitted": [
+      "mem-good"
+    ],
+    "retention_days": 30,
+    "contaminated": false,
+    "audit": [
+      {
+        "memory_id": "mem-good",
+        "decision": "allow",
+        "reason": "message_bound_access_granted"
+      },
+      {
+        "memory_id": "mem-trap",
+        "decision": "deny",
+        "reason": "provenance_not_in_causal_graph"
+      },
+      {
+        "memory_id": "mem-trap-ancestor",
+        "decision": "deny",
+        "reason": "provenance_not_attested"
+      }
+    ]
+  },
+  "source_existence_only": {
+    "decision": "allow",
+    "reason": "message_bound_access_granted"
+  },
+  "checks": [
+    {
+      "name": "ungated graph admits both plants",
+      "ok": true
+    },
+    {
+      "name": "ungated graph emits WRONG action (contaminated)",
+      "ok": true
+    },
+    {
+      "name": "gated graph denies sibling-branch plant via provenance_not_in_causal_graph",
+      "ok": true
+    },
+    {
+      "name": "gated graph denies truthful-ancestor plant via provenance_not_attested (M7.1)",
+      "ok": true
+    },
+    {
+      "name": "gated graph emits CORRECT action (uncontaminated)",
+      "ok": true
+    },
+    {
+      "name": "source-existence check ALONE fails to catch the sibling plant",
+      "ok": true
+    },
+    {
+      "name": "reachability ALONE (no attestation) fails to catch the truthful-ancestor plant",
+      "ok": true
+    }
+  ],
+  "passed": 7,
+  "total": 7,
+  "ok": true
+}

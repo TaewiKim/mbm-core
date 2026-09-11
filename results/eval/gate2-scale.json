@@ -1,0 +1,69 @@
+{
+  "generated_by": "scripts/bench_gate2_scale.mjs",
+  "iters": 9,
+  "warmup": 2,
+  "record_sweep": [
+    {
+      "n": 100,
+      "query_ms": 159.1826000000001,
+      "action_ms": 374.89879999999994,
+      "query_qps": 6.282093645913557,
+      "action_qps": 2.6673865053715833
+    },
+    {
+      "n": 250,
+      "query_ms": 319.27419999999984,
+      "action_ms": 802.4399999999987,
+      "query_qps": 3.132104003392697,
+      "action_qps": 1.2461990927670625
+    },
+    {
+      "n": 500,
+      "query_ms": 718.6500999999989,
+      "action_ms": 1729.9346000000005,
+      "query_qps": 1.3914977539139026,
+      "action_qps": 0.5780565346227537
+    },
+    {
+      "n": 1000,
+      "query_ms": 1194.7553999999946,
+      "action_ms": 7758.67650000006,
+      "query_qps": 0.8369914042656803,
+      "action_qps": 0.12888796175481634
+    }
+  ],
+  "width_sweep": [
+    {
+      "width": 2,
+      "query_ms": 28.8171999999322
+    },
+    {
+      "width": 5,
+      "query_ms": 20.642800000030547
+    },
+    {
+      "width": 10,
+      "query_ms": 30.350300000049174
+    },
+    {
+      "width": 25,
+      "query_ms": 65.25529999984428
+    },
+    {
+      "width": 50,
+      "query_ms": 149.3556000001263
+    }
+  ],
+  "query_per_record_us": 1164.296538152604,
+  "query_fit_r2": 0.9874667828193229,
+  "largest_n": 1000,
+  "largest_query_ms": 1194.7553999999946,
+  "largest_action_ms": 7758.67650000006,
+  "largest_query_qps": 0.8369914042656803,
+  "largest_action_qps": 0.12888796175481634,
+  "storage_n": 1000,
+  "storage_kb": 1696,
+  "storage_per_record_kb": 1.696,
+  "recovery_ms": 435.2432000001427,
+  "node_version": "v24.15.0"
+}

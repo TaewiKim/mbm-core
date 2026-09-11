@@ -1,0 +1,717 @@
+{
+  "benchmark": "coupled-memory-twin-run-proof",
+  "live": false,
+  "condition_matrix": [
+    {
+      "id": "C0",
+      "communication": "transcript",
+      "shared_memory": "none",
+      "coupling": "none",
+      "purpose": "ad hoc baseline",
+      "features": {
+        "name": "transcript-only",
+        "typedEnvelope": false,
+        "sharedMemory": false,
+        "scopedMemory": false,
+        "causalEnvelope": false,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C1",
+      "communication": "typed envelope",
+      "shared_memory": "none",
+      "coupling": "none",
+      "purpose": "communication-only baseline",
+      "features": {
+        "name": "typed-envelope-only",
+        "typedEnvelope": true,
+        "sharedMemory": false,
+        "scopedMemory": false,
+        "causalEnvelope": false,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C2",
+      "communication": "transcript",
+      "shared_memory": "unbound retrieval memory",
+      "coupling": "none",
+      "purpose": "memory-only retrieval baseline",
+      "features": {
+        "name": "transcript-plus-unbound-retrieval",
+        "typedEnvelope": false,
+        "sharedMemory": true,
+        "scopedMemory": false,
+        "causalEnvelope": false,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C3",
+      "communication": "stateful envelope",
+      "shared_memory": "unbound retrieval memory",
+      "coupling": "weak",
+      "purpose": "state plus retrieval baseline",
+      "features": {
+        "name": "stateful-envelope-plus-weak-retrieval",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": false,
+        "causalEnvelope": false,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C4",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "scoped shared memory",
+      "coupling": "uncoupled",
+      "purpose": "strong modules without message binding",
+      "features": {
+        "name": "causal-envelope-scoped-memory-uncoupled",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C5",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "governed shared memory",
+      "coupling": "message-bound",
+      "purpose": "proposed coupled condition",
+      "features": {
+        "name": "causal-envelope-governed-message-bound-memory",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": true
+      }
+    }
+  ],
+  "c4_c5_parity": {
+    "c4": "readMemory(query)",
+    "c5": "readMemory(query, currentMessage, runState)",
+    "differing_feature": "messageBoundMemory"
+  },
+  "cases": [
+    {
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "current_message": {
+        "task_id": "deploy",
+        "intent": "produce_final_plan",
+        "state": "running",
+        "policy_context": "policy-003",
+        "message_id": "msg-B-executor-request",
+        "run_id": "run-B",
+        "trace_id": "trace-B",
+        "sender": "coordinator",
+        "receiver": "executor",
+        "sequence": 2,
+        "parent_message_id": "msg-B-planner-constraint",
+        "correlation_id": "msg-B-client-request",
+        "payload": {
+          "goal": "Generate the deployment plan for Run B."
+        }
+      },
+      "condition": "C0",
+      "success": false,
+      "final_correct_rate": 0,
+      "injected_memory_ids": [],
+      "injected_memory_contents": [],
+      "wrong_scope_memory_use": 0,
+      "stale_memory_use": 0,
+      "missing_critical_memory": 1,
+      "causal_memory_binding": 0,
+      "message_memory_consistency": 0,
+      "event_graph_reconstructability": 0,
+      "failure_modes": [
+        "missing critical memory",
+        "unbound memory read"
+      ],
+      "audit": {
+        "run_id": "run-B",
+        "events": [
+          {
+            "event_id": "evt-ff8b4d46-5198-4371-a77c-3655136c7c6c",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"memory\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.723Z"
+          },
+          {
+            "event_id": "evt-9e255e5f-bdc4-4fa4-9dce-948b2c53661e",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-executor-request",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "coordinator",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"executor\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.723Z"
+          },
+          {
+            "event_id": "evt-1bd8af9d-0b3b-41bf-b89e-82fc7be859b2",
+            "event_type": "memory_written",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": "mem-B-constraint",
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "active",
+            "payload_json": "{\"memory_type\":\"constraint\",\"scope\":\"task\"}",
+            "created_at": "2026-05-25T23:56:52.724Z"
+          }
+        ],
+        "memory_access_decisions": []
+      }
+    },
+    {
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "current_message": {
+        "task_id": "deploy",
+        "intent": "produce_final_plan",
+        "state": "running",
+        "policy_context": "policy-003",
+        "message_id": "msg-B-executor-request",
+        "run_id": "run-B",
+        "trace_id": "trace-B",
+        "sender": "coordinator",
+        "receiver": "executor",
+        "sequence": 2,
+        "parent_message_id": "msg-B-planner-constraint",
+        "correlation_id": "msg-B-client-request",
+        "payload": {
+          "goal": "Generate the deployment plan for Run B."
+        }
+      },
+      "condition": "C1",
+      "success": false,
+      "final_correct_rate": 0,
+      "injected_memory_ids": [],
+      "injected_memory_contents": [],
+      "wrong_scope_memory_use": 0,
+      "stale_memory_use": 0,
+      "missing_critical_memory": 1,
+      "causal_memory_binding": 0,
+      "message_memory_consistency": 0,
+      "event_graph_reconstructability": 0,
+      "failure_modes": [
+        "missing critical memory",
+        "unbound memory read"
+      ],
+      "audit": {
+        "run_id": "run-B",
+        "events": [
+          {
+            "event_id": "evt-f32aef4b-ed7d-47c7-91eb-8672fa6abbff",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"memory\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.725Z"
+          },
+          {
+            "event_id": "evt-423403ce-e385-414d-a888-e5c34cdd7e5b",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-executor-request",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "coordinator",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"executor\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.725Z"
+          },
+          {
+            "event_id": "evt-dcd17308-bea0-49c2-ade8-248f2f749b89",
+            "event_type": "memory_written",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": "mem-B-constraint",
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "active",
+            "payload_json": "{\"memory_type\":\"constraint\",\"scope\":\"task\"}",
+            "created_at": "2026-05-25T23:56:52.725Z"
+          }
+        ],
+        "memory_access_decisions": []
+      }
+    },
+    {
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "current_message": {
+        "task_id": "deploy",
+        "intent": "produce_final_plan",
+        "state": "running",
+        "policy_context": "policy-003",
+        "message_id": "msg-B-executor-request",
+        "run_id": "run-B",
+        "trace_id": "trace-B",
+        "sender": "coordinator",
+        "receiver": "executor",
+        "sequence": 2,
+        "parent_message_id": "msg-B-planner-constraint",
+        "correlation_id": "msg-B-client-request",
+        "payload": {
+          "goal": "Generate the deployment plan for Run B."
+        }
+      },
+      "condition": "C2",
+      "success": false,
+      "final_correct_rate": 0,
+      "injected_memory_ids": [
+        "mem-A-constraint",
+        "mem-B-constraint"
+      ],
+      "injected_memory_contents": [
+        "Run A deployment constraint: Use LOCAL_ONLY_STORAGE.",
+        "Run B deployment constraint: Use CLOUD_STORAGE_REQUIRED."
+      ],
+      "wrong_scope_memory_use": 1,
+      "stale_memory_use": 0,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 0,
+      "message_memory_consistency": 0,
+      "event_graph_reconstructability": 0,
+      "failure_modes": [
+        "wrong-scope memory",
+        "unbound memory read"
+      ],
+      "audit": {
+        "run_id": "run-B",
+        "events": [
+          {
+            "event_id": "evt-3aac7b8d-cba8-475f-95cc-bace501dcbe2",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"memory\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.725Z"
+          },
+          {
+            "event_id": "evt-5df99e9d-3a0c-4f99-ac77-fa6b093852bc",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-executor-request",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "coordinator",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"executor\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.725Z"
+          },
+          {
+            "event_id": "evt-fe55bcd4-2779-49a2-9f16-fb6b92d99d8a",
+            "event_type": "memory_written",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": "mem-B-constraint",
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "active",
+            "payload_json": "{\"memory_type\":\"constraint\",\"scope\":\"task\"}",
+            "created_at": "2026-05-25T23:56:52.726Z"
+          }
+        ],
+        "memory_access_decisions": []
+      }
+    },
+    {
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "current_message": {
+        "task_id": "deploy",
+        "intent": "produce_final_plan",
+        "state": "running",
+        "policy_context": "policy-003",
+        "message_id": "msg-B-executor-request",
+        "run_id": "run-B",
+        "trace_id": "trace-B",
+        "sender": "coordinator",
+        "receiver": "executor",
+        "sequence": 2,
+        "parent_message_id": "msg-B-planner-constraint",
+        "correlation_id": "msg-B-client-request",
+        "payload": {
+          "goal": "Generate the deployment plan for Run B."
+        }
+      },
+      "condition": "C3",
+      "success": false,
+      "final_correct_rate": 0,
+      "injected_memory_ids": [
+        "mem-A-constraint",
+        "mem-B-constraint"
+      ],
+      "injected_memory_contents": [
+        "Run A deployment constraint: Use LOCAL_ONLY_STORAGE.",
+        "Run B deployment constraint: Use CLOUD_STORAGE_REQUIRED."
+      ],
+      "wrong_scope_memory_use": 1,
+      "stale_memory_use": 0,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 0,
+      "message_memory_consistency": 0,
+      "event_graph_reconstructability": 0,
+      "failure_modes": [
+        "wrong-scope memory",
+        "unbound memory read"
+      ],
+      "audit": {
+        "run_id": "run-B",
+        "events": [
+          {
+            "event_id": "evt-01d4d21c-66b5-4ec7-8a4b-1b6ec7d68150",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"memory\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.727Z"
+          },
+          {
+            "event_id": "evt-3eb2f250-620a-4bb7-b6c3-c1fa7e2983ce",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-executor-request",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "coordinator",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"executor\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.727Z"
+          },
+          {
+            "event_id": "evt-8b93676c-972b-4336-834b-7d5b98a8ab3b",
+            "event_type": "memory_written",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": "mem-B-constraint",
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "active",
+            "payload_json": "{\"memory_type\":\"constraint\",\"scope\":\"task\"}",
+            "created_at": "2026-05-25T23:56:52.727Z"
+          }
+        ],
+        "memory_access_decisions": []
+      }
+    },
+    {
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "current_message": {
+        "task_id": "deploy",
+        "intent": "produce_final_plan",
+        "state": "running",
+        "policy_context": "policy-003",
+        "message_id": "msg-B-executor-request",
+        "run_id": "run-B",
+        "trace_id": "trace-B",
+        "sender": "coordinator",
+        "receiver": "executor",
+        "sequence": 2,
+        "parent_message_id": "msg-B-planner-constraint",
+        "correlation_id": "msg-B-client-request",
+        "payload": {
+          "goal": "Generate the deployment plan for Run B."
+        }
+      },
+      "condition": "C4",
+      "success": false,
+      "final_correct_rate": 0,
+      "injected_memory_ids": [
+        "mem-A-constraint",
+        "mem-B-constraint"
+      ],
+      "injected_memory_contents": [
+        "Run A deployment constraint: Use LOCAL_ONLY_STORAGE.",
+        "Run B deployment constraint: Use CLOUD_STORAGE_REQUIRED."
+      ],
+      "wrong_scope_memory_use": 1,
+      "stale_memory_use": 0,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 0,
+      "message_memory_consistency": 0,
+      "event_graph_reconstructability": 0,
+      "failure_modes": [
+        "wrong-scope memory",
+        "unbound memory read"
+      ],
+      "audit": {
+        "run_id": "run-B",
+        "events": [
+          {
+            "event_id": "evt-c4665a71-8375-4040-bf4e-1eba843fc68c",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"memory\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.727Z"
+          },
+          {
+            "event_id": "evt-e95d57da-26b6-4327-8f48-99af781f2053",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-executor-request",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "coordinator",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"executor\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.727Z"
+          },
+          {
+            "event_id": "evt-7205cbb7-e9de-4f2f-b4d0-19ff89f1b832",
+            "event_type": "memory_written",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": "mem-B-constraint",
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "active",
+            "payload_json": "{\"memory_type\":\"constraint\",\"scope\":\"task\"}",
+            "created_at": "2026-05-25T23:56:52.728Z"
+          }
+        ],
+        "memory_access_decisions": []
+      }
+    },
+    {
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "current_message": {
+        "task_id": "deploy",
+        "intent": "produce_final_plan",
+        "state": "running",
+        "policy_context": "policy-003",
+        "message_id": "msg-B-executor-request",
+        "run_id": "run-B",
+        "trace_id": "trace-B",
+        "sender": "coordinator",
+        "receiver": "executor",
+        "sequence": 2,
+        "parent_message_id": "msg-B-planner-constraint",
+        "correlation_id": "msg-B-client-request",
+        "payload": {
+          "goal": "Generate the deployment plan for Run B."
+        }
+      },
+      "condition": "C5",
+      "success": true,
+      "final_correct_rate": 1,
+      "injected_memory_ids": [
+        "mem-B-constraint"
+      ],
+      "injected_memory_contents": [
+        "Run B deployment constraint: Use CLOUD_STORAGE_REQUIRED."
+      ],
+      "wrong_scope_memory_use": 0,
+      "stale_memory_use": 0,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 1,
+      "message_memory_consistency": 1,
+      "event_graph_reconstructability": 1,
+      "failure_modes": [],
+      "audit": {
+        "run_id": "run-B",
+        "events": [
+          {
+            "event_id": "evt-c5f2ff9c-279d-4d59-9916-bd4c1f9805eb",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"memory\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.728Z"
+          },
+          {
+            "event_id": "evt-ff96c7e3-375c-49a8-a6aa-b6a5e9b69e36",
+            "event_type": "message_sent",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-executor-request",
+            "memory_id": null,
+            "artifact_id": null,
+            "agent": "coordinator",
+            "decision": null,
+            "result": "queued",
+            "payload_json": "{\"receiver\":\"executor\",\"intent\":\"produce_final_plan\"}",
+            "created_at": "2026-05-25T23:56:52.728Z"
+          },
+          {
+            "event_id": "evt-bec1aba8-3c03-4062-8529-26fcd515a275",
+            "event_type": "memory_written",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "trace_id": "trace-B",
+            "message_id": "msg-B-planner-constraint",
+            "memory_id": "mem-B-constraint",
+            "artifact_id": null,
+            "agent": "planner",
+            "decision": null,
+            "result": "active",
+            "payload_json": "{\"memory_type\":\"constraint\",\"scope\":\"task\"}",
+            "created_at": "2026-05-25T23:56:52.728Z"
+          }
+        ],
+        "memory_access_decisions": [
+          {
+            "decision_id": "dec-8c8208d6-ee14-496b-bd2e-9c09535f2c7e",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "message_id": "msg-B-executor-request",
+            "memory_id": "mem-A-constraint",
+            "reader": "executor",
+            "decision": "deny",
+            "reason": "run_id_mismatch",
+            "created_at": "2026-05-25T23:56:52.728Z"
+          },
+          {
+            "decision_id": "dec-30431dfe-72b8-4127-b680-014782c8589d",
+            "run_id": "run-B",
+            "task_id": "deploy",
+            "message_id": "msg-B-executor-request",
+            "memory_id": "mem-B-constraint",
+            "reader": "executor",
+            "decision": "allow",
+            "reason": "message_bound_access_granted",
+            "created_at": "2026-05-25T23:56:52.728Z"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": [
+    {
+      "condition": "C0",
+      "success": false,
+      "wrong_scope_memory_use": 0,
+      "missing_critical_memory": 1,
+      "causal_memory_binding": 0,
+      "event_graph_reconstructability": 0
+    },
+    {
+      "condition": "C1",
+      "success": false,
+      "wrong_scope_memory_use": 0,
+      "missing_critical_memory": 1,
+      "causal_memory_binding": 0,
+      "event_graph_reconstructability": 0
+    },
+    {
+      "condition": "C2",
+      "success": false,
+      "wrong_scope_memory_use": 1,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 0,
+      "event_graph_reconstructability": 0
+    },
+    {
+      "condition": "C3",
+      "success": false,
+      "wrong_scope_memory_use": 1,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 0,
+      "event_graph_reconstructability": 0
+    },
+    {
+      "condition": "C4",
+      "success": false,
+      "wrong_scope_memory_use": 1,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 0,
+      "event_graph_reconstructability": 0
+    },
+    {
+      "condition": "C5",
+      "success": true,
+      "wrong_scope_memory_use": 0,
+      "missing_critical_memory": 0,
+      "causal_memory_binding": 1,
+      "event_graph_reconstructability": 1
+    }
+  ]
+}

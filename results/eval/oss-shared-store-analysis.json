@@ -1,0 +1,404 @@
+{
+  "analysis": "oss-shared-store-structural-frequency",
+  "generated_for": "MBM-Core  paper -- structural precondition frequency, NOT a vulnerability proof",
+  "honest_finding": "This analysis counts STRUCTURAL PRECONDITIONS, not confirmed exploits. A 'shared-store read site' is a code location that reads from a memory/store/state/message-pool shared across more than one run, thread, or agent/role. It is 'active-message-unbound' when retrieval is by namespace / similarity / key / recency / role / action with NO scoping to the current run/thread/active-message identity. The co-occurrence of a shared store and an unbound read is the precondition for the communication-memory mismatch the paper studies: memory returns records by relevance/scope, not by whether a record is authorized for the message being served now. These counts do NOT establish that any read is exploitable; confirming exploitability requires the active-message authorization context that none of these frameworks track at the read API, and therefore cannot be decided by static analysis here. Counts are production code only (deduped by file:line); test/doc/example matches and inline docstring examples are reported separately and excluded from the headline numbers. Thread/run-bound shared reads (e.g. LangGraph checkpointer reads keyed by thread_id) are counted as shared-store reads but EXCLUDED from the unbound numerator.",
+  "method": {
+    "denominator": "shared-store read sites = code locations reading a store/state/message-pool shared across >1 run/thread/agent/role (production code, deduped by file:line).",
+    "numerator": "active-message-unbound = subset whose retrieval key is namespace/similarity/key/recency/role/action with no thread_id/run/active-message scoping. Thread-bound reads (checkpointer get_tuple) are excluded.",
+    "determinism": "Deterministic given the pinned SHAs; patterns are hardcoded regexes applied by a self-contained pure-Node scanner (no external ripgrep dependency) over .py files in each framework's source subtree, with a lexical pass that excludes Python comments and triple-quoted docstring / fenced-example bodies.",
+    "nonprod_excluded": "Paths matching tests/examples/docs/samples/benchmark and test_*.py/*_test.py are excluded from headline counts and reported under *_incl_test_doc."
+  },
+  "totals": {
+    "shared_store_read_sites": 67,
+    "active_message_unbound": 43,
+    "pct_unbound": 64.2
+  },
+  "frameworks": {
+    "autogen": {
+      "repo_url": "https://github.com/microsoft/autogen.git",
+      "pinned_sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+      "source_subtree": "python/packages",
+      "shared_store_read_sites": 13,
+      "active_message_unbound": 13,
+      "pct_unbound": 100,
+      "shared_store_read_sites_incl_test_doc": 75,
+      "active_message_unbound_incl_test_doc": 75,
+      "inline_docexample_lines_excluded": 0,
+      "patterns": [
+        {
+          "id": "ag_memory_query",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "\\b(self|mem|\\w*memory)\\.query\\(",
+          "why": "Memory.query(query, ...) returns entries by relevance score (Memory ABC docstring); shared memory instance can be attached to multiple agents; retrieval carries no run/active-message identity => active-message-UNBOUND. Restricted to self/mem/*memory receivers (Memory subclasses) to exclude unrelated .query() calls.",
+          "matches_total": 59,
+          "matches_production": 4,
+          "matches_test_or_doc": 55,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "python/packages/autogen-ext/src/autogen_ext/experimental/task_centric_memory/utils/teachability.py",
+              "line": 74,
+              "text": "query_results = await self.query(last_user_text)"
+            },
+            {
+              "file": "python/packages/autogen-ext/src/autogen_ext/memory/chromadb/_chromadb.py",
+              "line": 323,
+              "text": "query_results = await self.query(query_text)"
+            },
+            {
+              "file": "python/packages/autogen-ext/src/autogen_ext/memory/mem0/_mem0.py",
+              "line": 387,
+              "text": "query_results = await self.query(query_text, limit=self._limit)"
+            },
+            {
+              "file": "python/packages/autogen-ext/src/autogen_ext/memory/redis/_redis_memory.py",
+              "line": 220,
+              "text": "query_results = await self.query(last_message, sequential=self.config.sequential)"
+            }
+          ]
+        },
+        {
+          "id": "ag_update_context",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "\\.update_context\\(",
+          "why": "Memory.update_context(model_context) injects memory into an agent's context by similarity to model_context; no authorization scoping to the active message => active-message-UNBOUND.",
+          "matches_total": 8,
+          "matches_production": 1,
+          "matches_test_or_doc": 7,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "python/packages/autogen-agentchat/src/autogen_agentchat/agents/_assistant_agent.py",
+              "line": 1046,
+              "text": "update_context_result = await mem.update_context(model_context)"
+            }
+          ]
+        },
+        {
+          "id": "ag_group_message_thread_read",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "self\\._message_thread\\b(?!\\s*[:=](?!=))(?!\\.(clear|extend|append)\\()",
+          "why": "Group-chat manager's self._message_thread is one shared history READ by all agents (select_speaker, iteration, serialization); reads are not scoped to an authorized active message => active-message-UNBOUND. Writes (assignment, type-annot init, .clear/.extend/.append) are excluded.",
+          "matches_total": 8,
+          "matches_production": 8,
+          "matches_test_or_doc": 0,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "python/packages/autogen-agentchat/src/autogen_agentchat/teams/_group_chat/_base_group_chat_manager.py",
+              "line": 173,
+              "text": "speaker_names_future = asyncio.ensure_future(self.select_speaker(self._message_thread))"
+            },
+            {
+              "file": "python/packages/autogen-agentchat/src/autogen_agentchat/teams/_group_chat/_graph/_digraph_group_chat.py",
+              "line": 515,
+              "text": "\"message_thread\": [message.dump() for message in self._message_thread],"
+            },
+            {
+              "file": "python/packages/autogen-agentchat/src/autogen_agentchat/teams/_group_chat/_magentic_one/_magentic_one_orchestrator.py",
+              "line": 227,
+              "text": "message_thread=[msg.dump() for msg in self._message_thread],"
+            },
+            {
+              "file": "python/packages/autogen-agentchat/src/autogen_agentchat/teams/_group_chat/_round_robin_group_chat.py",
+              "line": 60,
+              "text": "message_thread=[message.dump() for message in self._message_thread],"
+            },
+            {
+              "file": "python/packages/autogen-agentchat/src/autogen_agentchat/teams/_group_chat/_selector_group_chat.py",
+              "line": 118,
+              "text": "message_thread=[msg.dump() for msg in self._message_thread],"
+            }
+          ]
+        }
+      ],
+      "representative_examples": [
+        {
+          "pattern_id": "ag_memory_query",
+          "file": "python/packages/autogen-ext/src/autogen_ext/experimental/task_centric_memory/utils/teachability.py",
+          "line": 74,
+          "text": "query_results = await self.query(last_user_text)"
+        },
+        {
+          "pattern_id": "ag_memory_query",
+          "file": "python/packages/autogen-ext/src/autogen_ext/memory/chromadb/_chromadb.py",
+          "line": 323,
+          "text": "query_results = await self.query(query_text)"
+        },
+        {
+          "pattern_id": "ag_memory_query",
+          "file": "python/packages/autogen-ext/src/autogen_ext/memory/mem0/_mem0.py",
+          "line": 387,
+          "text": "query_results = await self.query(query_text, limit=self._limit)"
+        },
+        {
+          "pattern_id": "ag_memory_query",
+          "file": "python/packages/autogen-ext/src/autogen_ext/memory/redis/_redis_memory.py",
+          "line": 220,
+          "text": "query_results = await self.query(last_message, sequential=self.config.sequential)"
+        },
+        {
+          "pattern_id": "ag_update_context",
+          "file": "python/packages/autogen-agentchat/src/autogen_agentchat/agents/_assistant_agent.py",
+          "line": 1046,
+          "text": "update_context_result = await mem.update_context(model_context)"
+        }
+      ]
+    },
+    "langgraph": {
+      "repo_url": "https://github.com/langchain-ai/langgraph.git",
+      "pinned_sha": "3df6f50ad545e1c81fa14bc172784185aabf11ce",
+      "source_subtree": "libs",
+      "shared_store_read_sites": 25,
+      "active_message_unbound": 1,
+      "pct_unbound": 4,
+      "shared_store_read_sites_incl_test_doc": 452,
+      "active_message_unbound_incl_test_doc": 306,
+      "inline_docexample_lines_excluded": 0,
+      "patterns": [
+        {
+          "id": "lg_store_search",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "\\b(\\w*store\\w*|self)\\.a?search\\(",
+          "why": "BaseStore.search/asearch(namespace_prefix, *, query=...) retrieves by namespace+similarity; store is shared across threads (BaseStore docstring); no thread_id/active-message arg => active-message-UNBOUND.",
+          "matches_total": 204,
+          "matches_production": 1,
+          "matches_test_or_doc": 203,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "libs/checkpoint/langgraph/store/base/batch.py",
+              "line": 218,
+              "text": "self.asearch("
+            }
+          ]
+        },
+        {
+          "id": "lg_store_get",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "\\b(\\w*store\\w*)\\.a?get\\(",
+          "why": "BaseStore.get/aget(namespace, key) retrieves by key within a cross-thread shared namespace; no thread_id/active-message scoping => active-message-UNBOUND.",
+          "matches_total": 102,
+          "matches_production": 0,
+          "matches_test_or_doc": 102,
+          "matches_inline_docexample": 0,
+          "examples": []
+        },
+        {
+          "id": "lg_checkpoint_get_tuple",
+          "role": "denominator",
+          "bound": true,
+          "pattern": "\\.a?get_tuple\\(",
+          "why": "Checkpointer get_tuple/aget_tuple(config) reads shared persisted state but is keyed by config thread_id (BaseCheckpointSaver docstring: 'thread_id is the primary key'); thread-bound => denominator only.",
+          "matches_total": 146,
+          "matches_production": 24,
+          "matches_test_or_doc": 122,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/__init__.py",
+              "line": 471,
+              "text": "target = self.get_tuple(config)"
+            },
+            {
+              "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/aio.py",
+              "line": 421,
+              "text": "target = await self.aget_tuple(config)"
+            },
+            {
+              "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/aio.py",
+              "line": 609,
+              "text": "self.aget_tuple(config), self.loop"
+            },
+            {
+              "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/shallow.py",
+              "line": 919,
+              "text": "self.aget_tuple(config), self.loop"
+            },
+            {
+              "file": "libs/checkpoint-sqlite/langgraph/checkpoint/sqlite/__init__.py",
+              "line": 530,
+              "text": "target = self.get_tuple(config)"
+            }
+          ]
+        }
+      ],
+      "representative_examples": [
+        {
+          "pattern_id": "lg_store_search",
+          "file": "libs/checkpoint/langgraph/store/base/batch.py",
+          "line": 218,
+          "text": "self.asearch("
+        },
+        {
+          "pattern_id": "lg_checkpoint_get_tuple",
+          "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/__init__.py",
+          "line": 471,
+          "text": "target = self.get_tuple(config)"
+        },
+        {
+          "pattern_id": "lg_checkpoint_get_tuple",
+          "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/aio.py",
+          "line": 421,
+          "text": "target = await self.aget_tuple(config)"
+        },
+        {
+          "pattern_id": "lg_checkpoint_get_tuple",
+          "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/aio.py",
+          "line": 609,
+          "text": "self.aget_tuple(config), self.loop"
+        },
+        {
+          "pattern_id": "lg_checkpoint_get_tuple",
+          "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/shallow.py",
+          "line": 919,
+          "text": "self.aget_tuple(config), self.loop"
+        }
+      ]
+    },
+    "metagpt": {
+      "repo_url": "https://github.com/FoundationAgents/MetaGPT.git",
+      "pinned_sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+      "source_subtree": "metagpt",
+      "shared_store_read_sites": 29,
+      "active_message_unbound": 29,
+      "pct_unbound": 100,
+      "shared_store_read_sites_incl_test_doc": 29,
+      "active_message_unbound_incl_test_doc": 29,
+      "inline_docexample_lines_excluded": 0,
+      "patterns": [
+        {
+          "id": "mg_memory_get",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "\\bmemory\\.get\\(",
+          "why": "Memory.get(k) returns most-recent k messages; a Role's rc.memory is filled with other roles' messages via Environment.publish_message -> _observe.add_batch, so it is a cross-role shared store read by recency => active-message-UNBOUND.",
+          "matches_total": 21,
+          "matches_production": 21,
+          "matches_test_or_doc": 0,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "metagpt/ext/android_assistant/roles/android_assistant.py",
+              "line": 93,
+              "text": "newest_msgs = self.rc.memory.get(k=1)"
+            },
+            {
+              "file": "metagpt/ext/stanford_town/roles/st_role.py",
+              "line": 178,
+              "text": "old_messages = [] if not self.enable_memory else self.rc.memory.get()"
+            },
+            {
+              "file": "metagpt/ext/werewolf/roles/base_player.py",
+              "line": 61,
+              "text": "old_messages = [] if ignore_memory else self.rc.memory.get()"
+            },
+            {
+              "file": "metagpt/ext/werewolf/roles/base_player.py",
+              "line": 158,
+              "text": "memories = self.rc.memory.get()"
+            },
+            {
+              "file": "metagpt/ext/werewolf/roles/moderator.py",
+              "line": 144,
+              "text": "old_messages = [] if ignore_memory else self.rc.memory.get()"
+            }
+          ]
+        },
+        {
+          "id": "mg_memory_get_by",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "\\bmemory\\.(get_by_role|get_by_action|get_by_actions|get_by_content|try_remember)\\(",
+          "why": "Memory.get_by_role/get_by_action(s)/get_by_content/try_remember scope retrieval by role/action/content keyword over the (cross-role-populated) store; no active-message/run scoping => active-message-UNBOUND.",
+          "matches_total": 1,
+          "matches_production": 1,
+          "matches_test_or_doc": 0,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "metagpt/roles/role.py",
+              "line": 118,
+              "text": "return self.memory.get_by_actions(self.watch)"
+            }
+          ]
+        },
+        {
+          "id": "mg_search_retrieve",
+          "role": "numerator",
+          "bound": false,
+          "pattern": "\\.(search_similar|retrieve)\\(",
+          "why": "MemoryStorage.search_similar / RAG engine.retrieve(query) retrieve by embedding similarity over a shared index; no run/active-message scoping => active-message-UNBOUND.",
+          "matches_total": 7,
+          "matches_production": 7,
+          "matches_test_or_doc": 0,
+          "matches_inline_docexample": 0,
+          "examples": [
+            {
+              "file": "metagpt/document_store/faiss_store.py",
+              "line": 64,
+              "text": "rsp = retriever.retrieve(QueryBundle(query_str=query, embedding=self.embedding.get_text_embedding(query)))"
+            },
+            {
+              "file": "metagpt/ext/stanford_town/roles/st_role.py",
+              "line": 601,
+              "text": "retrieved = self.retrieve(observed)"
+            },
+            {
+              "file": "metagpt/ext/werewolf/actions/experience_operation.py",
+              "line": 124,
+              "text": "results = self.engine.retrieve(query)"
+            },
+            {
+              "file": "metagpt/memory/longterm_memory.py",
+              "line": 64,
+              "text": "mem_searched = await self.memory_storage.search_similar(mem)"
+            },
+            {
+              "file": "metagpt/memory/role_zero_memory.py",
+              "line": 159,
+              "text": "nodes = self.rag_engine.retrieve(query)"
+            }
+          ]
+        }
+      ],
+      "representative_examples": [
+        {
+          "pattern_id": "mg_memory_get",
+          "file": "metagpt/ext/android_assistant/roles/android_assistant.py",
+          "line": 93,
+          "text": "newest_msgs = self.rc.memory.get(k=1)"
+        },
+        {
+          "pattern_id": "mg_memory_get",
+          "file": "metagpt/ext/stanford_town/roles/st_role.py",
+          "line": 178,
+          "text": "old_messages = [] if not self.enable_memory else self.rc.memory.get()"
+        },
+        {
+          "pattern_id": "mg_memory_get",
+          "file": "metagpt/ext/werewolf/roles/base_player.py",
+          "line": 61,
+          "text": "old_messages = [] if ignore_memory else self.rc.memory.get()"
+        },
+        {
+          "pattern_id": "mg_memory_get",
+          "file": "metagpt/ext/werewolf/roles/base_player.py",
+          "line": 158,
+          "text": "memories = self.rc.memory.get()"
+        },
+        {
+          "pattern_id": "mg_memory_get",
+          "file": "metagpt/ext/werewolf/roles/moderator.py",
+          "line": 144,
+          "text": "old_messages = [] if ignore_memory else self.rc.memory.get()"
+        }
+      ]
+    }
+  }
+}

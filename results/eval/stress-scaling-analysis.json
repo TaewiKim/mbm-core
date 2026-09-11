@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-01T08:07:52.091Z",
+  "script": "scripts/analyze_stress_scaling.mjs",
+  "source": "results/eval/e10-stress-gpt54nano.json",
+  "model": "gpt-5.4-nano",
+  "x": [
+    0,
+    10,
+    50,
+    200
+  ],
+  "x_label": "distractor memories",
+  "series": [
+    {
+      "label": "MBM-Core",
+      "condition": "C5",
+      "ffcr": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "label": "C4+all-static-filters",
+      "condition": "C4+all-static-filters",
+      "ffcr": [
+        0.875,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "C4 (scoped memory)",
+      "condition": "C4",
+      "ffcr": [
+        0.125,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

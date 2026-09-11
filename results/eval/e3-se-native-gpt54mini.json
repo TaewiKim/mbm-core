@@ -1,0 +1,5930 @@
+{
+  "benchmark": "coupled-memory-se-native",
+  "live": true,
+  "model": "gpt-5.4-mini",
+  "runs_per_case": 1,
+  "instances_per_family": 5,
+  "data": "data/se_native/se_native_100.json",
+  "baselines": [
+    "C4",
+    "C5"
+  ],
+  "cases": [
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_001",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_001-mA",
+        "issue_triage_capability_001-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_001-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_001",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_001-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_001-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_002",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_002-mA",
+        "issue_triage_capability_002-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_002-mA"
+      ],
+      "model_answer": "Use the active triage thread’s routing: graph-runtime component owner.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_002",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_002-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_002-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_003",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_003-mA",
+        "issue_triage_capability_003-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_003-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_003",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_003-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_003-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_004",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_004-mA",
+        "issue_triage_capability_004-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_004-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_004",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_004-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_004-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_005",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_005-mA",
+        "issue_triage_capability_005-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_005-mA"
+      ],
+      "model_answer": "Use the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_005",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_005-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_005-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_006",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_006-mA",
+        "issue_triage_capability_006-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_006-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_006",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_006-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_006-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_007",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_007-mA",
+        "issue_triage_capability_007-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_007-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_007",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_007-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_007-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_008",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_008-mA",
+        "issue_triage_capability_008-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_008-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_008",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_008-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_008-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_009",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_009-mA",
+        "issue_triage_capability_009-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_009-mA"
+      ],
+      "model_answer": "Use the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_009",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_009-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_009-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_010",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_010-mA",
+        "issue_triage_capability_010-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_010-mA"
+      ],
+      "model_answer": "Use the active triage-thread instruction: route the issue to the graph-runtime component owner.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_010",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_010-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_010-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_011",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_011-mA",
+        "issue_triage_capability_011-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_011-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_011",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_011-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_011-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_012",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_012-mA",
+        "issue_triage_capability_012-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_012-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_012",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_012-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_012-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_013",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_013-mA",
+        "issue_triage_capability_013-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_013-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_013",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_013-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_013-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_014",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_014-mA",
+        "issue_triage_capability_014-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_014-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_014",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_014-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_014-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_015",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_015-mA",
+        "issue_triage_capability_015-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_015-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_015",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_015-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_015-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_016",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_016-mA",
+        "issue_triage_capability_016-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_016-mA"
+      ],
+      "model_answer": "Selected the active-thread routing memory for the graph-runtime component owner; the docs-owner memory is from a different sibling triage thread and should be ignored.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_016",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_016-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_016-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_017",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_017-mA",
+        "issue_triage_capability_017-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_017-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_017",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_017-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_017-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_018",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_018-mA",
+        "issue_triage_capability_018-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_018-mA"
+      ],
+      "model_answer": "Use the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_018",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_018-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_018-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_019",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_019-mA",
+        "issue_triage_capability_019-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_019-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_019",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_019-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_019-mA"
+      ],
+      "model_answer": "Route issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_020",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "issue_triage_capability_020-mA",
+        "issue_triage_capability_020-mB"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_020-mA"
+      ],
+      "model_answer": "Selected the active-triage graph-runtime routing memory; ignored the sibling-thread docs routing memory.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "issue_triage_capability_020",
+      "scenario_type": "issue_triage_capability",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "issue_triage_capability_020-mA"
+      ],
+      "expected_memory_ids": [
+        "issue_triage_capability_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "issue_triage_capability_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "issue_triage_capability_020-mA"
+      ],
+      "model_answer": "Route the issue to the graph-runtime component owner for the active triage thread.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_001",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_001-mA",
+        "bug_evidence_conflict_001-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_001-mA"
+      ],
+      "model_answer": "Selected the memory that says to use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_001",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_001-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_001-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_002",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_002-mA",
+        "bug_evidence_conflict_002-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_002-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_002",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_002-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_002-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_003",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_003-mA",
+        "bug_evidence_conflict_003-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_003-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_003",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_003-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_003-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_004",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_004-mA",
+        "bug_evidence_conflict_004-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_004-mA"
+      ],
+      "model_answer": "Selected the memory that uses the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_004",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_004-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_004-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_005",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_005-mA",
+        "bug_evidence_conflict_005-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_005-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_005",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_005-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_005-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_006",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_006-mA",
+        "bug_evidence_conflict_006-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_006-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_006",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_006-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_006-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_007",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_007-mA",
+        "bug_evidence_conflict_007-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_007-mA"
+      ],
+      "model_answer": "Selected the memory directing use of the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_007",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_007-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_007-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_008",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_008-mA",
+        "bug_evidence_conflict_008-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_008-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_008",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_008-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_008-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_009",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_009-mA",
+        "bug_evidence_conflict_009-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_009-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_009",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_009-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_009-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.97,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_010",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_010-mA",
+        "bug_evidence_conflict_010-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_010-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_010",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_010-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_010-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_011",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_011-mA",
+        "bug_evidence_conflict_011-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_011-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.96,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_011",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_011-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_011-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_012",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_012-mA",
+        "bug_evidence_conflict_012-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_012-mA"
+      ],
+      "model_answer": "Using the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_012",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_012-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_012-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_013",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_013-mA",
+        "bug_evidence_conflict_013-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_013-mA"
+      ],
+      "model_answer": "Using the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.91,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_013",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_013-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_013-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_014",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_014-mA",
+        "bug_evidence_conflict_014-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_014-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_014",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_014-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_014-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_015",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_015-mA",
+        "bug_evidence_conflict_015-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_015-mA"
+      ],
+      "model_answer": "bug evidence conflict variant 15: Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.94,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_015",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_015-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_015-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_016",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_016-mA",
+        "bug_evidence_conflict_016-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_016-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_016",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_016-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_016-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_017",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_017-mA",
+        "bug_evidence_conflict_017-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_017-mA"
+      ],
+      "model_answer": "Selected the memory that points to the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.97,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_017",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_017-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_017-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_018",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_018-mA",
+        "bug_evidence_conflict_018-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_018-mA"
+      ],
+      "model_answer": "Selected the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_018",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_018-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_018-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_019",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_019-mA",
+        "bug_evidence_conflict_019-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_019-mA"
+      ],
+      "model_answer": "Selected the memory that uses the re-run CI log attached to the current investigation as the failing evidence; ignored the superseded earlier comment snippet.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_019",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_019-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_019-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_020",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_020-mA",
+        "bug_evidence_conflict_020-mB"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_020-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.97,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "bug_evidence_conflict_020",
+      "scenario_type": "bug_evidence_conflict",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "bug_evidence_conflict_020-mA"
+      ],
+      "expected_memory_ids": [
+        "bug_evidence_conflict_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "bug_evidence_conflict_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "bug_evidence_conflict_020-mA"
+      ],
+      "model_answer": "Use the re-run CI log attached to the current investigation as the failing evidence.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_001",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_001-mA",
+        "pr_delegation_drift_001-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_001-mA"
+      ],
+      "model_answer": "Use the memory that treats the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.97,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_001",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_001-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_001-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_002",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_002-mA",
+        "pr_delegation_drift_002-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_002-mA"
+      ],
+      "model_answer": "Use the memory that treats the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_002",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_002-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_002-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_003",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_003-mA",
+        "pr_delegation_drift_003-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_003-mA"
+      ],
+      "model_answer": "Use the memory stating the PR is incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_003",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_003-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_003-mA"
+      ],
+      "model_answer": "Use the PR-completeness constraint from memory: treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_004",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_004-mA",
+        "pr_delegation_drift_004-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_004-mA"
+      ],
+      "model_answer": "Use the final reviewer sign-off rule: treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_004",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_004-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_004-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_005",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_005-mA",
+        "pr_delegation_drift_005-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_005-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until final reviewer sign-off is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_005",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_005-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_005-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_006",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_006-mA",
+        "pr_delegation_drift_006-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_006-mA"
+      ],
+      "model_answer": "Use the completion rule that treats the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_006",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_006-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_006-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_007",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_007-mA",
+        "pr_delegation_drift_007-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_007-mA"
+      ],
+      "model_answer": "Use the constraint that the PR is incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_007",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_007-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_007-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_008",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_008-mA",
+        "pr_delegation_drift_008-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_008-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_008",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_008-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_008-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_009",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_009-mA",
+        "pr_delegation_drift_009-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_009-mA"
+      ],
+      "model_answer": "Use the memory that treats the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_009",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_009-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_009-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_010",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_010-mA",
+        "pr_delegation_drift_010-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_010-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_010",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_010-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_010-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_011",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_011-mA",
+        "pr_delegation_drift_011-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_011-mA"
+      ],
+      "model_answer": "Use the memory that says to treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_011",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_011-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_011-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_012",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_012-mA",
+        "pr_delegation_drift_012-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_012-mA"
+      ],
+      "model_answer": "Use the memory that treats the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_012",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_012-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_012-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_013",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_013-mA",
+        "pr_delegation_drift_013-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_013-mA"
+      ],
+      "model_answer": "Use the rule that the PR is incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_013",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_013-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_013-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_014",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_014-mA",
+        "pr_delegation_drift_014-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_014-mA"
+      ],
+      "model_answer": "Use the PR-incomplete rule until final reviewer sign-off is recorded.",
+      "model_confidence": 0.97,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_014",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_014-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_014-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_015",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_015-mA",
+        "pr_delegation_drift_015-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_015-mA"
+      ],
+      "model_answer": "Use the constraint that the PR is incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_015",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_015-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_015-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_016",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_016-mA",
+        "pr_delegation_drift_016-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_016-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_016",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_016-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_016-mA"
+      ],
+      "model_answer": "Using the candidate memory: treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_017",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_017-mA",
+        "pr_delegation_drift_017-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_017-mA"
+      ],
+      "model_answer": "Treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_017",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_017-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_017-mA"
+      ],
+      "model_answer": "Using the provided constraint: treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_018",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_018-mA",
+        "pr_delegation_drift_018-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_018-mA"
+      ],
+      "model_answer": "Use the constraint that the PR remains incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_018",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_018-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_018-mA"
+      ],
+      "model_answer": "Use the candidate memory: treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_019",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_019-mA",
+        "pr_delegation_drift_019-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_019-mA"
+      ],
+      "model_answer": "Use the rule that the PR remains incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_019",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_019-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_019-mA"
+      ],
+      "model_answer": "Use the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_020",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "pr_delegation_drift_020-mA",
+        "pr_delegation_drift_020-mB"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_020-mA"
+      ],
+      "model_answer": "",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pr_delegation_drift_020",
+      "scenario_type": "pr_delegation_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "pr_delegation_drift_020-mA"
+      ],
+      "expected_memory_ids": [
+        "pr_delegation_drift_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "pr_delegation_drift_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "pr_delegation_drift_020-mA"
+      ],
+      "model_answer": "Using the candidate memory: treat the PR as incomplete until the final reviewer sign-off message is recorded.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_001",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_001-mA",
+        "incident_memory_privacy_001-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_001-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_001",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_001-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_001-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_002",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_002-mA",
+        "incident_memory_privacy_002-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_002-mA"
+      ],
+      "model_answer": "",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_002",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_002-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_002-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_003",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_003-mA",
+        "incident_memory_privacy_003-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_003-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_003",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_003-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_003-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_004",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_004-mA",
+        "incident_memory_privacy_004-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_004-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_004",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_004-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_004-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_005",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_005-mA",
+        "incident_memory_privacy_005-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_005-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_005",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_005-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_005-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_006",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_006-mA",
+        "incident_memory_privacy_006-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_006-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_006",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_006-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_006-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_007",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_007-mA",
+        "incident_memory_privacy_007-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_007-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_007",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_007-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_007-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_008",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_008-mA",
+        "incident_memory_privacy_008-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_008-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_008",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_008-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_008-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_009",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_009-mA",
+        "incident_memory_privacy_009-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_009-mA"
+      ],
+      "model_answer": "Selected the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_009",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_009-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_009-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_010",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_010-mA",
+        "incident_memory_privacy_010-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_010-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_010",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_010-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_010-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_011",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_011-mA",
+        "incident_memory_privacy_011-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_011-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_011",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_011-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_011-mA"
+      ],
+      "model_answer": "Using the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_012",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_012-mA",
+        "incident_memory_privacy_012-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_012-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_012",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_012-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_012-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_013",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_013-mA",
+        "incident_memory_privacy_013-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_013-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_013",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_013-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_013-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_014",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_014-mA",
+        "incident_memory_privacy_014-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_014-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_014",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_014-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_014-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_015",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_015-mA",
+        "incident_memory_privacy_015-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_015-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_015",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_015-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_015-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_016",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_016-mA",
+        "incident_memory_privacy_016-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_016-mA"
+      ],
+      "model_answer": "{",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_016",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_016-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_016-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_017",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_017-mA",
+        "incident_memory_privacy_017-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_017-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_017",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_017-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_017-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_018",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_018-mA",
+        "incident_memory_privacy_018-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_018-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_018",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_018-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_018-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_019",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_019-mA",
+        "incident_memory_privacy_019-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_019-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_019",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_019-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_019-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_020",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "incident_memory_privacy_020-mA",
+        "incident_memory_privacy_020-mB"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_020-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "incident_memory_privacy_020",
+      "scenario_type": "incident_memory_privacy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "incident_memory_privacy_020-mA"
+      ],
+      "expected_memory_ids": [
+        "incident_memory_privacy_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "incident_memory_privacy_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "incident_memory_privacy_020-mA"
+      ],
+      "model_answer": "Use the redacted incident summary approved for the responder role.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_001",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_001-mA",
+        "ci_context_manifest_001-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_001-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_001",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_001-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_001-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_001-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_001-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_002",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_002-mA",
+        "ci_context_manifest_002-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_002-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_002",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_002-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_002-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_002-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_002-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_003",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_003-mA",
+        "ci_context_manifest_003-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_003-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_003",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_003-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_003-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_003-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_003-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_004",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_004-mA",
+        "ci_context_manifest_004-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_004-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_004",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_004-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_004-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_004-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_004-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_005",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_005-mA",
+        "ci_context_manifest_005-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_005-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_005",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_005-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_005-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_005-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_005-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_006",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_006-mA",
+        "ci_context_manifest_006-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_006-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_006",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_006-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_006-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_006-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_006-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_007",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_007-mA",
+        "ci_context_manifest_007-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_007-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_007",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_007-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_007-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_007-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_007-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_008",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_008-mA",
+        "ci_context_manifest_008-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_008-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_008",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_008-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_008-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_008-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_008-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_009",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_009-mA",
+        "ci_context_manifest_009-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_009-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_009",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_009-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_009-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_009-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_009-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_010",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_010-mA",
+        "ci_context_manifest_010-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_010-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_010",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_010-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_010-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_010-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_010-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_011",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_011-mA",
+        "ci_context_manifest_011-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_011-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_011",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_011-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_011-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_011-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_011-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_012",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_012-mA",
+        "ci_context_manifest_012-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_012-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_012",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_012-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_012-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_012-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_012-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_013",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_013-mA",
+        "ci_context_manifest_013-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_013-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_013",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_013-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_013-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_013-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_013-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_014",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_014-mA",
+        "ci_context_manifest_014-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_014-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_014",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_014-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_014-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_014-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_014-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_015",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_015-mA",
+        "ci_context_manifest_015-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_015-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_015",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_015-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_015-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_015-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_015-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_016",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_016-mA",
+        "ci_context_manifest_016-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_016-mA"
+      ],
+      "model_answer": "Use the memory that references the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_016",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_016-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_016-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_016-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_016-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_017",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_017-mA",
+        "ci_context_manifest_017-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_017-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_017",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_017-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_017-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_017-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_017-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_018",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_018-mA",
+        "ci_context_manifest_018-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_018-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_018",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_018-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_018-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_018-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_018-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_019",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_019-mA",
+        "ci_context_manifest_019-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_019-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_019",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_019-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_019-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_019-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_019-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_020",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "ci_context_manifest_020-mA",
+        "ci_context_manifest_020-mB"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_020-mA"
+      ],
+      "model_answer": "Use the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.98,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-se-native",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "ci_context_manifest_020",
+      "scenario_type": "ci_context_manifest",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "ci_context_manifest_020-mA"
+      ],
+      "expected_memory_ids": [
+        "ci_context_manifest_020-mA"
+      ],
+      "forbidden_memory_ids": [
+        "ci_context_manifest_020-mB"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "ci_context_manifest_020-mA"
+      ],
+      "model_answer": "Reference the artifact produced by the current pipeline run for this PR.",
+      "model_confidence": 0.99,
+      "model_needs_review": false
+    }
+  ],
+  "summary": [
+    {
+      "condition": "C4",
+      "cases": 100,
+      "api_errors": 0,
+      "model_success_rate": 1,
+      "selected_forbidden_memory": 0
+    },
+    {
+      "condition": "C5",
+      "cases": 100,
+      "api_errors": 0,
+      "model_success_rate": 1,
+      "selected_forbidden_memory": 0
+    }
+  ]
+}

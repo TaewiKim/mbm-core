@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="358" height="285" viewBox="0 0 358 285" role="img" aria-labelledby="t d">
+<title id="t">MBM-Core is the only defense complete on every axis</title>
+<desc id="d">A scorecard of defense paradigms (rows) against five axes (columns): per-record mediation out of 180 cases, recomputed causal reachability (P7), integrity flow (P8), set-level merge resolution, and replay-detectable audit. Every conventional paradigm, and even their combination, fails at least one axis; only MBM-Core is complete on all five.</desc>
+<defs><style>text{font-family:DejaVuSans}.b{font-family:DejaVuSans-Bold}</style></defs>
+<rect x="0" y="0" width="358" height="285" fill="#ffffff"/>
+<text x="179" y="22" class="b" fill="#1f2937" font-size="13" text-anchor="middle">Only MBM-Core is complete on every axis</text>
+<text x="179" y="39" fill="#6b7280" font-size="9.5" text-anchor="middle">mediation (/180 cases) and the four discriminating capabilities</text>
+<rect x="8" y="233" width="342" height="29" rx="6" fill="#eafaf3" stroke="#009e73" stroke-width="2"/>
+<text x="12" y="66" class="b" fill="#475569" font-size="9.5" text-anchor="start">defense</text>
+<text x="148" y="66" class="b" fill="#334155" font-size="9.5" text-anchor="middle">/180</text>
+<text x="198" y="66" class="b" fill="#334155" font-size="9.5" text-anchor="middle">Reach</text>
+<text x="242" y="66" class="b" fill="#334155" font-size="9.5" text-anchor="middle">Integ.</text>
+<text x="286" y="66" class="b" fill="#334155" font-size="9.5" text-anchor="middle">Set</text>
+<text x="330" y="66" class="b" fill="#334155" font-size="9.5" text-anchor="middle">Audit</text>
+<text x="12" y="90" fill="#1f2937" font-size="10.5" text-anchor="start">Static filters</text>
+<text x="148" y="90" class="b" fill="#a15c00" font-size="11" text-anchor="middle">140</text>
+<rect x="181" y="76" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="198" y="90" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="225" y="76" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="242" y="90" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="269" y="76" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="286" y="90" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="313" y="76" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="330" y="90" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<text x="12" y="116" fill="#1f2937" font-size="10.5" text-anchor="start">ABAC</text>
+<text x="148" y="116" class="b" fill="#a15c00" font-size="11" text-anchor="middle">160</text>
+<rect x="181" y="103" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="198" y="118" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="225" y="103" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="242" y="118" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="269" y="103" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="286" y="118" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="313" y="103" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="330" y="118" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<text x="12" y="144" fill="#1f2937" font-size="10.5" text-anchor="start">ReBAC graph</text>
+<text x="148" y="144" class="b" fill="#a15c00" font-size="11" text-anchor="middle">140</text>
+<rect x="181" y="130" width="34" height="19" rx="4" fill="#d9f2e6" stroke="#5cc79b" stroke-width="1"/>
+<text x="198" y="144" class="b" fill="#0b6b4f" font-size="12.5" text-anchor="middle">&#10003;</text>
+<rect x="225" y="130" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="242" y="144" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="269" y="130" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="286" y="144" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="313" y="130" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="330" y="144" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<text x="12" y="170" fill="#1f2937" font-size="10.5" text-anchor="start">Capability</text>
+<text x="148" y="170" class="b" fill="#b23a17" font-size="11" text-anchor="middle">20</text>
+<rect x="181" y="157" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="198" y="172" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="225" y="157" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="242" y="172" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="269" y="157" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="286" y="172" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="313" y="157" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="330" y="172" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<text x="12" y="198" fill="#1f2937" font-size="10.5" text-anchor="start">Combined (conv.)</text>
+<text x="148" y="198" class="b" fill="#a15c00" font-size="11" text-anchor="middle">160</text>
+<rect x="181" y="184" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="198" y="198" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="225" y="184" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="242" y="198" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="269" y="184" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="286" y="198" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="313" y="184" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="330" y="198" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<text x="12" y="224" fill="#1f2937" font-size="10.5" text-anchor="start">Combined +reach.</text>
+<text x="148" y="224" class="b" fill="#0b6b4f" font-size="11" text-anchor="middle">180</text>
+<rect x="181" y="211" width="34" height="19" rx="4" fill="#d9f2e6" stroke="#5cc79b" stroke-width="1"/>
+<text x="198" y="226" class="b" fill="#0b6b4f" font-size="12.5" text-anchor="middle">&#10003;</text>
+<rect x="225" y="211" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="242" y="226" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="269" y="211" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="286" y="226" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<rect x="313" y="211" width="34" height="19" rx="4" fill="#fbe0d4" stroke="#d8775a" stroke-width="1"/>
+<text x="330" y="226" class="b" fill="#b23a17" font-size="12.5" text-anchor="middle">&#10007;</text>
+<text x="12" y="252" class="b" fill="#0b6b4f" font-size="10.5" text-anchor="start">MBM-Core (ours)</text>
+<text x="148" y="252" class="b" fill="#0b6b4f" font-size="11" text-anchor="middle">180</text>
+<rect x="181" y="238" width="34" height="19" rx="4" fill="#bdebd6" stroke="#0b6b4f" stroke-width="1"/>
+<text x="198" y="252" class="b" fill="#0b6b4f" font-size="12.5" text-anchor="middle">&#10003;</text>
+<rect x="225" y="238" width="34" height="19" rx="4" fill="#bdebd6" stroke="#0b6b4f" stroke-width="1"/>
+<text x="242" y="252" class="b" fill="#0b6b4f" font-size="12.5" text-anchor="middle">&#10003;</text>
+<rect x="269" y="238" width="34" height="19" rx="4" fill="#bdebd6" stroke="#0b6b4f" stroke-width="1"/>
+<text x="286" y="252" class="b" fill="#0b6b4f" font-size="12.5" text-anchor="middle">&#10003;</text>
+<rect x="313" y="238" width="34" height="19" rx="4" fill="#bdebd6" stroke="#0b6b4f" stroke-width="1"/>
+<text x="330" y="252" class="b" fill="#0b6b4f" font-size="12.5" text-anchor="middle">&#10003;</text>
+<text x="12" y="274" fill="#6b7280" font-size="8.5" text-anchor="start">Reach=recomputed causal reachability (P7); Integ.=integrity flow (P8); Set=set-level merge (Prop.1); Audit=replay-detectable.</text>
+</svg>

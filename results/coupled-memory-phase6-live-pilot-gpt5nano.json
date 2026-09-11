@@ -1,0 +1,304 @@
+{
+  "benchmark": "coupled-memory-phase6-live-model",
+  "live": true,
+  "model": "gpt-5-nano",
+  "runs_per_case": 1,
+  "scenario_limit": 4,
+  "condition_matrix": [
+    {
+      "id": "C4",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "scoped shared memory",
+      "coupling": "uncoupled",
+      "purpose": "strong modules without message binding",
+      "features": {
+        "name": "causal-envelope-scoped-memory-uncoupled",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C5",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "governed shared memory",
+      "coupling": "message-bound",
+      "purpose": "proposed coupled condition",
+      "features": {
+        "name": "causal-envelope-governed-message-bound-memory",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": true
+      }
+    }
+  ],
+  "c4_c5_parity": {
+    "c4": "readMemory(query)",
+    "c5": "readMemory(query, currentMessage, runState)",
+    "differing_feature": "messageBoundMemory"
+  },
+  "cases": [
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-1",
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-1",
+        "mem-B-twin-1"
+      ],
+      "model_answer": "Use the retrieved shared-memory candidates: mem-A-twin-1 and mem-B-twin-1.",
+      "model_confidence": 0.62,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "model_answer": "Enforce deployment storage constraint variant 1: CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "model_answer": "Selected shared-memory candidates govern the final answer: mem-A-twin-2 and mem-B-twin-2. Use the retrieved shared-memory candidates; no active-message memory binding is available.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "model_answer": "Deployment storage constraint variant 2 requires CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-3",
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-3",
+        "mem-B-twin-3"
+      ],
+      "model_answer": "Using the retrieved shared-memory candidates: mem-A-twin-3 (LOCAL_ONLY_STORAGE) and mem-B-twin-3 (CLOUD_STORAGE_REQUIRED). Apply deployment storage constraint variant 3 per candidate. No active-message memory binding is available.",
+      "model_confidence": 0.75,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "model_answer": "Enforce deployment storage constraint variant 3: CLOUD_STORAGE_REQUIRED (bound to run-B-3, task deploy, trace-B-3).",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "model_answer": "Shared-memory candidates retrieved: mem-A-resume-1, mem-B-resume-1. No active-message memory binding is available. The pause_resume_deferred_constraint_001 scenario provides two storage-constraint variants: mem-A-resume-1 implies LOCAL_ONLY_STORAGE; mem-B-resume-1 implies CLOUD_STORAGE_REQUIRED. The condition does not specify a single preferred variant, so a definitive binding cannot be inferred from the current information.",
+      "model_confidence": 0.6,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "model_answer": "Selected memory mem-B-resume-1 (resume deployment storage constraint variant 1) bound to active message run-B-1 and trace trace-B-1.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    }
+  ],
+  "summary": [
+    {
+      "condition": "C4",
+      "cases": 4,
+      "api_errors": 0,
+      "deterministic_success_rate": 0,
+      "model_success_rate": 0,
+      "selected_forbidden_memory": 4
+    },
+    {
+      "condition": "C5",
+      "cases": 4,
+      "api_errors": 0,
+      "deterministic_success_rate": 1,
+      "model_success_rate": 1,
+      "selected_forbidden_memory": 0
+    }
+  ]
+}

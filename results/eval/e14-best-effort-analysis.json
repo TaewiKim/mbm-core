@@ -1,0 +1,28 @@
+{
+  "experiment": "E14",
+  "metric": "FFCR on content-blind holdout",
+  "threat": "T4 (baselines are treatment ablations)",
+  "reference": "deterministic gate (C5) = 1.000 on this holdout (all 80 cases x models)",
+  "baselines": {
+    "B1": {
+      "n": 160,
+      "ffcr": 0.0063,
+      "delta_vs_gate": 0.9938,
+      "ci95": [
+        0.9812,
+        1
+      ]
+    },
+    "B2": {
+      "n": 160,
+      "ffcr": 0.8063,
+      "delta_vs_gate": 0.1937,
+      "ci95": [
+        0.1313,
+        0.2562
+      ]
+    }
+  },
+  "go": false,
+  "verdict": "PARTIAL/NO-GO: a best-effort baseline reached 0.81 -> report honestly, restrict necessity claim."
+}

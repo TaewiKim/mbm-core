@@ -1,0 +1,2910 @@
+{
+  "benchmark": "dropin-protocol-replacement-live-dev24-gpt54mini",
+  "live": true,
+  "model": "gpt-5.4-mini",
+  "runs_per_case": 1,
+  "split": "dev",
+  "scenario_limit": 24,
+  "instances_per_family": 0,
+  "condition_matrix": [
+    {
+      "id": "C4",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "scoped shared memory",
+      "coupling": "uncoupled",
+      "purpose": "strong modules without message binding",
+      "features": {
+        "name": "causal-envelope-scoped-memory-uncoupled",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C5",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "governed shared memory",
+      "coupling": "message-bound",
+      "purpose": "proposed coupled condition",
+      "features": {
+        "name": "causal-envelope-governed-message-bound-memory",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": true
+      }
+    }
+  ],
+  "c4_c5_parity": {
+    "c4": "readMemory(query)",
+    "c5": "readMemory(query, currentMessage, runState)",
+    "differing_feature": "messageBoundMemory"
+  },
+  "cases": [
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-1",
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "model_answer": "Use LOCAL_ONLY_STORAGE.",
+      "model_confidence": 0.92,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "model_answer": "CLOUD_STORAGE_REQUIRED",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "model_answer": "The retrieved shared-memory candidates conflict for the same constraint variant: one says LOCAL_ONLY_STORAGE and the other says CLOUD_STORAGE_REQUIRED. With uncoupled shared memory and no message-bound memory, there is not enough binding information to select a single governing memory id.",
+      "model_confidence": 0.98,
+      "model_needs_review": true,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "model_answer": "CLOUD_STORAGE_REQUIRED",
+      "model_confidence": 0.99,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-3",
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "model_answer": "Use LOCAL_ONLY_STORAGE.",
+      "model_confidence": 0.61,
+      "model_needs_review": true,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "model_answer": "CLOUD_STORAGE_REQUIRED",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "model_answer": "Use the retrieved shared-memory candidates; the condition does not provide enough binding information to choose between the two constraint variants.",
+      "model_confidence": 0.97,
+      "model_needs_review": true,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "model_answer": "CLOUD_STORAGE_REQUIRED",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pause_resume_deferred_constraint_002",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-2",
+        "mem-B-resume-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-2",
+        "mem-B-resume-2"
+      ],
+      "model_answer": "Both candidate memories match the queried constraint variant 2 for resume deployment storage: LOCAL_ONLY_STORAGE and CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.96,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pause_resume_deferred_constraint_002",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "model_answer": "CLOUD_STORAGE_REQUIRED",
+      "model_confidence": 0.99,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pause_resume_deferred_constraint_003",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-3",
+        "mem-B-resume-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-3",
+        "mem-B-resume-3"
+      ],
+      "model_answer": "Ambiguous: both retrieved shared-memory candidates match the query for 'resume deployment storage constraint variant 3'. With no active-message memory binding and uncoupled causal-envelope communication, I cannot determine whether LOCAL_ONLY_STORAGE or CLOUD_STORAGE_REQUIRED should govern the final answer.",
+      "model_confidence": 0.14,
+      "model_needs_review": true,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "pause_resume_deferred_constraint_003",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "model_answer": "CLOUD_STORAGE_REQUIRED",
+      "model_confidence": 0.99,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "crash_retry_superseded_policy_001",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-1",
+        "mem-policy-old-1"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "model_answer": "Use ENCRYPTED_CLOUD_BUCKET for retry deployment storage policy variant 1.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "crash_retry_superseded_policy_001",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "model_answer": "ENCRYPTED_CLOUD_BUCKET",
+      "model_confidence": 0.97,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "crash_retry_superseded_policy_002",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-old-2",
+        "mem-policy-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "model_answer": "Use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "crash_retry_superseded_policy_002",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "model_answer": "ENCRYPTED_CLOUD_BUCKET",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "crash_retry_superseded_policy_003",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-3",
+        "mem-policy-old-3"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "model_answer": "Use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "crash_retry_superseded_policy_003",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "model_answer": "Use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.99,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "branch_merge_conflict_001",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-1",
+        "mem-branch-b-1"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-1",
+        "mem-branch-b-1"
+      ],
+      "model_answer": "Conflicting shared-memory candidates match the same deployment branch decision variant 1, and there is no message binding to disambiguate. Both candidates should be considered.",
+      "model_confidence": 0.22,
+      "model_needs_review": true,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "branch_merge_conflict_001",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "model_answer": "choose cloud migration branch.",
+      "model_confidence": 0.86,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "branch_merge_conflict_002",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-2",
+        "mem-branch-b-2"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-2"
+      ],
+      "model_answer": "local rollback branch",
+      "model_confidence": 0.57,
+      "model_needs_review": true,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "branch_merge_conflict_002",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "model_answer": "choose cloud migration branch",
+      "model_confidence": 0.88,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "branch_merge_conflict_003",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-3",
+        "mem-branch-b-3"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-3"
+      ],
+      "model_answer": "Choose local rollback branch.",
+      "model_confidence": 0.97,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "branch_merge_conflict_003",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "model_answer": "Choose cloud migration branch.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "artifact_handoff_001",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-1",
+        "mem-B-artifact-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-1",
+        "mem-B-artifact-1"
+      ],
+      "model_answer": "artifact://run-A-1/plan-v1.; artifact://run-B-1/plan-v2.",
+      "model_confidence": 0.89,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "artifact_handoff_001",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "model_answer": "artifact://run-B-1/plan-v2",
+      "model_confidence": 0.97,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "artifact_handoff_002",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-2",
+        "mem-B-artifact-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-2",
+        "mem-B-artifact-2"
+      ],
+      "model_answer": "Both retrieved shared-memory candidates match the query for artifact deployment plan variant 2. Since no active-message memory binding is available and the protocol says to use the retrieved shared-memory candidates, both should govern the final answer.",
+      "model_confidence": 0.96,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "artifact_handoff_002",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "model_answer": "artifact://run-B-2/plan-v2",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "artifact_handoff_003",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-3",
+        "mem-B-artifact-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-3",
+        "mem-B-artifact-3"
+      ],
+      "model_answer": "artifact://run-A-3/plan-v1 and artifact://run-B-3/plan-v2",
+      "model_confidence": 0.96,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "artifact_handoff_003",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "model_answer": "artifact://run-B-3/plan-v2",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "private_memory_summary_001",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-1",
+        "mem-private-summary-1"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "model_answer": "redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.99,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "private_memory_summary_001",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "model_answer": "private customer summary variant 1",
+      "model_confidence": 0.97,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "private_memory_summary_002",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-2",
+        "mem-private-summary-2"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "model_answer": "Private customer summary variant 2: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "private_memory_summary_002",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "model_answer": "Private customer summary variant 2: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "private_memory_summary_003",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-3",
+        "mem-private-summary-3"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "model_answer": "redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.99,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "private_memory_summary_003",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "model_answer": "Private customer summary variant 3: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "long_horizon_drift_001",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-old-1",
+        "mem-long-current-1"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "model_answer": "final decision requires verification gate",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "long_horizon_drift_001",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "model_answer": "Use the message-bound decision memory for this active run/task/trace: long horizon deployment decision variant 1 requires a verification gate.",
+      "model_confidence": 0.96,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "long_horizon_drift_002",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-2",
+        "mem-long-old-2"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "model_answer": "Use the final decision: verification gate required.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "long_horizon_drift_002",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "model_answer": "Long horizon deployment decision variant 2: final decision requires verification gate.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "long_horizon_drift_003",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-3",
+        "mem-long-old-3"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "model_answer": "final decision requires verification gate",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "long_horizon_drift_003",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "model_answer": "Long horizon deployment decision variant 3: final decision requires verification gate.",
+      "model_confidence": 0.99,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "audit_reconstruction_001",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-valid-1",
+        "mem-audit-orphan-1"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "model_answer": "audit reconstruction decision variant 1: verified decision has source message.",
+      "model_confidence": 0.96,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "audit_reconstruction_001",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "model_answer": "verified decision has source message.",
+      "model_confidence": 0.97,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "audit_reconstruction_002",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-2",
+        "mem-audit-valid-2"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-2",
+        "mem-audit-orphan-2"
+      ],
+      "model_answer": "Use the retrieved shared-memory candidates; no active-message binding is available. The query matches audit reconstruction decision variant 2, and both candidate memories are variant 2 decisions, so both are relevant under the uncoupled shared-memory setup.",
+      "model_confidence": 0.62,
+      "model_needs_review": true,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "audit_reconstruction_002",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "model_answer": "Use the verified decision memory bound to this active message, run, task, and trace.",
+      "model_confidence": 0.98,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "audit_reconstruction_003",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-valid-3",
+        "mem-audit-orphan-3"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "model_answer": "verified decision has source message",
+      "model_confidence": 0.74,
+      "model_needs_review": false,
+      "protocol_wrapper": "legacy-shared-memory",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C4",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5.4-mini",
+      "scenario_id": "audit_reconstruction_003",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "model_answer": "Using the message-bound audit decision memory for this active run/task/trace.",
+      "model_confidence": 0.97,
+      "model_needs_review": false,
+      "protocol_wrapper": "acmcp-message-bound",
+      "same_agent_controls": {
+        "agent_app": "fixed-three-agent-deployment-workflow",
+        "agent_roles": [
+          "planner",
+          "memory",
+          "executor"
+        ],
+        "task_policy": "deterministic-agent-policy-v1",
+        "model_policy": "same-live-model-policy",
+        "memory_backend": "node:sqlite",
+        "tools": [
+          "message_queue",
+          "shared_memory_read",
+          "shared_memory_write"
+        ]
+      },
+      "protocol_only_change": {
+        "changed_component": "inter-agent protocol wrapper",
+        "underlying_condition": "C5",
+        "unchanged_components": [
+          "agent_app",
+          "agent_roles",
+          "task_policy",
+          "model_policy",
+          "memory_backend",
+          "tools"
+        ]
+      }
+    }
+  ],
+  "summary": [
+    {
+      "protocol_wrapper": "legacy-shared-memory",
+      "condition": "C4",
+      "cases": 24,
+      "api_errors": 0,
+      "deterministic_success_rate": 0,
+      "model_success_rate": 0.4583,
+      "selected_forbidden_memory": 13
+    },
+    {
+      "protocol_wrapper": "acmcp-message-bound",
+      "condition": "C5",
+      "cases": 24,
+      "api_errors": 0,
+      "deterministic_success_rate": 1,
+      "model_success_rate": 1,
+      "selected_forbidden_memory": 0
+    }
+  ],
+  "purpose": "Live same-agent protocol replacement: same app/model/tools/memory backend, only wrapper changes.",
+  "same_agent_controls": {
+    "agent_app": "fixed-three-agent-deployment-workflow",
+    "agent_roles": [
+      "planner",
+      "memory",
+      "executor"
+    ],
+    "task_policy": "deterministic-agent-policy-v1",
+    "model_policy": "same-live-model-policy",
+    "memory_backend": "node:sqlite",
+    "tools": [
+      "message_queue",
+      "shared_memory_read",
+      "shared_memory_write"
+    ]
+  },
+  "protocol_wrappers": {
+    "legacy-shared-memory": {
+      "condition": "C4"
+    },
+    "acmcp-message-bound": {
+      "condition": "C5"
+    }
+  }
+}

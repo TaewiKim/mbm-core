@@ -1,0 +1,78 @@
+{
+  "generated_by": "scripts/bench_gate2_cost.mjs",
+  "iters": 80,
+  "warmup": 20,
+  "sizes": [
+    1,
+    10,
+    25,
+    50,
+    100
+  ],
+  "rows": [
+    {
+      "n": 1,
+      "base_ms_median": 0.10855000000000814,
+      "base_ms_p95": 0.1786999999999921,
+      "query_ms_median": 3.928949999999986,
+      "query_ms_p95": 8.08159999999998,
+      "action_ms_median": 10.803100000000029,
+      "action_ms_p95": 17.844299999999976,
+      "query_overhead_x": 36.19484108705382,
+      "dispatched": true
+    },
+    {
+      "n": 10,
+      "base_ms_median": 0.3213499999999385,
+      "base_ms_p95": 0.4776999999999134,
+      "query_ms_median": 15.907150000000001,
+      "query_ms_p95": 21.20589999999993,
+      "action_ms_median": 25.768650000000434,
+      "action_ms_p95": 41.13370000000032,
+      "query_overhead_x": 49.501011358341515,
+      "dispatched": true
+    },
+    {
+      "n": 25,
+      "base_ms_median": 0.4338500000003478,
+      "base_ms_p95": 0.7101000000002387,
+      "query_ms_median": 27.310999999999694,
+      "query_ms_p95": 39.976300000000265,
+      "action_ms_median": 66.67134999999962,
+      "action_ms_p95": 91.88600000000042,
+      "query_overhead_x": 62.95032845448381,
+      "dispatched": true
+    },
+    {
+      "n": 50,
+      "base_ms_median": 0.36974999999983993,
+      "base_ms_p95": 0.9020000000018626,
+      "query_ms_median": 60.690450000000055,
+      "query_ms_p95": 82.02809999999954,
+      "action_ms_median": 147.24434999999903,
+      "action_ms_p95": 180.85710000000108,
+      "query_overhead_x": 164.1391480730935,
+      "dispatched": true
+    },
+    {
+      "n": 100,
+      "base_ms_median": 1.4231999999974505,
+      "base_ms_p95": 1.9858000000022002,
+      "query_ms_median": 120.47444999999789,
+      "query_ms_p95": 154.41479999999865,
+      "action_ms_median": 253.47094999999536,
+      "action_ms_p95": 328.58450000001176,
+      "query_overhead_x": 84.65040050605235,
+      "dispatched": true
+    }
+  ],
+  "per_record_marginal_us": 1178.8127972981342,
+  "fit_r2": 0.9974292516471474,
+  "largest_n": 100,
+  "largest_query_ms": 120.47444999999789,
+  "largest_action_ms": 253.47094999999536,
+  "largest_query_overhead_x": 84.65040050605235,
+  "query_throughput_per_s": 8.300515171474263,
+  "action_throughput_per_s": 3.945225281240388,
+  "node_version": "v24.15.0"
+}

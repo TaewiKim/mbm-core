@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "benchmark": "dropin-protocol-replacement-main",
+    "scenario_count": 160,
+    "case_count": 320,
+    "same_agent_controls": true,
+    "legacy_failures": 160,
+    "legacy_cases": 160,
+    "acmcp_successes": 160,
+    "acmcp_cases": 160
+  }
+}

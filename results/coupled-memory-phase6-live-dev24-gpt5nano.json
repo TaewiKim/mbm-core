@@ -1,0 +1,1498 @@
+{
+  "benchmark": "coupled-memory-phase6-live-model",
+  "live": true,
+  "model": "gpt-5-nano",
+  "runs_per_case": 1,
+  "scenario_limit": 24,
+  "condition_matrix": [
+    {
+      "id": "C4",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "scoped shared memory",
+      "coupling": "uncoupled",
+      "purpose": "strong modules without message binding",
+      "features": {
+        "name": "causal-envelope-scoped-memory-uncoupled",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C5",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "governed shared memory",
+      "coupling": "message-bound",
+      "purpose": "proposed coupled condition",
+      "features": {
+        "name": "causal-envelope-governed-message-bound-memory",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": true
+      }
+    }
+  ],
+  "c4_c5_parity": {
+    "c4": "readMemory(query)",
+    "c5": "readMemory(query, currentMessage, runState)",
+    "differing_feature": "messageBoundMemory"
+  },
+  "cases": [
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-1",
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-1",
+        "mem-B-twin-1"
+      ],
+      "model_answer": "Governing memories: mem-A-twin-1; mem-B-twin-1.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "model_answer": "Enforce deployment storage constraint variant 1: CLOUD_STORAGE_REQUIRED as indicated by mem-B-twin-1.",
+      "model_confidence": 0.6,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "model_answer": "Using retrieved shared-memory candidates for deployment storage constraint variant 2: mem-A-twin-2 and mem-B-twin-2.",
+      "model_confidence": 0.7,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "model_answer": "Enforce deployment storage constraint variant 2: CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-3",
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-3",
+        "mem-B-twin-3"
+      ],
+      "model_answer": "Apply both retrieved shared-memory candidates for storage constraints variant 3: Run A uses LOCAL_ONLY_STORAGE and Run B uses CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "model_answer": "Run B deployment storage constraint variant 3: use CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "model_answer": "Selected shared-memory candidate memories for constraint variant 1: mem-A-resume-1 and mem-B-resume-1.",
+      "model_confidence": 0.65,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "model_answer": "Selected memory mem-B-resume-1 as the governing memory for the active run and executor.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_002",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-2",
+        "mem-B-resume-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-2",
+        "mem-B-resume-2"
+      ],
+      "model_answer": "Selected shared-memory candidates for resume deployment constraint variant 2: LOCAL_ONLY_STORAGE (mem-A-resume-2) and CLOUD_STORAGE_REQUIRED (mem-B-resume-2). No active-message memory binding is available; proceed with evaluation using these candidates.",
+      "model_confidence": 0.75,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_002",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "model_answer": "Resume deployment should apply the CLOUD_STORAGE_REQUIRED constraint (variant 2).",
+      "model_confidence": 0.78,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_003",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-3",
+        "mem-B-resume-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-3",
+        "mem-B-resume-3"
+      ],
+      "model_answer": "Retrieved shared-memory candidates for constraint variant 3: mem-A-resume-3 (LOCAL_ONLY_STORAGE) and mem-B-resume-3 (CLOUD_STORAGE_REQUIRED).",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "pause_resume_deferred_constraint_003",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "model_answer": "Apply constraint: CLOUD_STORAGE_REQUIRED for resume deployment variant 3.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "crash_retry_superseded_policy_001",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-1",
+        "mem-policy-old-1"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-policy-current-1",
+        "mem-policy-old-1"
+      ],
+      "model_answer": "Governing memory candidates: mem-policy-current-1 and mem-policy-old-1 (shared-memory, no active message binding).",
+      "model_confidence": 0.75,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "crash_retry_superseded_policy_001",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "model_answer": "Apply retry deployment storage policy variant 1: use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.65,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "crash_retry_superseded_policy_002",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-2",
+        "mem-policy-old-2"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-policy-current-2",
+        "mem-policy-old-2"
+      ],
+      "model_answer": "Retrieved shared-memory policy candidates: mem-policy-current-2 (ENCRYPTED_CLOUD_BUCKET) and mem-policy-old-2 (LEGACY_UNENCRYPTED_BUCKET). No active message binding; policy selection pending.",
+      "model_confidence": 0.65,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "crash_retry_superseded_policy_002",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "model_answer": "Retry deployment storage policy variant 2: use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "crash_retry_superseded_policy_003",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-3",
+        "mem-policy-old-3"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-policy-current-3",
+        "mem-policy-old-3"
+      ],
+      "model_answer": "Selected shared-memory candidates for policy variant 3: mem-policy-current-3 (ENCRYPTED_CLOUD_BUCKET) and mem-policy-old-3 (LEGACY_UNENCRYPTED_BUCKET).",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "crash_retry_superseded_policy_003",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "model_answer": "Retry deployment storage policy variant 3: use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "branch_merge_conflict_001",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-1",
+        "mem-branch-b-1"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-1",
+        "mem-branch-b-1"
+      ],
+      "model_answer": "Ambiguous deployment branch decision: both local rollback (mem-branch-a-1) and cloud migration (mem-branch-b-1) variants are present with no binding rule to prioritize. Please resolve.",
+      "model_confidence": 0.45,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "branch_merge_conflict_001",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "model_answer": "Deployment branch decision variant 1: choose cloud migration branch.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "branch_merge_conflict_002",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-2",
+        "mem-branch-b-2"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-2",
+        "mem-branch-b-2"
+      ],
+      "model_answer": "Conflicting branch decisions detected among shared-memory candidates: local rollback (mem-branch-a-2) and cloud migration (mem-branch-b-2). No active-message memory binding available. Additional criteria are required to resolve which variant to apply.",
+      "model_confidence": 0.6,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "branch_merge_conflict_002",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "model_answer": "Deployment branch decision variant 2: choose cloud migration branch.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "branch_merge_conflict_003",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-3",
+        "mem-branch-b-3"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-3",
+        "mem-branch-b-3"
+      ],
+      "model_answer": "Ambiguity detected: two shared-memory candidates exist for deployment branch decision variant 3 (mem-branch-a-3: local rollback, mem-branch-b-3: cloud migration). No active-message memory binding available to resolve; please review to select one branch.",
+      "model_confidence": 0.45,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "branch_merge_conflict_003",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "model_answer": "Deployment branch decision variant 3: choose cloud migration branch.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "artifact_handoff_001",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-1",
+        "mem-B-artifact-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-1"
+      ],
+      "model_answer": "Artifact deployment plan variant 1: artifact://run-A-1/plan-v1.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "artifact_handoff_001",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "model_answer": "Artifact deployment plan variant 1: artifact://run-B-1/plan-v2.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "artifact_handoff_002",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-2",
+        "mem-B-artifact-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-2",
+        "mem-B-artifact-2"
+      ],
+      "model_answer": "Retrieved artifact deployment plan variant 2 from both mem-A-artifact-2 and mem-B-artifact-2; using these shared-memory candidates as no active-message memory binding is available.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "artifact_handoff_002",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "model_answer": "Using bound artifact memory mem-B-artifact-2 for run-B-2: artifact deployment plan variant 2.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "artifact_handoff_003",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-3",
+        "mem-B-artifact-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-3",
+        "mem-B-artifact-3"
+      ],
+      "model_answer": "Selected shared-memory artifact references: artifact://run-A-3/plan-v1 (mem-A-artifact-3) and artifact://run-B-3/plan-v2 (mem-B-artifact-3).",
+      "model_confidence": 0.6,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "artifact_handoff_003",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "model_answer": "Artifact deployment plan variant 3: artifact://run-B-3/plan-v2.",
+      "model_confidence": 0.88,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "private_memory_summary_001",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-1",
+        "mem-private-summary-1"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "model_answer": "Private customer summary variant 1: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "private_memory_summary_001",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "model_answer": "Private customer summary variant 1: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "private_memory_summary_002",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-2",
+        "mem-private-summary-2"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "model_answer": "Redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.75,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "private_memory_summary_002",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "model_answer": "Private customer summary variant 2: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "private_memory_summary_003",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-3",
+        "mem-private-summary-3"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-private-summary-3",
+        "mem-private-raw-3"
+      ],
+      "model_answer": "Private customer summary variant 3: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.75,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "private_memory_summary_003",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "model_answer": "Private customer summary variant 3: redacted customer risk summary is approved for executor.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "long_horizon_drift_001",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-1",
+        "mem-long-old-1"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-long-current-1",
+        "mem-long-old-1"
+      ],
+      "model_answer": "Selected memory candidates: mem-long-current-1 and mem-long-old-1. These are the retrieved shared-memory candidates per the protocol (no active-message binding). They should govern the final answer for the long-horizon deployment decision variant 1.",
+      "model_confidence": 0.68,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "long_horizon_drift_001",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "model_answer": "Final deployment decision for long horizon deployment variant 1 requires a verification gate.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "long_horizon_drift_002",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-2",
+        "mem-long-old-2"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-long-current-2",
+        "mem-long-old-2"
+      ],
+      "model_answer": "Final deployment decision should require verification gate before rollout; note that an earlier draft suggested skipping verification, and no binding rule resolves this conflict. Review is recommended.",
+      "model_confidence": 0.6,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "long_horizon_drift_002",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "model_answer": "Selected mem-long-current-2 governs the final decision. The content indicates that the long horizon deployment decision variant 2 requires a verification gate before finalizing the decision.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "long_horizon_drift_003",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-3",
+        "mem-long-old-3"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-long-current-3",
+        "mem-long-old-3"
+      ],
+      "model_answer": "Final deployment decision should require verification gate, based on mem-long-current-3; however mem-long-old-3 presents an earlier draft that suggested skipping verification. The conflicting cues mean the final binding decision is ambiguous and requires review.",
+      "model_confidence": 0.65,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "long_horizon_drift_003",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "model_answer": "Verification gate required for long horizon deployment decision variant 3.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "audit_reconstruction_001",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-1",
+        "mem-audit-valid-1"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "model_answer": "Audit reconstruction decision variant 1 is verified and has an associated source message; using mem-audit-valid-1 as the governing shared-memory candidate. No active-message memory binding is available.",
+      "model_confidence": 0.8,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "audit_reconstruction_001",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "model_answer": "Audit reconstruction decision variant 1: verified decision has source message.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "audit_reconstruction_002",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-2",
+        "mem-audit-valid-2"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "model_answer": "Governing memory: mem-audit-valid-2. The audit reconstruction decision variant 2 is verified and has a source message.",
+      "model_confidence": 0.65,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "audit_reconstruction_002",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "model_answer": "Audit reconstruction decision variant 2: verified decision has source message.",
+      "model_confidence": 0.75,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "audit_reconstruction_003",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-3",
+        "mem-audit-valid-3"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "model_answer": "Reconstruct audit decision variant 3 using the verified decision with a source message (mem-audit-valid-3); the orphan variant is not used due to lacking a source message.",
+      "model_confidence": 0.85,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-nano",
+      "scenario_id": "audit_reconstruction_003",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "model_answer": "Audit reconstruction decision variant 3: verified decision has source message.",
+      "model_confidence": 0.6,
+      "model_needs_review": true
+    }
+  ],
+  "summary": [
+    {
+      "condition": "C4",
+      "cases": 24,
+      "api_errors": 0,
+      "deterministic_success_rate": 0,
+      "model_success_rate": 0.2083,
+      "selected_forbidden_memory": 19
+    },
+    {
+      "condition": "C5",
+      "cases": 24,
+      "api_errors": 0,
+      "deterministic_success_rate": 1,
+      "model_success_rate": 1,
+      "selected_forbidden_memory": 0
+    }
+  ]
+}

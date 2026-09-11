@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" role="img" aria-labelledby="t d">
+<title id="t">Real-world prompt-injection action-hijack on OpenClaw and Hermes, blocked by integrity flow</title>
+<desc id="d">A background ingestion loop (OpenClaw heartbeat or Hermes self-improving learning) writes an attacker-controlled value into the persistent memory store as a contextually valid record; when the user later asks the assistant to act, the native store and a seven-predicate context-authorization gate both surface the attacker's value (the action is hijacked), while the eight-predicate gate with integrity flow denies the untrusted-provenance record and restores the user's own value.</desc>
+<defs><style>text{font-family:DejaVuSans;dominant-baseline:middle}.b{font-family:DejaVuSans-Bold}.m{font-family:DejaVuSansMono,monospace}</style></defs>
+<rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+<text x="360" y="20" class="b" fill="#1f2937" font-size="18" text-anchor="middle">Prompt-injection action-hijack on production assistants (OpenClaw, Hermes)</text>
+
+<!-- attack flow row -->
+<rect x="14" y="40" width="176" height="88" rx="10" fill="#fdeeee" stroke="#b23a48" stroke-width="1.6"/>
+<text x="102" y="62" class="b" fill="#b23a48" font-size="15.5" text-anchor="middle">Attacker content</text>
+<text x="102" y="84" fill="#1f2937" font-size="12" text-anchor="middle">web page / inbound msg</text>
+<text x="102" y="106" class="m" fill="#b23a48" font-size="11.5" text-anchor="middle">payout = ATTACKER</text>
+
+<line x1="190" y1="84" x2="272" y2="84" stroke="#475569" stroke-width="2"/>
+<polygon points="272,79 272,89 281,84" fill="#475569"/>
+<text x="232" y="68" class="b" fill="#5f6b7a" font-size="11" text-anchor="middle">background</text>
+<text x="232" y="102" fill="#5f6b7a" font-size="10.5" text-anchor="middle">ingest</text>
+
+<rect x="284" y="40" width="214" height="88" rx="10" fill="#f5f7fa" stroke="#0b7285" stroke-width="1.6"/>
+<text x="391" y="60" class="b" fill="#0b7285" font-size="15.5" text-anchor="middle">Persistent memory</text>
+<text x="391" y="81" class="m" fill="#b23a48" font-size="11" text-anchor="middle">payout=ATTACKER (untrusted)</text>
+<text x="391" y="98" class="m" fill="#2f855a" font-size="11" text-anchor="middle">payout=USER (user/system)</text>
+<text x="391" y="116" fill="#5f6b7a" font-size="10.5" text-anchor="middle">both contextually valid</text>
+
+<line x1="498" y1="84" x2="552" y2="84" stroke="#475569" stroke-width="2"/>
+<polygon points="552,79 552,89 561,84" fill="#475569"/>
+<text x="526" y="68" class="b" fill="#5f6b7a" font-size="11" text-anchor="middle">user acts</text>
+
+<rect x="564" y="40" width="142" height="88" rx="10" fill="#eef2f7" stroke="#475569" stroke-width="1.6"/>
+<text x="635" y="74" class="b" fill="#334155" font-size="15.5" text-anchor="middle">Decision</text>
+<text x="635" y="98" fill="#5f6b7a" font-size="11.5" text-anchor="middle">which account?</text>
+
+<!-- outcome cards -->
+<rect x="14" y="150" width="222" height="150" rx="10" fill="#fdeeee" stroke="#b23a48" stroke-width="1.7"/>
+<text x="125" y="176" class="b" fill="#1f2937" font-size="15.5" text-anchor="middle">native (default)</text>
+<text x="125" y="200" fill="#5f6b7a" font-size="12" text-anchor="middle">no provenance enforcement</text>
+<text x="125" y="236" class="m b" fill="#b23a48" font-size="15" text-anchor="middle">uses ATTACKER acct</text>
+<rect x="58" y="262" width="134" height="30" rx="15" fill="#b23a48"/><text x="125" y="278" class="b" fill="#ffffff" font-size="14.5" text-anchor="middle">HIJACKED</text>
+
+<rect x="248" y="150" width="222" height="150" rx="10" fill="#fdeeee" stroke="#b23a48" stroke-width="1.7"/>
+<text x="359" y="176" class="b" fill="#1f2937" font-size="15.5" text-anchor="middle">+ MBM (7-pred. context)</text>
+<text x="359" y="200" fill="#5f6b7a" font-size="12" text-anchor="middle">record is contextually valid</text>
+<text x="359" y="236" class="m b" fill="#b23a48" font-size="15" text-anchor="middle">uses ATTACKER acct</text>
+<rect x="292" y="262" width="134" height="30" rx="15" fill="#b23a48"/><text x="359" y="278" class="b" fill="#ffffff" font-size="14.5" text-anchor="middle">HIJACKED</text>
+
+<rect x="482" y="150" width="224" height="150" rx="10" fill="#eaf7ef" stroke="#2f855a" stroke-width="2"/>
+<text x="594" y="176" class="b" fill="#1f2937" font-size="15.5" text-anchor="middle">+ MBM + integrity (8)</text>
+<text x="594" y="200" class="m" fill="#7c3aed" font-size="11" text-anchor="middle">deny integrity_below_context</text>
+<text x="594" y="236" class="m b" fill="#2f855a" font-size="15" text-anchor="middle">uses USER acct</text>
+<rect x="540" y="262" width="108" height="30" rx="15" fill="#2f855a"/><text x="594" y="278" class="b" fill="#ffffff" font-size="14.5" text-anchor="middle">SAFE</text>
+
+<text x="360" y="326" fill="#5f6b7a" font-size="10.5" text-anchor="middle">Root cause verified in shipped code: OpenClaw's source label is unenforced on retrieval; Hermes' trust_score is soft, not provenance-bound.</text>
+<text x="360" y="344" fill="#5f6b7a" font-size="10.5" text-anchor="middle">Deterministic exploit at the documented memory boundary (not a live LLM run); the injection-to-action loop is model-dependent.</text>
+</svg>

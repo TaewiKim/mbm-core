@@ -1,0 +1,18 @@
+{
+  "dataset": "blinded_adversarial_holdout",
+  "count": 80,
+  "families": [
+    "adv_twin_run_neutral",
+    "adv_pause_resume_neutral",
+    "adv_superseded_policy_neutral",
+    "adv_branch_merge_neutral",
+    "adv_artifact_handoff_neutral",
+    "adv_private_summary_neutral",
+    "adv_long_horizon_neutral",
+    "adv_audit_provenance_neutral"
+  ],
+  "per_family": 10,
+  "manifest_hash": "sha256:8ec98426ea9195703e94aad8b791ba7607255ca7c99c5b194851298fdfde1836",
+  "output": "data/holdout/blinded_adversarial_80.json",
+  "note": "Hash frozen at generation; locked scoring verifies this hash before scoring."
+}

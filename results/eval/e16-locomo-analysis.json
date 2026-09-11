@@ -1,0 +1,106 @@
+{
+  "experiment": "E16",
+  "benchmark": "LoCoMo (Maharana et al.)",
+  "metric": "answer accuracy (native LoCoMo task)",
+  "conditions": "native (top-K retrieval) vs native+MBM (gate scopes candidates to the active-message entity + recency)",
+  "overall": {
+    "n": 300,
+    "native_acc": 0.2367,
+    "mbm_acc": 0.2,
+    "delta": -0.0367,
+    "ci95": [
+      -0.0833,
+      0.01
+    ],
+    "mcnemar": {
+      "b": 30,
+      "c": 19,
+      "discordant": 49,
+      "statistic": 2.0408163265306123
+    }
+  },
+  "by_category": {
+    "single-hop": {
+      "n": 114,
+      "native_acc": 0.2281,
+      "mbm_acc": 0.2281,
+      "delta": 0,
+      "ci95": [
+        -0.0614,
+        0.0614
+      ],
+      "mcnemar": {
+        "b": 6,
+        "c": 6,
+        "discordant": 12,
+        "statistic": 0.08333333333333333
+      }
+    },
+    "temporal": {
+      "n": 134,
+      "native_acc": 0.2164,
+      "mbm_acc": 0.1194,
+      "delta": -0.097,
+      "ci95": [
+        -0.1716,
+        -0.0224
+      ],
+      "mcnemar": {
+        "b": 20,
+        "c": 7,
+        "discordant": 27,
+        "statistic": 5.333333333333333
+      }
+    },
+    "multi-hop": {
+      "n": 26,
+      "native_acc": 0.1923,
+      "mbm_acc": 0.2308,
+      "delta": 0.0385,
+      "ci95": [
+        -0.1154,
+        0.1923
+      ],
+      "mcnemar": {
+        "b": 2,
+        "c": 3,
+        "discordant": 5,
+        "statistic": 0
+      }
+    },
+    "open-domain": {
+      "n": 26,
+      "native_acc": 0.4231,
+      "mbm_acc": 0.4615,
+      "delta": 0.0385,
+      "ci95": [
+        -0.1154,
+        0.1923
+      ],
+      "mcnemar": {
+        "b": 2,
+        "c": 3,
+        "discordant": 5,
+        "statistic": 0
+      }
+    },
+    "adversarial": {
+      "n": 0,
+      "native_acc": 0,
+      "mbm_acc": 0,
+      "delta": 0,
+      "ci95": [
+        0,
+        0
+      ],
+      "mcnemar": {
+        "b": 0,
+        "c": 0,
+        "discordant": 0,
+        "statistic": 0
+      }
+    }
+  },
+  "go": false,
+  "verdict": "NULL: no significant effect on LoCoMo (delta -0.0367 [-0.0833,0.01]). The gate neither helps nor hurts free QA; rebuttal of treatment-design rests on E13/E14/E15. Scopes claim to active-message agent workflows."
+}

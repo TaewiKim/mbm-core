@@ -1,0 +1,135 @@
+{
+  "generated_for": "ACM-CP live experiment cost/call accounting",
+  "pricing_file": null,
+  "pricing_note": "USD not computed because no pricing file was supplied.",
+  "tracks": [
+    {
+      "id": "coupled_live_main40_r3",
+      "path": "results/coupled-memory-phase6-live-main40-r3-combined-2models.json",
+      "command": "npm run coupled:combine:phase6:live:main40-r3",
+      "benchmark": "coupled-memory-phase6-live-model",
+      "models": [
+        "gpt-5-mini",
+        "gpt-5-nano"
+      ],
+      "model_call_counts": {
+        "gpt-5-mini": 240,
+        "gpt-5-nano": 240
+      },
+      "live": true,
+      "calls": 480,
+      "successful_api_calls": 480,
+      "api_errors": 0,
+      "parse_errors": 0,
+      "invalid_decisions": 0,
+      "repairs_used": 0,
+      "prompt_tokens_estimate_total": 0,
+      "prompt_tokens_estimate_mean": 0,
+      "wire_bytes_total": 0,
+      "wire_bytes_mean": 0,
+      "latency_ms_total": 0,
+      "latency_ms_mean": 0,
+      "cost_usd_estimate": null,
+      "cost_note": "No pricing file supplied; call/token accounting only."
+    },
+    {
+      "id": "dropin_live_main40_r3",
+      "path": "results/dropin-protocol-replacement-live-main40-r3-combined.json",
+      "command": "npm run dropin:combine:live:main40-r3",
+      "benchmark": "dropin-protocol-replacement-live-main40-r3-gpt54mini",
+      "models": [
+        "gpt-5.4-mini",
+        "gpt-5.4-nano"
+      ],
+      "model_call_counts": {
+        "gpt-5.4-mini": 240,
+        "gpt-5.4-nano": 240
+      },
+      "live": true,
+      "calls": 480,
+      "successful_api_calls": 480,
+      "api_errors": 0,
+      "parse_errors": 0,
+      "invalid_decisions": 0,
+      "repairs_used": 0,
+      "prompt_tokens_estimate_total": 0,
+      "prompt_tokens_estimate_mean": 0,
+      "wire_bytes_total": 0,
+      "wire_bytes_mean": 0,
+      "latency_ms_total": 0,
+      "latency_ms_mean": 0,
+      "cost_usd_estimate": null,
+      "cost_note": "No pricing file supplied; call/token accounting only."
+    },
+    {
+      "id": "raw_broad_live_hard20_c10",
+      "path": "results/raw-hard20-live-gpt54-mini-nano-c10-r1-repair1-combined.json",
+      "command": "npm run raw:combine:hard20:live:gpt54:c10",
+      "benchmark": "protocol-memory",
+      "models": [
+        "gpt-5.4-mini",
+        "gpt-5.4-nano"
+      ],
+      "model_call_counts": {
+        "gpt-5.4-mini": 600,
+        "gpt-5.4-nano": 600
+      },
+      "live": true,
+      "calls": 1200,
+      "successful_api_calls": 1200,
+      "api_errors": 0,
+      "parse_errors": 0,
+      "invalid_decisions": 0,
+      "repairs_used": 640,
+      "prompt_tokens_estimate_total": 2554330,
+      "prompt_tokens_estimate_mean": 2128.608333333333,
+      "wire_bytes_total": 10215524,
+      "wire_bytes_mean": 8512.936666666666,
+      "latency_ms_total": 16734120.431999996,
+      "latency_ms_mean": 13945.100359999997,
+      "cost_usd_estimate": null,
+      "cost_note": "No pricing file supplied; call/token accounting only."
+    },
+    {
+      "id": "hotpotqa_live_c20",
+      "path": "results/hotpotqa-validation-live-gpt54-mini-nano-c20-r1-repair1-combined.json",
+      "command": "npm run raw:combine:hotpotqa:validation:live:gpt54:c20",
+      "benchmark": "protocol-memory",
+      "models": [
+        "gpt-5.4-mini",
+        "gpt-5.4-nano"
+      ],
+      "model_call_counts": {
+        "gpt-5.4-mini": 240,
+        "gpt-5.4-nano": 240
+      },
+      "live": true,
+      "calls": 480,
+      "successful_api_calls": 480,
+      "api_errors": 0,
+      "parse_errors": 0,
+      "invalid_decisions": 0,
+      "repairs_used": 284,
+      "prompt_tokens_estimate_total": 2725488,
+      "prompt_tokens_estimate_mean": 5678.1,
+      "wire_bytes_total": 10901191,
+      "wire_bytes_mean": 22710.814583333333,
+      "latency_ms_total": 14221537.237,
+      "latency_ms_mean": 29628.20257708333,
+      "cost_usd_estimate": null,
+      "cost_note": "No pricing file supplied; call/token accounting only."
+    }
+  ],
+  "totals": {
+    "calls": 2640,
+    "successful_api_calls": 2640,
+    "api_errors": 0,
+    "parse_errors": 0,
+    "invalid_decisions": 0,
+    "repairs_used": 924,
+    "prompt_tokens_estimate_total": 5279818,
+    "wire_bytes_total": 21116715,
+    "latency_ms_total": 30955657.668999996,
+    "cost_usd_estimate": null
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "benchmark": "coupled-memory-phase5-langgraph-native-suite",
+    "adapter_status": "native-sdk",
+    "harness_id": "langgraph-native",
+    "scenario_count": 27,
+    "case_count": 162,
+    "c5_successes": 27,
+    "c5_cases": 27,
+    "c4_failures": 27,
+    "c4_cases": 27
+  }
+}

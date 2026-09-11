@@ -1,0 +1,34 @@
+{
+  "convention": "mbm-core-v1",
+  "description": "Every result file written under results/eval/ records per-run provenance metadata so that tables and figures are reproducible and independently auditable.",
+  "required_fields": [
+    "command",
+    "model",
+    "seed",
+    "dataset_hash",
+    "request_hash",
+    "response_hash",
+    "scenario_family",
+    "protocol_condition"
+  ],
+  "field_notes": {
+    "command": "Exact CLI invocation that produced the file.",
+    "model": "Live model id(s), e.g. gpt-5.4-mini, gpt-5.4-nano.",
+    "seed": "Deterministic seed for scenario generation and bootstrap.",
+    "dataset_hash": "sha256 of the input dataset JSON.",
+    "request_hash": "sha256 of the canonicalized request payload(s).",
+    "response_hash": "sha256 of the raw response payload(s).",
+    "scenario_family": "One of: twin_run, pause_resume, superseded_policy, branch_merge, artifact_handoff, private_summary, long_horizon_drift, audit_reconstruction (plus SE-native families).",
+    "protocol_condition": "Condition id, e.g. C4, C5/acmcp-core, C4+all-static-filters."
+  },
+  "metric_definitions": {
+    "FFCR": "Failure-Free Completion Rate: completed AND no wrong-scope/stale/unauthorized memory use AND no missing critical memory AND final decision reconstructable from event graph."
+  },
+  "naming": {
+    "raw_results": "results/eval/<experiment>-<model>-<scale>-<seed>.json (plus .partial.jsonl during runs)",
+    "combined": "results/eval/<experiment>-combined.json",
+    "analysis": "results/eval/<experiment>-analysis.json",
+    "figures": "figures/(supp/)*.svg|pdf|png",
+    "tables": "results/latex/tables/*.tex|md"
+  }
+}

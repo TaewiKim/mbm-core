@@ -1,0 +1,23 @@
+{
+  "input": "coupled-memory-phase6-live-model",
+  "model": "gpt-5-mini, gpt-5-nano",
+  "paired_n": 80,
+  "bootstrap_iterations": 5000,
+  "seed": 2628,
+  "c4_successes": 25,
+  "c4_cases": 80,
+  "c5_successes": 76,
+  "c5_cases": 80,
+  "c4_forbidden_memory": 56,
+  "c5_forbidden_memory": 0,
+  "paired_success_delta": 0.6375,
+  "paired_success_delta_ci95": [
+    0.525,
+    0.75
+  ],
+  "paired_forbidden_memory_delta": 0.7,
+  "paired_forbidden_memory_delta_ci95": [
+    0.5875,
+    0.8
+  ]
+}

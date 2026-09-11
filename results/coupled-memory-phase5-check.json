@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "benchmark": "coupled-memory-phase5-harness-adapter-suite",
+    "adapter_status": "parity-shim",
+    "harness_count": 2,
+    "scenario_count": 24,
+    "case_count": 288,
+    "c5_successes": 48,
+    "c5_cases": 48,
+    "c4_failures": 48,
+    "c4_cases": 48
+  }
+}

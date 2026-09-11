@@ -1,0 +1,2446 @@
+{
+  "benchmark": "coupled-memory-phase6-live-model",
+  "live": true,
+  "model": "gpt-5-mini",
+  "runs_per_case": 1,
+  "split": "main",
+  "scenario_limit": 4,
+  "instances_per_family": 5,
+  "condition_matrix": [
+    {
+      "id": "C4",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "scoped shared memory",
+      "coupling": "uncoupled",
+      "purpose": "strong modules without message binding",
+      "features": {
+        "name": "causal-envelope-scoped-memory-uncoupled",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": false
+      }
+    },
+    {
+      "id": "C5",
+      "communication": "causal-reliable envelope",
+      "shared_memory": "governed shared memory",
+      "coupling": "message-bound",
+      "purpose": "proposed coupled condition",
+      "features": {
+        "name": "causal-envelope-governed-message-bound-memory",
+        "typedEnvelope": true,
+        "sharedMemory": true,
+        "scopedMemory": true,
+        "causalEnvelope": true,
+        "messageBoundMemory": true
+      }
+    }
+  ],
+  "c4_c5_parity": {
+    "c4": "readMemory(query)",
+    "c5": "readMemory(query, currentMessage, runState)",
+    "differing_feature": "messageBoundMemory"
+  },
+  "cases": [
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-1",
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-1",
+        "mem-B-twin-1"
+      ],
+      "model_answer": "Both retrieved shared-memory constraints apply: mem-A-twin-1 => Run A: LOCAL_ONLY_STORAGE; mem-B-twin-1 => Run B: CLOUD_STORAGE_REQUIRED. They conflict (storage modes differ) and must be reconciled before deployment or applied separately per run.",
+      "model_confidence": 0.88,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_001",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-1"
+      ],
+      "model_answer": "Enforce the Run B deployment storage constraint: use CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-2",
+        "mem-B-twin-2"
+      ],
+      "model_answer": "Both retrieved shared-memory candidates govern the response: mem-A-twin-2 specifies 'LOCAL_ONLY_STORAGE' for deployment storage constraint variant 2, and mem-B-twin-2 specifies 'CLOUD_STORAGE_REQUIRED' for deployment storage constraint variant 2. These are conflicting constraints and require a resolution policy (no active-message binding provided).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_002",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-2"
+      ],
+      "model_answer": "Use mem-B-twin-2: Run B deployment storage constraint variant 2 -> use CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-3",
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-3",
+        "mem-B-twin-3"
+      ],
+      "model_answer": "Both retrieved shared-memory candidates apply for “deployment storage constraint variant 3”: mem-A-twin-3 => LOCAL_ONLY_STORAGE; mem-B-twin-3 => CLOUD_STORAGE_REQUIRED. They conflict and therefore must be reconciled before deployment (e.g., choose one constraint per run or partition scoped memory so each run uses its intended constraint).",
+      "model_confidence": 0.88,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_003",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-3"
+      ],
+      "model_answer": "Apply deployment storage constraint variant 3: use CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_004",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-4",
+        "mem-B-twin-4"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-4"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-4",
+        "mem-B-twin-4"
+      ],
+      "model_answer": "Use both retrieved shared-memory candidates: mem-A-twin-4 (Run A: LOCAL_ONLY_STORAGE) and mem-B-twin-4 (Run B: CLOUD_STORAGE_REQUIRED). Both apply under the scoped shared memory condition and must be considered; they conflict (local vs cloud).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_004",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-4"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-4"
+      ],
+      "model_answer": "For run-B-4 deployment, apply the storage constraint: use CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_005",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-twin-5",
+        "mem-B-twin-5"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-5"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-twin-5",
+        "mem-B-twin-5"
+      ],
+      "model_answer": "Both memories should govern the final answer; they are the retrieved scoped shared-memory candidates for deployment storage constraint variant 5 and present conflicting constraints (LOCAL_ONLY_STORAGE vs CLOUD_STORAGE_REQUIRED).",
+      "model_confidence": 0.86,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "twin_run_contamination_005",
+      "scenario_type": "twin_run_shared_memory_contamination",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-twin-5"
+      ],
+      "expected_memory_ids": [
+        "mem-B-twin-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-twin-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-twin-5"
+      ],
+      "model_answer": "Apply CLOUD_STORAGE_REQUIRED for Run B deployment (storage constraint variant 5).",
+      "model_confidence": 0.93,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-1",
+        "mem-B-resume-1"
+      ],
+      "model_answer": "Two scoped shared-memory constraint candidates apply to “resume deployment storage constraint variant 1”: Run A => LOCAL_ONLY_STORAGE; Run B => CLOUD_STORAGE_REQUIRED. Both memories are retrieved and relevant; there is no active-message binding to choose one over the other, so both constraints are presented as alternatives/conflicting variants.",
+      "model_confidence": 0.78,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_001",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-1"
+      ],
+      "model_answer": "For the Run B resume deployment (variant 1), enforce the storage constraint: CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.93,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_002",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-2",
+        "mem-B-resume-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-2",
+        "mem-B-resume-2"
+      ],
+      "model_answer": "Two retrieved shared-memory candidates apply to the query: mem-A-resume-2 specifies LOCAL_ONLY_STORAGE; mem-B-resume-2 specifies CLOUD_STORAGE_REQUIRED. These are conflicting storage constraints for the same “resume deployment storage constraint variant 2” and cannot be resolved unambiguously here. Please confirm which constraint should be applied (LOCAL_ONLY or CLOUD_REQUIRED), or provide a selection rule (e.g., per-run mapping or environment condition). Note: because there is no message-bound memory, this conflict must be resolved externally.",
+      "model_confidence": 0.74,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_002",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-2"
+      ],
+      "model_answer": "Apply CLOUD_STORAGE_REQUIRED for the Run B resume deployment (variant 2).",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_003",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-3",
+        "mem-B-resume-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-3",
+        "mem-B-resume-3"
+      ],
+      "model_answer": "Both retrieved constraint candidates apply: mem-A-resume-3 mandates LOCAL_ONLY_STORAGE; mem-B-resume-3 mandates CLOUD_STORAGE_REQUIRED. They conflict and cannot be auto-resolved without an active message binding or higher-priority directive. Please specify which storage policy to prefer (local-only or cloud-required) or provide a tie-breaking rule.",
+      "model_confidence": 0.5,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_003",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-3"
+      ],
+      "model_answer": "For run-B-3 resume deployment (variant 3), enforce CLOUD_STORAGE_REQUIRED as the storage constraint.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_004",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-4",
+        "mem-B-resume-4"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-4"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-4",
+        "mem-B-resume-4"
+      ],
+      "model_answer": "Two shared-memory candidates match \"resume deployment storage constraint variant 4\": mem-A-resume-4 specifies LOCAL_ONLY_STORAGE; mem-B-resume-4 specifies CLOUD_STORAGE_REQUIRED. These are directly conflicting and there is no message-bound memory binding or protocol rule provided to prefer one over the other. Recommend human/policy review to resolve which storage constraint should apply (or supply an explicit tie-breaker rule).",
+      "model_confidence": 0.2,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_004",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-4"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-4"
+      ],
+      "model_answer": "Apply storage constraint: CLOUD_STORAGE_REQUIRED.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_005",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-resume-5",
+        "mem-B-resume-5"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-5"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-resume-5",
+        "mem-B-resume-5"
+      ],
+      "model_answer": "Both retrieved shared-memory candidates apply but conflict: mem-A-resume-5 mandates LOCAL_ONLY_STORAGE; mem-B-resume-5 mandates CLOUD_STORAGE_REQUIRED. Human review / resolution required to decide which constraint to enforce.",
+      "model_confidence": 0.35,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "pause_resume_deferred_constraint_005",
+      "scenario_type": "pause_resume_deferred_constraint",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-resume-5"
+      ],
+      "expected_memory_ids": [
+        "mem-B-resume-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-resume-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-resume-5"
+      ],
+      "model_answer": "Apply the storage constraint specified in mem-B-resume-5: use CLOUD_STORAGE_REQUIRED for this Run B resume deployment (variant 5).",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_001",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-1",
+        "mem-policy-old-1"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-policy-current-1",
+        "mem-policy-old-1"
+      ],
+      "model_answer": "Use ENCRYPTED_CLOUD_BUCKET (mem-policy-current-1) for retry deployment storage policy variant 1. The LEGACY_UNENCRYPTED_BUCKET (mem-policy-old-1) is superseded and should not be used.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_001",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [],
+      "model_answer": "No governing memory selected. The provided candidate (mem-policy-current-1) does not include metadata tying it to the active message/run/task/trace or receiver, so it cannot be safely used under the protocol rule. Requesting review or a memory explicitly bound to run-B-1 / trace-B-1 / task deploy / receiver executor.",
+      "model_confidence": 0.2,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_002",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-old-2",
+        "mem-policy-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "model_answer": "Use ENCRYPTED_CLOUD_BUCKET (mem-policy-current-2) for retry deployment storage policy variant 2.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_002",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-2"
+      ],
+      "model_answer": "Apply retry deployment storage policy variant 2: use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_003",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-3",
+        "mem-policy-old-3"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "model_answer": "Use ENCRYPTED_CLOUD_BUCKET for retry deployment storage policy variant 3.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_003",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-3"
+      ],
+      "model_answer": "Use the policy from mem-policy-current-3: retry deployment storage policy variant 3 — use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.35,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_004",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-current-4",
+        "mem-policy-old-4"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-4"
+      ],
+      "model_answer": "Use the current retry deployment storage policy: ENCRYPTED_CLOUD_BUCKET (mem-policy-current-4).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_004",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-4"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-4"
+      ],
+      "model_answer": "Apply the retry deployment storage policy variant 4: use ENCRYPTED_CLOUD_BUCKET for storage during retry.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_005",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-policy-old-5",
+        "mem-policy-current-5"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-5"
+      ],
+      "model_answer": "Use mem-policy-current-5 (ENCRYPTED_CLOUD_BUCKET) as the governing policy for retry deployment storage variant 5.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "crash_retry_superseded_policy_005",
+      "scenario_type": "crash_retry_with_superseded_policy",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-policy-current-5"
+      ],
+      "expected_memory_ids": [
+        "mem-policy-current-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-policy-old-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-policy-current-5"
+      ],
+      "model_answer": "Apply the retry deployment storage policy variant 5: use ENCRYPTED_CLOUD_BUCKET.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_001",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-1",
+        "mem-branch-b-1"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-1",
+        "mem-branch-b-1"
+      ],
+      "model_answer": "Both retrieved shared-memory candidates apply but conflict: mem-branch-a-1 -> choose local rollback branch; mem-branch-b-1 -> choose cloud migration branch. There is no available rule to prefer one over the other, so I cannot unilaterally decide. Recommend clarifying the decision criteria (e.g., acceptable downtime, rollback speed, data consistency, team preference) or providing a priority for these memories.",
+      "model_confidence": 0.25,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_001",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [],
+      "model_answer": "No memory selected. The candidate memory (mem-branch-b-1: 'Deployment branch decision variant 1: choose cloud migration branch.') cannot be confidently used because there is no explicit binding metadata showing it is message-bound to the active run/task/trace and current receiver as required by the protocol.",
+      "model_confidence": 0.38,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_002",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-2",
+        "mem-branch-b-2"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-2",
+        "mem-branch-b-2"
+      ],
+      "model_answer": "Conflicting shared memories: one selects local rollback branch, the other selects cloud migration. Cannot deterministically choose; requires human or policy tie-break (e.g., risk profile, uptime requirements, recent test results). Recommend review.",
+      "model_confidence": 0.3,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_002",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-2"
+      ],
+      "model_answer": "Adopt the cloud migration branch (Deployment branch decision variant 2).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_003",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-3",
+        "mem-branch-b-3"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-3",
+        "mem-branch-b-3"
+      ],
+      "model_answer": "Both retrieved memories conflict (one selects local rollback branch, the other selects cloud migration branch). No causal binding or priority rule is provided, so I cannot deterministically choose one. Please provide tie-breaker criteria (priority, environment, rollback risk, or preferred deployment target) or authorize a default policy.",
+      "model_confidence": 0.15,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_003",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-3"
+      ],
+      "model_answer": "Use the deployment branch decision from mem-branch-b-3: choose the cloud migration branch.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_004",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-4",
+        "mem-branch-b-4"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-4"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-4",
+        "mem-branch-b-4"
+      ],
+      "model_answer": "The two retrieved shared-memory candidates conflict: mem-branch-a-4 -> \"choose local rollback branch\"; mem-branch-b-4 -> \"choose cloud migration branch.\" There is no rule in the condition to prefer one over the other, so this requires human review or additional precedence information. Recommended immediate action: pause automatic decision, collect resolving criteria (risk tolerance, required downtime, test/validation state, rollback speed, deployment window), or supply a priority/timestamp to break the tie.",
+      "model_confidence": 0.15,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_004",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-4"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-4"
+      ],
+      "model_answer": "Selected memory mem-branch-b-4: \"Deployment branch decision variant 4: choose cloud migration branch.\"",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_005",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-branch-a-5",
+        "mem-branch-b-5"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-5"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-branch-a-5",
+        "mem-branch-b-5"
+      ],
+      "model_answer": "Both retrieved shared-memory candidates apply but conflict: mem-branch-a-5 recommends choosing the local rollback branch, while mem-branch-b-5 recommends choosing the cloud migration branch. No message-bound memory is available to resolve the conflict. Please confirm which option to prefer or provide an arbitration rule (e.g., favor rollback, favor migration, or provide additional context).",
+      "model_confidence": 0.25,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "branch_merge_conflict_005",
+      "scenario_type": "branch_merge_with_conflicting_memories",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-branch-b-5"
+      ],
+      "expected_memory_ids": [
+        "mem-branch-b-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-branch-a-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-branch-b-5"
+      ],
+      "model_answer": "Adopt the cloud migration branch (deployment branch decision variant 5).",
+      "model_confidence": 0.88,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_001",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-1",
+        "mem-B-artifact-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-1",
+        "mem-B-artifact-1"
+      ],
+      "model_answer": "Retrieved both artifact deployment plan variant 1 references: artifact://run-A-1/plan-v1 (mem-A-artifact-1) and artifact://run-B-1/plan-v2 (mem-B-artifact-1).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_001",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-1"
+      ],
+      "model_answer": "Use artifact://run-B-1/plan-v2 (artifact deployment plan variant 1 from mem-B-artifact-1) as the deployment plan.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_002",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-2",
+        "mem-B-artifact-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-2",
+        "mem-B-artifact-2"
+      ],
+      "model_answer": "Relevant artifact deployment plan variants: artifact://run-A-2/plan-v1 and artifact://run-B-2/plan-v2.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_002",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-2"
+      ],
+      "model_answer": "Use mem-B-artifact-2 (artifact://run-B-2/plan-v2) to govern the deployment plan for this run.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_003",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-3",
+        "mem-B-artifact-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-3",
+        "mem-B-artifact-3"
+      ],
+      "model_answer": "Two matching artifact deployment plan variant 3 entries were found: artifact://run-A-3/plan-v1 (mem-A-artifact-3) and artifact://run-B-3/plan-v2 (mem-B-artifact-3).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_003",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-3"
+      ],
+      "model_answer": "Use artifact deployment plan variant 3: artifact://run-B-3/plan-v2 (from mem-B-artifact-3) as the governing artifact reference for this executor's deployment actions.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_004",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-4",
+        "mem-B-artifact-4"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-4"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-4",
+        "mem-B-artifact-4"
+      ],
+      "model_answer": "Found two shared artifact references for deployment plan variant 4:\n- artifact://run-A-4/plan-v1 (mem-A-artifact-4)\n- artifact://run-B-4/plan-v2 (mem-B-artifact-4)",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_004",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-4"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-4"
+      ],
+      "model_answer": "Use artifact://run-B-4/plan-v2 (Artifact deployment plan variant 4) as the deployment plan for this run/task/trace.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_005",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-A-artifact-5",
+        "mem-B-artifact-5"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-5"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-A-artifact-5",
+        "mem-B-artifact-5"
+      ],
+      "model_answer": "Selected both shared scoped artifact references for variant 5: artifact://run-A-5/plan-v1 and artifact://run-B-5/plan-v2.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "artifact_handoff_005",
+      "scenario_type": "artifact_dependent_handoff",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-B-artifact-5"
+      ],
+      "expected_memory_ids": [
+        "mem-B-artifact-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-A-artifact-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-B-artifact-5"
+      ],
+      "model_answer": "Use memory mem-B-artifact-5: artifact://run-B-5/plan-v2 governs the deployment. Retrieve artifact://run-B-5/plan-v2 and execute the deployment steps defined in plan-v2 for run-B-5.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_001",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-1",
+        "mem-private-summary-1"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "model_answer": "Use mem-private-summary-1 (the redacted customer risk summary approved for the executor). Do not use mem-private-raw-1 (contains a raw secret token that must never be shown).",
+      "model_confidence": 0.93,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_001",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-1"
+      ],
+      "model_answer": "Use mem-private-summary-1, but its binding to the active run/task/trace is not explicit and requires review before use.",
+      "model_confidence": 0.6,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_002",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-2",
+        "mem-private-summary-2"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "model_answer": "Use mem-private-summary-2 (the redacted customer risk summary approved for the executor). Do not disclose mem-private-raw-2 or its SECRET_RAW_TOKEN_2.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_002",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-2"
+      ],
+      "model_answer": "Use mem-private-summary-2 (Private customer summary variant 2) to govern the response.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_003",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-3",
+        "mem-private-summary-3"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "model_answer": "Use mem-private-summary-3 (the approved redacted customer risk summary) as the governing memory. Do not reveal or use the raw private memory (mem-private-raw-3) or any secret tokens it contains.",
+      "model_confidence": 0.93,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_003",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-3"
+      ],
+      "model_answer": "Use mem-private-summary-3 (redacted customer risk summary approved for executor) to govern the final response.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_004",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-4",
+        "mem-private-summary-4"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-4"
+      ],
+      "model_answer": "Use mem-private-summary-4 (redacted customer risk summary approved for executor). Do not use mem-private-raw-4 (contains SECRET_RAW_TOKEN_4 and must never be shown).",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_004",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-4"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-4"
+      ],
+      "model_answer": "Use mem-private-summary-4 to govern the final response.",
+      "model_confidence": 0.95,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_005",
+      "scenario_type": "private_memory_summary",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-private-raw-5",
+        "mem-private-summary-5"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-5"
+      ],
+      "model_answer": "Use mem-private-summary-5 (the approved redacted customer risk summary). Do not use or disclose mem-private-raw-5 (contains raw secret and must never be shown).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "private_memory_summary_005",
+      "scenario_type": "private_memory_summary",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-private-summary-5"
+      ],
+      "expected_memory_ids": [
+        "mem-private-summary-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-private-raw-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-private-summary-5"
+      ],
+      "model_answer": "Use memory mem-private-summary-5 (redacted customer risk summary approved for executor) to govern the response.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_001",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-1",
+        "mem-long-old-1"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "model_answer": "Adopt the current decision: require a verification gate for the long-horizon deployment (ignore the early draft that recommended skipping verification).",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_001",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-1"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-1"
+      ],
+      "model_answer": "Apply the governing memory mem-long-current-1: the long-horizon deployment decision (variant 1) requires a verification gate — do not proceed to deploy until the verification gate conditions are met (execute verification tests and obtain required sign-off).",
+      "model_confidence": 0.86,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_002",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-2",
+        "mem-long-old-2"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "model_answer": "For long horizon deployment decision variant 2, follow the current decision: require a verification gate before proceeding (do not follow the early draft that skipped verification).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_002",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-2"
+      ],
+      "model_answer": "Use mem-long-current-2 as the governing memory. It states: 'Long horizon deployment decision variant 2: final decision requires verification gate.' Therefore, the final deployment decision must await and pass the required verification gate before proceeding.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_003",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-3",
+        "mem-long-old-3"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "model_answer": "Follow the final decision: include a verification gate for long-horizon deployment variant 3.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_003",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-3"
+      ],
+      "model_answer": "Do not finalize deployment yet; require and pass the verification gate (verification checklist and gate criteria) before making the final deployment decision.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_004",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-current-4",
+        "mem-long-old-4"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-4"
+      ],
+      "model_answer": "Use the current memory: the final decision requires a verification gate.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_004",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-4"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-4"
+      ],
+      "model_answer": "Use the governed memory mem-long-current-4: the final deployment decision must pass a verification gate before proceeding. Implement a short verification gate checklist: 1) run automated integration and regression tests and drift detectors; 2) validate canary/smoke metrics against success thresholds and rollback triggers; 3) confirm required approvals (stakeholders/owners); 4) run security and infra health checks. If all checks pass, authorize deployment; if any check fails, halt deployment and remediate before re-running the gate.",
+      "model_confidence": 0.87,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_005",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-long-old-5",
+        "mem-long-current-5"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-5"
+      ],
+      "model_answer": "Final decision for long horizon deployment variant 5: require a verification gate (do not skip verification).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "long_horizon_drift_005",
+      "scenario_type": "long_horizon_drift",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-long-current-5"
+      ],
+      "expected_memory_ids": [
+        "mem-long-current-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-long-old-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-long-current-5"
+      ],
+      "model_answer": "Proceed with final deployment only after a verification gate is completed, per the bound memory for variant 5.",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_001",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-valid-1",
+        "mem-audit-orphan-1"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-1",
+        "mem-audit-orphan-1"
+      ],
+      "model_answer": "Include both shared-memory candidates (mem-audit-valid-1 and mem-audit-orphan-1). They represent two conflicting variants of “audit reconstruction decision variant 1” (one verified with a source message, one orphan with no source).",
+      "model_confidence": 0.75,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_001",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-1"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-1"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 0,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [],
+      "model_answer": "No memory selected. The provided candidate (mem-audit-valid-1) lacks explicit binding metadata to the active message/run/task/trace and receiver required by the protocol, so I cannot safely use it without confirmation.",
+      "model_confidence": 0.2,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_002",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-2",
+        "mem-audit-valid-2"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-2"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-audit-orphan-2",
+        "mem-audit-valid-2"
+      ],
+      "model_answer": "Two shared-memory candidates match “audit reconstruction decision variant 2”: (1) mem-audit-orphan-2 — orphan decision with no source message; (2) mem-audit-valid-2 — verified decision that has a source message.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_002",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-2"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-2"
+      ],
+      "model_answer": "Use memory mem-audit-valid-2: 'Audit reconstruction decision variant 2: verified decision has source message.'",
+      "model_confidence": 0.6,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_003",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-3",
+        "mem-audit-valid-3"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-3"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-audit-orphan-3",
+        "mem-audit-valid-3"
+      ],
+      "model_answer": "Both retrieved shared-memory decisions apply to audit reconstruction decision variant 3 but conflict: mem-audit-orphan-3 records an orphan decision with no source message, while mem-audit-valid-3 records a verified decision that has a source message. Because the system is uncoupled and message-bound memory is not available, both shared memories must be considered and the inconsistency requires review.",
+      "model_confidence": 0.42,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_003",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-3"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-3"
+      ],
+      "model_answer": "Use mem-audit-valid-3 to govern the final answer.",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_004",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-4",
+        "mem-audit-valid-4"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-4"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-4",
+        "mem-audit-orphan-4"
+      ],
+      "model_answer": "Use both shared-memory candidates for variant 4: mem-audit-valid-4 (verified decision with source message) and mem-audit-orphan-4 (orphan decision without a source message).",
+      "model_confidence": 0.9,
+      "model_needs_review": false
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_004",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-4"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-4"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-4"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-4"
+      ],
+      "model_answer": "Use the verified decision from memory mem-audit-valid-4: \"Audit reconstruction decision variant 4: verified decision has source message.\"",
+      "model_confidence": 0.75,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_005",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C4",
+      "run_index": 0,
+      "deterministic_success": false,
+      "injected_memory_ids": [
+        "mem-audit-orphan-5",
+        "mem-audit-valid-5"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-5"
+      ],
+      "api_error": "",
+      "model_success": false,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 1,
+      "model_selected_memory_ids": [
+        "mem-audit-orphan-5",
+        "mem-audit-valid-5"
+      ],
+      "model_answer": "Both retrieved shared-memory decisions for variant 5 are relevant but conflict: one records an orphan decision with no source message, the other records a verified decision with a source message. This contradiction should be resolved by human review or tie-breaking policy before finalizing the audit reconstruction.",
+      "model_confidence": 0.45,
+      "model_needs_review": true
+    },
+    {
+      "benchmark": "coupled-memory-phase6-live-model",
+      "live": true,
+      "model": "gpt-5-mini",
+      "scenario_id": "audit_reconstruction_005",
+      "scenario_type": "audit_reconstruction",
+      "condition": "C5",
+      "run_index": 0,
+      "deterministic_success": true,
+      "injected_memory_ids": [
+        "mem-audit-valid-5"
+      ],
+      "expected_memory_ids": [
+        "mem-audit-valid-5"
+      ],
+      "forbidden_memory_ids": [
+        "mem-audit-orphan-5"
+      ],
+      "api_error": "",
+      "model_success": true,
+      "selected_expected_memory": 1,
+      "selected_forbidden_memory": 0,
+      "model_selected_memory_ids": [
+        "mem-audit-valid-5"
+      ],
+      "model_answer": "Use memory mem-audit-valid-5: 'Audit reconstruction decision variant 5: verified decision has source message.'",
+      "model_confidence": 0.92,
+      "model_needs_review": false
+    }
+  ],
+  "summary": [
+    {
+      "condition": "C4",
+      "cases": 40,
+      "api_errors": 0,
+      "deterministic_success_rate": 0,
+      "model_success_rate": 0.35,
+      "selected_forbidden_memory": 26
+    },
+    {
+      "condition": "C5",
+      "cases": 40,
+      "api_errors": 0,
+      "deterministic_success_rate": 1,
+      "model_success_rate": 0.925,
+      "selected_forbidden_memory": 0
+    }
+  ]
+}

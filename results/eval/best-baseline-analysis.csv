@@ -1,0 +1,7 @@
+id,experiment,label,status,paired_n,baseline_ffcr,treatment_ffcr,ffcr_delta,ci95_low,ci95_high,significant_after_correction,family_win_tie_rate,best_baseline_label
+controlled_protocol_swap,E1,controlled protocol-swap (E1),ready,270,0.8778,1,0.1222,0.0852,0.163,true,1,C4 (ungated control)
+dropin_replacement,E2,drop-in replacement (E2),ready,270,0.8667,1,0.1333,0.0926,0.1741,true,1,legacy shared-memory wrapper
+se_native_workflow,E3,SE-native workflow (E3),ready,200,0.87,1,0.13,0.085,0.18,true,1,C4 (ungated control)
+strong_baseline_rescue,E5,strong-baseline rescue (E5),ready,90,1,1,0,0,0,false,1,best conventional-authorization baseline (static / FK / ABAC / ReBAC / capability / oracle)
+blinded_holdout,E7,blinded adversarial holdout (E7),ready,160,1,1,0,0,0,false,1,best holdout baseline (incl. source-exists FK)
+aggregate,E6,aggregate (E6),ready,990,0.904,1,0.096,0.0778,0.1152,true,1,per-family best non-C5 baseline (ungated C4 on treatment-aligned families E1/E2/E3; best strong/oracle baseline on E5/E7)

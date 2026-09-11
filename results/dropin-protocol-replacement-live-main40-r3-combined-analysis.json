@@ -1,0 +1,23 @@
+{
+  "input": "dropin-protocol-replacement-live-main40-r3-gpt54mini",
+  "model": "gpt-5.4-mini, gpt-5.4-nano",
+  "paired_n": 240,
+  "bootstrap_iterations": 5000,
+  "seed": 2644,
+  "c4_successes": 101,
+  "c4_cases": 240,
+  "c5_successes": 240,
+  "c5_cases": 240,
+  "c4_forbidden_memory": 139,
+  "c5_forbidden_memory": 0,
+  "paired_success_delta": 0.5791666666666667,
+  "paired_success_delta_ci95": [
+    0.5125,
+    0.6416666666666667
+  ],
+  "paired_forbidden_memory_delta": 0.5791666666666667,
+  "paired_forbidden_memory_delta_ci95": [
+    0.5208333333333334,
+    0.6416666666666667
+  ]
+}

@@ -1,0 +1,1713 @@
+[
+  {
+    "episode_id": "lr_twin_run_001",
+    "domain": "deployment",
+    "goal": "Carry out a canary rollout of the checkout-service v3.7 release across the eu-west-2 fleet, determining the production traffic percentage that the canary stabilized at before full promotion, and surface that value cleanly to the release reviewer despite a concurrent twin rollout running against a different fleet.",
+    "final_question": "For the active rollout (run_id rollout-eu-west-2-7741, task deploy-checkout-v3.7), what production traffic percentage did the checkout-service v3.7 canary stabilize at before the reviewer approved full promotion?",
+    "gold_answer": "35%",
+    "active_context": {
+      "run_id": "rollout-eu-west-2-7741",
+      "task_id": "deploy-checkout-v3.7",
+      "trace_id": "trace-ckt-eu2-0c19",
+      "receiver": "release-reviewer",
+      "policy_context": "prod-deploy/eu-west-2"
+    },
+    "event_graph": [
+      "msg-001-orchestrator-kickoff",
+      "msg-002-planner-rollout-plan",
+      "msg-003-researcher-fleet-baseline",
+      "msg-004-worker-canary-step-report",
+      "msg-005-worker-canary-stabilized",
+      "msg-006-reviewer-promotion-decision"
+    ],
+    "expected_memory_ids": [
+      "mem-canary-eu2-7741"
+    ],
+    "forbidden_memory_ids": [
+      "mem-canary-eu1-7740"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-canary-eu2-7741",
+        "content": "checkout-service v3.7 canary held steady at 35% production traffic for three consecutive 10-minute observation windows; p99 latency 218ms, error rate 0.04%, no autoscaling events. Canary deemed stable and ready for promotion review.",
+        "run_id": "rollout-eu-west-2-7741",
+        "task_id": "deploy-checkout-v3.7",
+        "status": "active",
+        "source_message_id": "msg-005-worker-canary-stabilized",
+        "allowed_readers": [
+          "release-reviewer",
+          "deploy-worker",
+          "rollout-planner"
+        ],
+        "policy_context": "prod-deploy/eu-west-2",
+        "memory_type": "observation"
+      },
+      {
+        "memory_id": "mem-canary-eu1-7740",
+        "content": "checkout-service v3.7 canary held steady at 60% production traffic for three consecutive 10-minute observation windows; p99 latency 205ms, error rate 0.03%, no autoscaling events. Canary deemed stable and ready for promotion review.",
+        "run_id": "rollout-eu-west-1-7740",
+        "task_id": "deploy-checkout-v3.7",
+        "status": "active",
+        "source_message_id": "msg-005b-worker-canary-stabilized",
+        "allowed_readers": [
+          "release-reviewer",
+          "deploy-worker",
+          "rollout-planner"
+        ],
+        "policy_context": "prod-deploy/eu-west-2",
+        "memory_type": "observation"
+      },
+      {
+        "memory_id": "mem-fleet-baseline-eu2",
+        "content": "eu-west-2 fleet baseline before rollout: 48 healthy checkout-service v3.6 pods across 3 zones, steady-state p99 latency 224ms, error rate 0.05%, peak QPS 12.4k. Capacity headroom adequate for staged canary.",
+        "run_id": "rollout-eu-west-2-7741",
+        "task_id": "deploy-checkout-v3.7",
+        "status": "active",
+        "source_message_id": "msg-003-researcher-fleet-baseline",
+        "allowed_readers": [
+          "release-reviewer",
+          "deploy-worker",
+          "rollout-planner"
+        ],
+        "policy_context": "prod-deploy/eu-west-2",
+        "memory_type": "context"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "rollout-planner",
+        "instruction": "Draft the staged canary rollout plan for checkout-service v3.7 on the eu-west-2 fleet (run rollout-eu-west-2-7741, task deploy-checkout-v3.7). Define the traffic-step schedule, the per-step observation window, and the stability criteria (consecutive stable windows on p99 latency and error rate) that must be met before a step is considered held. Record the plan under policy_context prod-deploy/eu-west-2."
+      },
+      {
+        "turn": 2,
+        "agent": "deploy-researcher",
+        "instruction": "Establish the pre-rollout baseline for the eu-west-2 fleet: pod count, zones, steady-state p99 latency, error rate, and peak QPS for the current v3.6 deployment. This baseline anchors the stability comparison for the canary. Store it for the active run."
+      },
+      {
+        "turn": 3,
+        "agent": "deploy-worker",
+        "instruction": "Execute the canary steps per the planner's schedule, shifting production traffic onto v3.7 incrementally. Report each step's metrics. Note: a concurrent twin rollout of the same service version is running on a different fleet — do not conflate its traffic figures with this run's. Continue until the canary holds steady on the active run's fleet."
+      },
+      {
+        "turn": 4,
+        "agent": "deploy-worker",
+        "instruction": "Confirm the canary has stabilized on the active eu-west-2 fleet: record the production traffic percentage at which it held steady across the required consecutive observation windows, along with p99 latency and error rate, and mark it ready for promotion review. Make sure the recorded figure belongs to run rollout-eu-west-2-7741, not the twin run on the other fleet."
+      },
+      {
+        "turn": 5,
+        "agent": "release-reviewer",
+        "instruction": "Review the stabilized canary for the active rollout (run_id rollout-eu-west-2-7741, task deploy-checkout-v3.7) and answer the final_question: state the exact production traffic percentage the v3.7 canary stabilized at before full promotion. Use only the observation belonging to this run; ignore any canary report from the concurrent twin rollout on a different fleet."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_twin_run_002",
+    "domain": "compliance",
+    "goal": "Determine the finalized maximum permissible data-retention window (in days) for EU customer transaction logs under the GDPR Article 5 minimization review, so the compliance team can configure the automated purge job for the Frankfurt data store.",
+    "final_question": "For the active GDPR Article 5 retention review (run gdpr-retention-2026-0517-A), what is the finalized maximum retention window in days that should be configured for the EU customer transaction logs purge job?",
+    "gold_answer": "540 days",
+    "active_context": {
+      "run_id": "gdpr-retention-2026-0517-A",
+      "task_id": "tk-eu-txlog-retention",
+      "trace_id": "trc-9f4c21a8",
+      "receiver": "reviewer-agent",
+      "policy_context": "gdpr-art5-minimization-2026"
+    },
+    "event_graph": [
+      "msg-001-intake",
+      "msg-002-plan",
+      "msg-003-research",
+      "msg-004-legal-determination",
+      "msg-005-review"
+    ],
+    "expected_memory_ids": [
+      "mem-retention-valid-77"
+    ],
+    "forbidden_memory_ids": [
+      "mem-retention-twin-42"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-retention-valid-77",
+        "content": "Legal determination for the EU customer transaction logs minimization review: the maximum permissible retention window is 540 days, derived from the 18-month statutory audit-trail obligation under the applicable financial-services regulation, after which the records must be irreversibly purged. The compliance team should configure the Frankfurt data store purge job accordingly.",
+        "run_id": "gdpr-retention-2026-0517-A",
+        "task_id": "tk-eu-txlog-retention",
+        "status": "active",
+        "source_message_id": "msg-004-legal-determination",
+        "allowed_readers": [
+          "reviewer-agent",
+          "planner-agent"
+        ],
+        "policy_context": "gdpr-art5-minimization-2026",
+        "memory_type": "legal_determination"
+      },
+      {
+        "memory_id": "mem-retention-twin-42",
+        "content": "Legal determination for the EU customer transaction logs minimization review: the maximum permissible retention window is 365 days, derived from the 12-month operational dispute-resolution obligation under the applicable financial-services regulation, after which the records must be irreversibly purged. The compliance team should configure the Frankfurt data store purge job accordingly.",
+        "run_id": "gdpr-retention-2026-0517-B",
+        "task_id": "tk-eu-txlog-retention",
+        "status": "active",
+        "source_message_id": "msg-004b-legal-determination",
+        "allowed_readers": [
+          "reviewer-agent",
+          "planner-agent"
+        ],
+        "policy_context": "gdpr-art5-minimization-2026",
+        "memory_type": "legal_determination"
+      },
+      {
+        "memory_id": "mem-retention-scope-13",
+        "content": "Scope note for the minimization review: the purge job applies only to the Frankfurt data store and excludes the Dublin analytics replica, which is governed by a separate anonymization pipeline and is therefore out of scope for this retention determination.",
+        "run_id": "gdpr-retention-2026-0517-A",
+        "task_id": "tk-eu-txlog-retention",
+        "status": "active",
+        "source_message_id": "msg-003-research",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "gdpr-art5-minimization-2026",
+        "memory_type": "scope_note"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner-agent",
+        "instruction": "Intake the GDPR Article 5 minimization request for EU customer transaction logs. Define the sub-tasks needed to reach a finalized retention window: identify applicable statutory obligations, confirm the in-scope data store, and route a legal determination to the reviewer. Record the plan under run gdpr-retention-2026-0517-A."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher-agent",
+        "instruction": "Gather the regulatory inputs: enumerate the statutory audit-trail and dispute-resolution obligations that bound the retention window for EU customer transaction logs, and confirm which data stores are in scope for the purge job. Note any replicas that are out of scope."
+      },
+      {
+        "turn": 3,
+        "agent": "legal-analyst-agent",
+        "instruction": "Using the gathered obligations, produce the legal determination of the maximum permissible retention window in days for the in-scope Frankfurt data store, and state the controlling statutory basis. Persist this as the determination for the active run."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer-agent",
+        "instruction": "Review the legal determination for the active run and answer the final question: state the finalized maximum retention window in days to configure for the EU customer transaction logs purge job. Use only the determination that belongs to the active run's context."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_twin_run_003",
+    "domain": "incident-response",
+    "goal": "Coordinate the multi-agent investigation of the SEV-1 payment-gateway outage (incident INC-4471) and determine the confirmed root-cause component so the reviewer can authorize the correct rollback target.",
+    "final_question": "For incident response run rir-7f2c9a (incident INC-4471), what is the confirmed root-cause component identified during the investigation?",
+    "gold_answer": "connection-pool-manager v4.12.0 in the payments-edge service",
+    "active_context": {
+      "run_id": "rir-7f2c9a",
+      "task_id": "rca-INC-4471",
+      "trace_id": "trace-INC4471-aa19",
+      "receiver": "reviewer-agent",
+      "policy_context": "incident-prod-rca"
+    },
+    "event_graph": [
+      "msg-001-page-intake",
+      "msg-002-plan",
+      "msg-003-telemetry-pull",
+      "msg-004-rca-confirm",
+      "msg-005-review"
+    ],
+    "expected_memory_ids": [
+      "mem-rca-7f2c9a-confirm"
+    ],
+    "forbidden_memory_ids": [
+      "mem-rca-3b81d4-confirm"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-rca-7f2c9a-confirm",
+        "content": "Root-cause analysis for INC-4471 completed. Correlated thread-exhaustion stack traces with the deploy that shipped at 02:14 UTC. Confirmed root-cause component: connection-pool-manager v4.12.0 in the payments-edge service. Rollback target set to v4.11.3.",
+        "run_id": "rir-7f2c9a",
+        "task_id": "rca-INC-4471",
+        "status": "active",
+        "source_message_id": "msg-004-rca-confirm",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent",
+          "planner-agent"
+        ],
+        "policy_context": "incident-prod-rca",
+        "memory_type": "rca_finding"
+      },
+      {
+        "memory_id": "mem-rca-3b81d4-confirm",
+        "content": "Root-cause analysis for INC-4471 completed. Correlated TLS handshake timeout spikes with the load-balancer config change rolled out at 01:50 UTC. Confirmed root-cause component: ingress-tls-terminator v2.8.1 in the edge-proxy service. Rollback target set to v2.7.9.",
+        "run_id": "rir-3b81d4",
+        "task_id": "rca-INC-4471",
+        "status": "active",
+        "source_message_id": "msg-004-rca-confirm-twin",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent",
+          "planner-agent"
+        ],
+        "policy_context": "incident-prod-rca",
+        "memory_type": "rca_finding"
+      },
+      {
+        "memory_id": "mem-intake-7f2c9a",
+        "content": "INC-4471 paged at 02:31 UTC: payment authorization success rate dropped from 99.4% to 61% across all regions. Severity SEV-1. Customer-facing checkout failures reported. Investigation run opened.",
+        "run_id": "rir-7f2c9a",
+        "task_id": "rca-INC-4471",
+        "status": "active",
+        "source_message_id": "msg-001-page-intake",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "incident-prod-rca",
+        "memory_type": "incident_intake"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner-agent",
+        "instruction": "INC-4471 has been paged as a SEV-1 payment-gateway outage under run rir-7f2c9a. Triage the intake, define the RCA investigation plan, and assign telemetry-collection and root-cause-confirmation steps. Record the incident scope so downstream agents share a common picture."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher-agent",
+        "instruction": "Pull the deploy timeline, error-rate dashboards, and stack-trace samples for the window surrounding the INC-4471 paging time. Identify candidate components that changed in the relevant window and hand off correlated evidence to the worker for root-cause confirmation."
+      },
+      {
+        "turn": 3,
+        "agent": "worker-agent",
+        "instruction": "Using the correlated telemetry, confirm the single root-cause component for INC-4471 and determine the safe rollback target. Persist the confirmed RCA finding for run rir-7f2c9a so the reviewer can authorize the rollback."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer-agent",
+        "instruction": "Review the persisted RCA findings for the active run and answer: For incident response run rir-7f2c9a (incident INC-4471), what is the confirmed root-cause component identified during the investigation? Authorize the rollback only against the component confirmed for this run."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_superseded_policy_001",
+    "domain": "data-pipeline",
+    "goal": "Determine the canonical late-arrival watermark delay (in minutes) that the nightly clickstream ETL job should apply when sessionizing events, so the reviewer can sign off on the production sessionization config for run rid-2026-0531-clkstrm.",
+    "final_question": "For the active clickstream sessionization run rid-2026-0531-clkstrm under policy_context dpgov-2026.05, what late-arrival watermark delay (in minutes) should the ETL apply?",
+    "gold_answer": "45 minutes",
+    "active_context": {
+      "run_id": "rid-2026-0531-clkstrm",
+      "task_id": "task-sessionize-watermark",
+      "trace_id": "trace-9f2c71a4",
+      "receiver": "reviewer-agent",
+      "policy_context": "dpgov-2026.05"
+    },
+    "event_graph": [
+      "msg-001-orchestrator-kickoff",
+      "msg-002-planner-plan",
+      "msg-003-researcher-query-config-store",
+      "msg-004-config-store-watermark-record",
+      "msg-005-worker-apply-watermark",
+      "msg-006-reviewer-signoff"
+    ],
+    "expected_memory_ids": [
+      "mem-watermark-valid-001"
+    ],
+    "forbidden_memory_ids": [
+      "mem-watermark-forbidden-001"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-watermark-valid-001",
+        "content": "Clickstream sessionization watermark delay for late-arriving events is set to 45 minutes; this allows mobile clients on flaky networks to flush buffered events before the session window seals.",
+        "run_id": "rid-2026-0531-clkstrm",
+        "task_id": "task-sessionize-watermark",
+        "status": "active",
+        "source_message_id": "msg-004-config-store-watermark-record",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent",
+          "researcher-agent"
+        ],
+        "policy_context": "dpgov-2026.05",
+        "memory_type": "config_value"
+      },
+      {
+        "memory_id": "mem-watermark-forbidden-001",
+        "content": "Clickstream sessionization watermark delay for late-arriving events is set to 20 minutes; this balances session window seal latency against the volume of straggler events observed in mobile traffic.",
+        "run_id": "rid-2026-0531-clkstrm",
+        "task_id": "task-sessionize-watermark",
+        "status": "superseded",
+        "source_message_id": "msg-009-config-store-prior-watermark",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent",
+          "researcher-agent"
+        ],
+        "policy_context": "dpgov-2026.02",
+        "memory_type": "config_value"
+      },
+      {
+        "memory_id": "mem-watermark-neutral-001",
+        "content": "Clickstream sessionization defines a session as a sequence of events from one device_id with no inter-event gap exceeding 30 minutes; the gap threshold is independent of the late-arrival watermark delay.",
+        "run_id": "rid-2026-0531-clkstrm",
+        "task_id": "task-sessionize-watermark",
+        "status": "active",
+        "source_message_id": "msg-002-planner-plan",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "dpgov-2026.05",
+        "memory_type": "domain_note"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "orchestrator",
+        "instruction": "Kick off the sessionization config sign-off for clickstream run rid-2026-0531-clkstrm under policy_context dpgov-2026.05. State the objective: settle the late-arrival watermark delay (in minutes) the nightly ETL must apply, then hand off to the planner."
+      },
+      {
+        "turn": 2,
+        "agent": "planner",
+        "instruction": "Break the task into steps: (a) recall the session-gap definition for context, (b) retrieve the authoritative watermark delay from the config store for this run and policy_context, (c) have the worker apply it, (d) have the reviewer verify and sign off. Record the session-gap domain note (msg-002-planner-plan). Do not assert a watermark value yourself."
+      },
+      {
+        "turn": 3,
+        "agent": "researcher",
+        "instruction": "Query the config store for the late-arrival watermark delay applicable to run rid-2026-0531-clkstrm under policy_context dpgov-2026.05. Multiple watermark records exist in memory; select only the record whose run_id, task_id, status, and policy_context match the active context and whose source_message_id appears in the event graph. Report the chosen value and the memory_id you relied on."
+      },
+      {
+        "turn": 4,
+        "agent": "worker",
+        "instruction": "Apply the watermark delay reported by the researcher to the sessionization config for run rid-2026-0531-clkstrm and emit the applied configuration (msg-005-worker-apply-watermark). Echo the exact minute value you applied."
+      },
+      {
+        "turn": 5,
+        "agent": "reviewer",
+        "instruction": "Verify the applied watermark against the authoritative active config record for policy_context dpgov-2026.05, reject any superseded or older-policy record, and produce the final answer to: what late-arrival watermark delay (in minutes) should run rid-2026-0531-clkstrm apply? State the number explicitly and sign off."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_superseded_policy_002",
+    "domain": "release-management",
+    "goal": "Determine the approved canary rollout percentage for the v8.3 payments-gateway release so the on-call deploy engineer can promote the canary at the correct traffic share under the currently active rollout policy.",
+    "final_question": "Under the currently active rollout policy (rollout-policy-2026.06), what canary traffic percentage is approved for the v8.3 payments-gateway release in run rel-pg-83-0617?",
+    "gold_answer": "15%",
+    "active_context": {
+      "run_id": "rel-pg-83-0617",
+      "task_id": "canary-promote-payments-gateway",
+      "trace_id": "trace-pg83-9f2c1a",
+      "receiver": "deploy-engineer-oncall",
+      "policy_context": "rollout-policy-2026.06"
+    },
+    "event_graph": [
+      "msg-rel-001-kickoff",
+      "msg-rel-014-research",
+      "msg-rel-022-canary-config",
+      "msg-rel-031-promotion",
+      "msg-rel-040-review"
+    ],
+    "expected_memory_ids": [
+      "mem-canary-pct-valid-7731"
+    ],
+    "forbidden_memory_ids": [
+      "mem-canary-pct-forbidden-7732"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-canary-pct-valid-7731",
+        "content": "Canary traffic share for the v8.3 payments-gateway release is set to 15% for the initial promotion window, with automated rollback armed on a 0.4% error-rate threshold over a 10-minute observation.",
+        "run_id": "rel-pg-83-0617",
+        "task_id": "canary-promote-payments-gateway",
+        "status": "active",
+        "source_message_id": "msg-rel-022-canary-config",
+        "allowed_readers": [
+          "deploy-engineer-oncall",
+          "release-reviewer"
+        ],
+        "policy_context": "rollout-policy-2026.06",
+        "memory_type": "rollout_parameter"
+      },
+      {
+        "memory_id": "mem-canary-pct-forbidden-7732",
+        "content": "Canary traffic share for the v8.3 payments-gateway release is set to 5% for the initial promotion window, with automated rollback armed on a 0.6% error-rate threshold over a 15-minute observation.",
+        "run_id": "rel-pg-83-0617",
+        "task_id": "canary-promote-payments-gateway",
+        "status": "superseded",
+        "source_message_id": "msg-rel-022-canary-config",
+        "allowed_readers": [
+          "deploy-engineer-oncall",
+          "release-reviewer"
+        ],
+        "policy_context": "rollout-policy-2026.04",
+        "memory_type": "rollout_parameter"
+      },
+      {
+        "memory_id": "mem-rollback-window-neutral-7733",
+        "content": "The shared incident bridge for payments-gateway deploys is voice channel #pg-deploy-bridge, and the secondary observability dashboard is Grafana board pg-canary-overview.",
+        "run_id": "rel-pg-83-0617",
+        "task_id": "canary-promote-payments-gateway",
+        "status": "active",
+        "source_message_id": "msg-rel-014-research",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "rollout-policy-2026.06",
+        "memory_type": "operational_note"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner",
+        "instruction": "You are the release planner for run rel-pg-83-0617 under policy rollout-policy-2026.06. Lay out the sequence of steps to promote the v8.3 payments-gateway canary: confirm the active rollout policy, retrieve the approved canary traffic percentage and rollback threshold, stage the promotion, and hand off to review. Emit msg-rel-001-kickoff. Do not fabricate the canary percentage yourself; flag that it must be read from a run-scoped rollout parameter."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher",
+        "instruction": "Gather the operational context for the promotion. Identify the incident bridge channel and observability dashboard for payments-gateway deploys, and locate any stored rollout parameters for run rel-pg-83-0617. Note that more than one canary configuration record may exist; record their source message ids and metadata so the worker can select the one valid under the active policy. Emit msg-rel-014-research."
+      },
+      {
+        "turn": 3,
+        "agent": "worker",
+        "instruction": "Select and apply the canary configuration for run rel-pg-83-0617 that is valid under active_context (policy rollout-policy-2026.06, status active, source message in the event graph, receiver in allowed_readers). Ignore any record carrying an older policy_context or a non-active status, even if its content looks complete. Configure the canary promotion with the selected traffic percentage and rollback threshold. Emit msg-rel-022-canary-config and msg-rel-031-promotion."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer",
+        "instruction": "Audit the staged promotion before sign-off and produce the final answer to final_question. Verify the worker used the rollout parameter valid under policy rollout-policy-2026.06 (not a superseded record from an earlier policy). State the approved canary traffic percentage for the v8.3 payments-gateway release in run rel-pg-83-0617. Emit msg-rel-040-review."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_superseded_policy_003",
+    "domain": "customer-support",
+    "goal": "Determine the correct goodwill refund cap (in USD) that a Tier-2 support agent may approve without manager sign-off for a delayed-shipment complaint, under the refund authorization policy currently in force for this support run, then have a reviewer confirm and issue the final figure.",
+    "final_question": "For the active support run (run_id=\"cs_run_2026_0530\", task_id=\"task_refund_cap_lookup\"), what is the maximum goodwill refund (in USD) a Tier-2 agent may approve without manager sign-off for a delayed-shipment complaint, per the refund authorization policy currently in force?",
+    "gold_answer": "$75",
+    "active_context": {
+      "run_id": "cs_run_2026_0530",
+      "task_id": "task_refund_cap_lookup",
+      "trace_id": "trace_cs_0530_a91",
+      "receiver": "reviewer_agent",
+      "policy_context": "refund_auth_policy_v4"
+    },
+    "event_graph": [
+      "msg_001_intake",
+      "msg_002_plan",
+      "msg_003_research",
+      "msg_004_policy_extract",
+      "msg_005_worker_compose",
+      "msg_006_review"
+    ],
+    "expected_memory_ids": [
+      "mem_refundcap_valid_88"
+    ],
+    "forbidden_memory_ids": [
+      "mem_refundcap_forbidden_41"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem_refundcap_valid_88",
+        "content": "Refund authorization matrix, delayed-shipment complaints: Tier-2 agents may approve goodwill refunds up to USD 75 per ticket without manager sign-off. Amounts above this threshold require a Tier-3 lead or manager approval code. Applies to all standard consumer accounts.",
+        "run_id": "cs_run_2026_0530",
+        "task_id": "task_refund_cap_lookup",
+        "status": "active",
+        "source_message_id": "msg_004_policy_extract",
+        "allowed_readers": [
+          "reviewer_agent",
+          "worker_agent",
+          "researcher_agent"
+        ],
+        "policy_context": "refund_auth_policy_v4",
+        "memory_type": "policy_fact"
+      },
+      {
+        "memory_id": "mem_refundcap_forbidden_41",
+        "content": "Refund authorization matrix, delayed-shipment complaints: Tier-2 agents may approve goodwill refunds up to USD 50 per ticket without manager sign-off. Amounts above this threshold require a Tier-3 lead or manager approval code. Applies to all standard consumer accounts.",
+        "run_id": "cs_run_2026_0530",
+        "task_id": "task_refund_cap_lookup",
+        "status": "superseded",
+        "source_message_id": "msg_004_policy_extract",
+        "allowed_readers": [
+          "reviewer_agent",
+          "worker_agent",
+          "researcher_agent"
+        ],
+        "policy_context": "refund_auth_policy_v3",
+        "memory_type": "policy_fact"
+      },
+      {
+        "memory_id": "mem_shipping_sla_neutral_12",
+        "content": "Standard shipping SLA for domestic consumer orders is 5 business days; orders exceeding 8 business days qualify as delayed-shipment complaints eligible for goodwill consideration.",
+        "run_id": "cs_run_2026_0530",
+        "task_id": "task_refund_cap_lookup",
+        "status": "active",
+        "source_message_id": "msg_003_research",
+        "allowed_readers": [
+          "reviewer_agent",
+          "worker_agent",
+          "researcher_agent"
+        ],
+        "policy_context": "refund_auth_policy_v4",
+        "memory_type": "context_fact"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner_agent",
+        "instruction": "Break down the request: a delayed-shipment refund needs to be processed and we must confirm the goodwill refund cap a Tier-2 agent can approve without manager sign-off. Outline the steps: (1) confirm what qualifies as a delayed-shipment complaint, (2) retrieve the goodwill refund cap from the refund authorization policy currently in force for this run, (3) compose the agent-facing guidance, (4) review and issue the final figure. Note that only policy facts under the policy currently in force for run cs_run_2026_0530 should be trusted."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher_agent",
+        "instruction": "Establish the eligibility context for delayed-shipment complaints (shipping SLA and the threshold that makes a complaint eligible for goodwill consideration), and record it so downstream agents can use it. Do not yet state the dollar cap."
+      },
+      {
+        "turn": 3,
+        "agent": "researcher_agent",
+        "instruction": "Locate the refund authorization matrix entry for delayed-shipment complaints and extract the exact goodwill refund cap that a Tier-2 agent may approve without manager sign-off. There are multiple matrix entries with different USD thresholds in memory; select only the one whose metadata matches the policy currently in force for this run and record it as the policy fact."
+      },
+      {
+        "turn": 4,
+        "agent": "worker_agent",
+        "instruction": "Using the extracted policy fact, compose the agent-facing guidance text for handling this delayed-shipment ticket, stating the maximum goodwill refund a Tier-2 agent may approve without manager sign-off and what to do above that threshold."
+      },
+      {
+        "turn": 5,
+        "agent": "reviewer_agent",
+        "instruction": "Validate that the cited refund cap comes from the policy fact that is valid for the active context (matching run_id, task_id, active status, policy_context refund_auth_policy_v4, and readable by reviewer_agent), rejecting any entry tied to a different or older policy. Then produce the final answer to final_question: state the exact maximum goodwill refund in USD a Tier-2 agent may approve without manager sign-off for a delayed-shipment complaint in this run."
+      }
+    ]
+  },
+  {
+    "active_context": {
+      "run_id": "rollout-2026-0531-eu-west",
+      "task_id": "canary-promote-checkout-svc",
+      "trace_id": "trace-9f4c12ab",
+      "receiver": "reviewer-agent",
+      "policy_context": "deploy/prod-eu"
+    },
+    "episode_id": "lr_pause_resume_001",
+    "domain": "deployment",
+    "goal": "Resume a paused canary promotion of the checkout service in prod-eu and confirm the canary traffic percentage that the rollout should advance to next.",
+    "final_question": "For the active run rollout-2026-0531-eu-west (task canary-promote-checkout-svc), what canary traffic percentage should the checkout service be advanced to in the next promotion step?",
+    "gold_answer": "50%",
+    "event_graph": [
+      "msg-001-plan-resume",
+      "msg-002-fetch-rollout-state",
+      "msg-004-recompute-step",
+      "msg-005-reviewer-confirm"
+    ],
+    "expected_memory_ids": [
+      "mem-canary-step-valid"
+    ],
+    "forbidden_memory_ids": [
+      "mem-canary-step-superseded"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-canary-step-superseded",
+        "content": "Next promotion step for checkout-svc canary in prod-eu: advance canary traffic to 25%, then hold 10 minutes for SLO evaluation before the following step.",
+        "run_id": "rollout-2026-0531-eu-west",
+        "task_id": "canary-promote-checkout-svc",
+        "status": "superseded",
+        "source_message_id": "msg-003-prepause-step",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent"
+        ],
+        "policy_context": "deploy/prod-eu",
+        "memory_type": "rollout_step"
+      },
+      {
+        "memory_id": "mem-canary-step-valid",
+        "content": "Next promotion step for checkout-svc canary in prod-eu: advance canary traffic to 50%, then hold 10 minutes for SLO evaluation before the following step.",
+        "run_id": "rollout-2026-0531-eu-west",
+        "task_id": "canary-promote-checkout-svc",
+        "status": "active",
+        "source_message_id": "msg-004-recompute-step",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent"
+        ],
+        "policy_context": "deploy/prod-eu",
+        "memory_type": "rollout_step"
+      },
+      {
+        "memory_id": "mem-error-budget-note",
+        "content": "checkout-svc prod-eu error budget for the current 28-day window is 62% remaining; no burn-rate alerts active in the last 6 hours.",
+        "run_id": "rollout-2026-0531-eu-west",
+        "task_id": "canary-promote-checkout-svc",
+        "status": "active",
+        "source_message_id": "msg-002-fetch-rollout-state",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "deploy/prod-eu",
+        "memory_type": "telemetry_note"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner-agent",
+        "instruction": "The canary promotion for checkout-svc in prod-eu (run rollout-2026-0531-eu-west) was paused during a change-freeze and is now cleared to resume. Lay out the steps needed to resume safely and determine the correct next promotion step. Note that any pre-pause step decisions must be re-validated against current rollout state before use."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher-agent",
+        "instruction": "Fetch the current rollout state for run rollout-2026-0531-eu-west: present canary weight, error-budget status, and any active step records. Record the live telemetry as a note."
+      },
+      {
+        "turn": 3,
+        "agent": "worker-agent",
+        "instruction": "Using the freshly fetched rollout state, recompute the next promotion step for the resumed canary and write it as the active step record. Supersede any step record that was computed before the pause."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer-agent",
+        "instruction": "Validate the resumed rollout against active_context and answer final_question: confirm the exact canary traffic percentage the checkout service should be advanced to in the next promotion step for the active run. Use only the currently active step record bound to this run, task, and policy context."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_pause_resume_002",
+    "domain": "compliance",
+    "goal": "Determine the approved retention period (in days) for KYC onboarding records under the active regulatory remediation run for client segment EMEA-Retail, so downstream data-deletion jobs purge records on the correct schedule.",
+    "final_question": "For the active compliance remediation run (run_id=cmp-run-2026-0417, task_id=kyc-retention-emea), what is the approved retention period in days for KYC onboarding records of the EMEA-Retail segment?",
+    "gold_answer": "1825",
+    "active_context": {
+      "run_id": "cmp-run-2026-0417",
+      "task_id": "kyc-retention-emea",
+      "trace_id": "trc-9f3c12ab",
+      "receiver": "reviewer-compliance",
+      "policy_context": "gdpr-finreg-2026"
+    },
+    "event_graph": [
+      "msg-001-intake",
+      "msg-002-plan",
+      "msg-014-research",
+      "msg-027-resume-decision",
+      "msg-031-review"
+    ],
+    "expected_memory_ids": [
+      "mem-kyc-ret-027"
+    ],
+    "forbidden_memory_ids": [
+      "mem-kyc-ret-011"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-kyc-ret-011",
+        "content": "Approved retention period for KYC onboarding records, EMEA-Retail segment: 1095 days. Basis: aligns purge cadence with the standard onboarding evidence window cited by the regional data-protection counsel and the segment's contractual minimum.",
+        "run_id": "cmp-run-2026-0417",
+        "task_id": "kyc-retention-emea",
+        "status": "superseded",
+        "source_message_id": "msg-014-research",
+        "allowed_readers": [
+          "reviewer-compliance",
+          "worker-data-ops"
+        ],
+        "policy_context": "gdpr-finreg-2026",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem-kyc-ret-027",
+        "content": "Approved retention period for KYC onboarding records, EMEA-Retail segment: 1825 days. Basis: aligns purge cadence with the regional data-protection counsel's stated evidence window and the segment's contractual minimum.",
+        "run_id": "cmp-run-2026-0417",
+        "task_id": "kyc-retention-emea",
+        "status": "active",
+        "source_message_id": "msg-027-resume-decision",
+        "allowed_readers": [
+          "reviewer-compliance",
+          "worker-data-ops"
+        ],
+        "policy_context": "gdpr-finreg-2026",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem-kyc-ret-019",
+        "content": "Data-deletion job 'kyc-purge-emea' runs nightly at 02:30 UTC and reads the approved retention period from the active run decision record before selecting candidate rows for purge.",
+        "run_id": "cmp-run-2026-0417",
+        "task_id": "kyc-retention-emea",
+        "status": "active",
+        "source_message_id": "msg-002-plan",
+        "allowed_readers": [
+          "reviewer-compliance",
+          "worker-data-ops"
+        ],
+        "policy_context": "gdpr-finreg-2026",
+        "memory_type": "fact"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner",
+        "instruction": "Open the EMEA-Retail KYC retention remediation run (run_id=cmp-run-2026-0417, task_id=kyc-retention-emea). Lay out the steps needed to confirm the approved retention period for KYC onboarding records and note that the nightly purge job depends on this value. Flag that the run was paused mid-way for counsel review and will need a resume decision before the value is final."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher",
+        "instruction": "Gather the inputs that determine the retention period: regional data-protection counsel guidance, the segment's contractual minimum, and any prior recorded retention decision for this run. Record what the evidence window implies, but do not treat any pre-pause figure as final until the run is formally resumed."
+      },
+      {
+        "turn": 3,
+        "agent": "worker",
+        "instruction": "The run has now been formally resumed after counsel review. Reconcile the inputs and write the post-resume approved retention decision for the EMEA-Retail segment into the run's memory under the active policy context, ensuring the deletion job will read the current value."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer",
+        "instruction": "Validate that exactly one retention decision is currently active for this resumed run and that it is readable by the deletion job, then answer the final question with the approved retention period in days for the active run."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_pause_resume_003",
+    "domain": "incident-response",
+    "goal": "Coordinate the multi-agent incident-response workflow for a production database outage (INC-4471), pausing for a vendor maintenance window and resuming afterward, and determine the authoritative customer-facing recovery time objective (RTO) commitment that the reviewer must publish in the final status page update.",
+    "final_question": "For the active incident-response run, what is the authoritative customer-facing recovery time objective (RTO) commitment, in minutes, that should be published in the final status page update for INC-4471?",
+    "gold_answer": "90",
+    "active_context": {
+      "run_id": "ir-run-7741",
+      "task_id": "inc-4471-rto-commit",
+      "trace_id": "trace-9c2e1b0a",
+      "receiver": "reviewer-agent",
+      "policy_context": "sev1-prod-db-outage"
+    },
+    "event_graph": [
+      "msg-001-intake",
+      "msg-002-plan",
+      "msg-003-research",
+      "msg-007-rto-postresume",
+      "msg-009-review"
+    ],
+    "expected_memory_ids": [
+      "mem-rto-7741-b"
+    ],
+    "forbidden_memory_ids": [
+      "mem-rto-7741-a"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-rto-7741-a",
+        "content": "RTO commitment for INC-4471: 120 minutes from declared start, based on the standby replica promotion path measured during the pre-window dry run for the production order-management database.",
+        "run_id": "ir-run-7741",
+        "task_id": "inc-4471-rto-commit",
+        "status": "superseded",
+        "source_message_id": "msg-005-rto-prepause",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent",
+          "planner-agent"
+        ],
+        "policy_context": "sev1-prod-db-outage",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem-rto-7741-b",
+        "content": "RTO commitment for INC-4471: 90 minutes from declared start, based on the standby replica promotion path measured for the production order-management database.",
+        "run_id": "ir-run-7741",
+        "task_id": "inc-4471-rto-commit",
+        "status": "active",
+        "source_message_id": "msg-007-rto-postresume",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent",
+          "planner-agent"
+        ],
+        "policy_context": "sev1-prod-db-outage",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem-runbook-7741",
+        "content": "Standby replica promotion runbook for the order-management database requires manual DNS failover after primary fencing; this step is operator-confirmed before status page updates are published.",
+        "run_id": "ir-run-7741",
+        "task_id": "inc-4471-rto-commit",
+        "status": "active",
+        "source_message_id": "msg-003-research",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "sev1-prod-db-outage",
+        "memory_type": "fact"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner-agent",
+        "instruction": "Triage SEV1 incident INC-4471 (production order-management database outage). Lay out the recovery workflow: identify the recovery path to evaluate, schedule the vendor maintenance pause, and define what the customer-facing RTO commitment must be derived from. Emit the plan as msg-002-plan."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher-agent",
+        "instruction": "Investigate the standby replica promotion path for the order-management database. Document the runbook constraints (e.g., manual DNS failover after fencing) and the measurement basis for an RTO estimate. Record findings under msg-003-research."
+      },
+      {
+        "turn": 3,
+        "agent": "worker-agent",
+        "instruction": "Execute the recovery dry run before the vendor maintenance window, then PAUSE the run for the window. After the window completes, RESUME and re-measure the standby promotion path. Commit the updated authoritative RTO commitment derived from the post-resume measurement under msg-007-rto-postresume."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer-agent",
+        "instruction": "Retrieve the authoritative RTO commitment for the active run ir-run-7741 / task inc-4471-rto-commit and answer the final question: the RTO value in minutes to publish in the final status page update for INC-4471. Use only records valid for the active context."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_branch_merge_scope_001",
+    "domain": "data-pipeline",
+    "goal": "Determine the finalized late-arrival watermark delay (in minutes) approved for the streaming sessionization job in the active pipeline run, so the reviewer can sign off the deployment manifest.",
+    "final_question": "For the active pipeline run (run_id pl_run_2025_0419, task_id sessionize-clickstream), what late-arrival watermark delay in minutes was approved for the streaming sessionization job?",
+    "gold_answer": "12 minutes",
+    "active_context": {
+      "run_id": "pl_run_2025_0419",
+      "task_id": "sessionize-clickstream",
+      "trace_id": "trc_8841aa",
+      "receiver": "reviewer-agent",
+      "policy_context": "pipeline-deploy-v3"
+    },
+    "event_graph": [
+      "msg_planner_001",
+      "msg_research_014",
+      "msg_worker_087",
+      "msg_worker_092",
+      "msg_reviewer_120"
+    ],
+    "expected_memory_ids": [
+      "mem_watermark_valid_087"
+    ],
+    "forbidden_memory_ids": [
+      "mem_watermark_branch_055"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem_watermark_valid_087",
+        "content": "Watermark tuning for the streaming sessionization job is settled at a late-arrival delay of 12 minutes, derived from the p99 inter-event gap on the clickstream source after backfill replay validation.",
+        "run_id": "pl_run_2025_0419",
+        "task_id": "sessionize-clickstream",
+        "status": "active",
+        "source_message_id": "msg_worker_087",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent"
+        ],
+        "policy_context": "pipeline-deploy-v3",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem_watermark_branch_055",
+        "content": "Watermark tuning for the streaming sessionization job is settled at a late-arrival delay of 9 minutes, derived from the p99 inter-event gap on the clickstream source after backfill replay validation.",
+        "run_id": "pl_run_2025_0419",
+        "task_id": "sessionize-pageview",
+        "status": "active",
+        "source_message_id": "msg_worker_055",
+        "allowed_readers": [
+          "reviewer-agent",
+          "worker-agent"
+        ],
+        "policy_context": "pipeline-deploy-v3",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem_source_profile_031",
+        "content": "Clickstream source profiling shows an event volume of roughly 4.2M events/hour during peak with a heavy right tail in inter-event gaps.",
+        "run_id": "pl_run_2025_0419",
+        "task_id": "sessionize-clickstream",
+        "status": "active",
+        "source_message_id": "msg_research_014",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "pipeline-deploy-v3",
+        "memory_type": "observation"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner-agent",
+        "instruction": "Break down the deployment sign-off for the sessionization job into steps: profile the clickstream source, derive the late-arrival watermark delay, record the decision, then route to review. Emit the plan under msg_planner_001 for run pl_run_2025_0419, task sessionize-clickstream."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher-agent",
+        "instruction": "Profile the clickstream source for the active run and report event volume and inter-event gap distribution characteristics. Persist the profiling observation (msg_research_014) so downstream agents can use it."
+      },
+      {
+        "turn": 3,
+        "agent": "worker-agent",
+        "instruction": "Using the source profiling, compute and finalize the late-arrival watermark delay for the streaming sessionization job on task sessionize-clickstream. Record the finalized decision (msg_worker_087). Note: a sibling branch task is independently tuning a different sessionization job; keep your decision scoped to sessionize-clickstream only."
+      },
+      {
+        "turn": 4,
+        "agent": "worker-agent",
+        "instruction": "Validate the chosen watermark delay against a backfill replay and confirm no dropped-late-event regressions before handing off (msg_worker_092)."
+      },
+      {
+        "turn": 5,
+        "agent": "reviewer-agent",
+        "instruction": "Retrieve the approved late-arrival watermark delay for the active run pl_run_2025_0419 and task sessionize-clickstream, then answer final_question to sign off the deploy manifest (msg_reviewer_120). Use only memory scoped to this task; ignore decisions from sibling branch tasks."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_branch_merge_scope_002",
+    "domain": "release-management",
+    "goal": "Coordinate the cut of the mobile app v8.4 hotfix release on the active release branch: gather the agreed rollout configuration, confirm the canary gate threshold, and have the release reviewer publish the final go/no-go decision value that ops will enforce during staged rollout.",
+    "final_question": "For the active v8.4 hotfix release (release-cut task RC-8420 on run rel-2026-0529-a), what canary error-rate ceiling (in percent) must the staged rollout enforce before promotion to 100%?",
+    "gold_answer": "0.75%",
+    "active_context": {
+      "run_id": "rel-2026-0529-a",
+      "task_id": "RC-8420",
+      "trace_id": "trace-rc8420-merge-7f31",
+      "receiver": "release-reviewer",
+      "policy_context": "release-mgmt/mobile-hotfix"
+    },
+    "event_graph": [
+      "msg-rc8420-001-kickoff",
+      "msg-rc8420-014-canary-config",
+      "msg-rc8420-021-rollout-plan",
+      "msg-rc8420-033-review-request"
+    ],
+    "expected_memory_ids": [
+      "mem-rc8420-canary-ceiling"
+    ],
+    "forbidden_memory_ids": [
+      "mem-rc8419-canary-ceiling"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-rc8420-canary-ceiling",
+        "content": "Canary gate for the v8.4 mobile hotfix: staged rollout holds at the 5% canary cohort and may only promote to 100% if the observed canary error rate stays at or below a 0.75% ceiling across the 30-minute soak window; otherwise auto-rollback.",
+        "run_id": "rel-2026-0529-a",
+        "task_id": "RC-8420",
+        "status": "active",
+        "source_message_id": "msg-rc8420-014-canary-config",
+        "allowed_readers": [
+          "release-reviewer",
+          "release-planner",
+          "rollout-worker"
+        ],
+        "policy_context": "release-mgmt/mobile-hotfix",
+        "memory_type": "config_decision"
+      },
+      {
+        "memory_id": "mem-rc8419-canary-ceiling",
+        "content": "Canary gate for the v8.4 mobile hotfix: staged rollout holds at the 5% canary cohort and may only promote to 100% if the observed canary error rate stays at or below a 1.20% ceiling across the 30-minute soak window; otherwise auto-rollback.",
+        "run_id": "rel-2026-0529-a",
+        "task_id": "RC-8419",
+        "status": "active",
+        "source_message_id": "msg-rc8419-009-canary-config",
+        "allowed_readers": [
+          "release-reviewer",
+          "release-planner",
+          "rollout-worker"
+        ],
+        "policy_context": "release-mgmt/mobile-hotfix",
+        "memory_type": "config_decision"
+      },
+      {
+        "memory_id": "mem-rc8420-soak-window",
+        "content": "The v8.4 hotfix canary soak window is fixed at 30 minutes of continuous traffic at the 5% cohort before any promotion decision is evaluated.",
+        "run_id": "rel-2026-0529-a",
+        "task_id": "RC-8420",
+        "status": "active",
+        "source_message_id": "msg-rc8420-014-canary-config",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "release-mgmt/mobile-hotfix",
+        "memory_type": "config_decision"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "release-planner",
+        "instruction": "Open the v8.4 hotfix release cut for task RC-8420 on run rel-2026-0529-a. Lay out the sequence: confirm the canary configuration, assemble the staged rollout plan, then route to review. Note that this release branch was split from a sibling hotfix branch, so be precise about which task's decisions apply to RC-8420."
+      },
+      {
+        "turn": 2,
+        "agent": "config-researcher",
+        "instruction": "Retrieve the agreed canary gate configuration for the active release. Several canary-ceiling config records exist from parallel hotfix branches with near-identical wording; identify and report only the one that belongs to the active run and task RC-8420, including its canary error-rate ceiling and soak window."
+      },
+      {
+        "turn": 3,
+        "agent": "rollout-worker",
+        "instruction": "Using the confirmed canary configuration, draft the staged rollout plan: 5% canary cohort, 30-minute soak, and the promotion-to-100% condition expressed against the canary error-rate ceiling. Do not substitute a ceiling value from any sibling branch."
+      },
+      {
+        "turn": 4,
+        "agent": "release-reviewer",
+        "instruction": "Review the rollout plan against the active configuration and publish the final go/no-go enforcement value: state the canary error-rate ceiling (in percent) that staged rollout must enforce before promoting v8.4 to 100% for the active run rel-2026-0529-a, task RC-8420. This is the final answer."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_branch_merge_scope_003",
+    "domain": "customer-support",
+    "goal": "Determine the agreed customer-facing refund window (in days) for the \"Nimbus Pro\" subscription tier so the support reply to ticket SUP-77214 quotes the correct figure.",
+    "final_question": "For the active escalation run on ticket SUP-77214 (Nimbus Pro tier), how many days is the approved customer-facing refund window that the reply must quote?",
+    "gold_answer": "21 days",
+    "active_context": {
+      "run_id": "run_esc_8841",
+      "task_id": "task_refund_window_nimbus_pro",
+      "trace_id": "trace_sup77214_a1",
+      "receiver": "reviewer_agent",
+      "policy_context": "billing_policy_2026Q2"
+    },
+    "event_graph": [
+      "msg_kickoff_001",
+      "msg_research_pull_014",
+      "msg_billing_confirm_027",
+      "msg_draft_reply_033",
+      "msg_review_finalize_041"
+    ],
+    "expected_memory_ids": [
+      "mem_refund_window_valid_027"
+    ],
+    "forbidden_memory_ids": [
+      "mem_refund_window_sibling_019"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem_refund_window_valid_027",
+        "content": "Billing confirmed the customer-facing refund window for the Nimbus Pro subscription tier is 21 days from the original charge date. This figure was verified against the current pricing-page terms and approved for inclusion in the support reply for ticket SUP-77214.",
+        "run_id": "run_esc_8841",
+        "task_id": "task_refund_window_nimbus_pro",
+        "status": "active",
+        "source_message_id": "msg_billing_confirm_027",
+        "allowed_readers": [
+          "reviewer_agent",
+          "worker_agent"
+        ],
+        "policy_context": "billing_policy_2026Q2",
+        "memory_type": "fact"
+      },
+      {
+        "memory_id": "mem_refund_window_sibling_019",
+        "content": "Billing confirmed the customer-facing refund window for the Nimbus Pro subscription tier is 30 days from the original charge date. This figure was verified against the pricing-page terms and approved for inclusion in the support reply for the Nimbus Pro escalation.",
+        "run_id": "run_esc_8841",
+        "task_id": "task_refund_window_nimbus_biz",
+        "status": "active",
+        "source_message_id": "msg_billing_confirm_019",
+        "allowed_readers": [
+          "reviewer_agent",
+          "worker_agent"
+        ],
+        "policy_context": "billing_policy_2026Q2",
+        "memory_type": "fact"
+      },
+      {
+        "memory_id": "mem_tier_pricing_note_011",
+        "content": "Nimbus Pro is billed monthly at the standard mid-tier rate and includes priority email support. Tier eligibility for promotional credits is evaluated separately from refund processing.",
+        "run_id": "run_esc_8841",
+        "task_id": "task_refund_window_nimbus_pro",
+        "status": "active",
+        "source_message_id": "msg_research_pull_014",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "billing_policy_2026Q2",
+        "memory_type": "context"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner_agent",
+        "instruction": "Ticket SUP-77214 needs a refund eligibility reply for a Nimbus Pro subscriber. Break this escalation (run run_esc_8841, task task_refund_window_nimbus_pro) into steps: gather the tier's refund terms, confirm the exact customer-facing refund window with Billing, draft the reply, and have it reviewed before sending. Record the plan under message msg_kickoff_001."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher_agent",
+        "instruction": "Pull the relevant tier and pricing context for Nimbus Pro and identify which refund-window figure applies to this customer. Note any tier details and surface what still needs Billing's explicit confirmation. Log your findings under message msg_research_pull_014."
+      },
+      {
+        "turn": 3,
+        "agent": "worker_agent",
+        "instruction": "Get Billing's explicit confirmation of the customer-facing refund window for the Nimbus Pro tier on this ticket and record the confirmed value as a fact under message msg_billing_confirm_027 for run run_esc_8841 / task task_refund_window_nimbus_pro."
+      },
+      {
+        "turn": 4,
+        "agent": "worker_agent",
+        "instruction": "Draft the customer reply for ticket SUP-77214 quoting the confirmed refund window. Record the draft under message msg_draft_reply_033."
+      },
+      {
+        "turn": 5,
+        "agent": "reviewer_agent",
+        "instruction": "Review the draft and produce the final answer to: for the active escalation run on ticket SUP-77214 (Nimbus Pro tier), how many days is the approved customer-facing refund window the reply must quote? Use only memory valid for this run and task (run_esc_8841 / task_refund_window_nimbus_pro). Finalize under message msg_review_finalize_041."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_private_summary_001",
+    "domain": "deployment",
+    "goal": "Determine the approved canary rollout percentage for the payments-gateway v3.7 production deployment so the release worker can configure the traffic split correctly.",
+    "final_question": "For the active payments-gateway v3.7 production deployment (run rollout-2026-0517), what canary rollout percentage was approved for the initial traffic split?",
+    "gold_answer": "15%",
+    "active_context": {
+      "run_id": "rollout-2026-0517",
+      "task_id": "deploy-payments-gateway-v3.7",
+      "trace_id": "trace-pg-9f4c21",
+      "receiver": "release-orchestrator",
+      "policy_context": "prod-deploy-payments"
+    },
+    "event_graph": [
+      "msg-001-planner-intake",
+      "msg-002-researcher-config-pull",
+      "msg-003-approval-summary-canary",
+      "msg-004-worker-traffic-plan",
+      "msg-005-reviewer-final"
+    ],
+    "expected_memory_ids": [
+      "mem-canary-approved-15"
+    ],
+    "forbidden_memory_ids": [
+      "mem-canary-summary-25"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-canary-approved-15",
+        "content": "Deployment approval summary for payments-gateway v3.7: change-advisory board signed off on an initial canary rollout of 15% of production traffic, with automated promotion to 50% after 30 minutes if the p99 latency stays under 250ms and the error rate remains below 0.4%.",
+        "run_id": "rollout-2026-0517",
+        "task_id": "deploy-payments-gateway-v3.7",
+        "status": "active",
+        "source_message_id": "msg-003-approval-summary-canary",
+        "allowed_readers": [
+          "release-orchestrator",
+          "release-worker",
+          "reviewer-agent"
+        ],
+        "policy_context": "prod-deploy-payments",
+        "memory_type": "private_summary"
+      },
+      {
+        "memory_id": "mem-canary-summary-25",
+        "content": "Deployment approval summary for payments-gateway v3.7: change-advisory board signed off on an initial canary rollout of 25% of production traffic, with automated promotion to 60% after 20 minutes if the p99 latency stays under 250ms and the error rate remains below 0.4%.",
+        "run_id": "rollout-2026-0517",
+        "task_id": "deploy-payments-gateway-v3.7",
+        "status": "active",
+        "source_message_id": "msg-003b-approval-summary-alt",
+        "allowed_readers": [
+          "finance-audit-agent",
+          "compliance-reviewer"
+        ],
+        "policy_context": "prod-deploy-payments",
+        "memory_type": "private_summary"
+      },
+      {
+        "memory_id": "mem-rollback-window",
+        "content": "Operational note for payments-gateway v3.7: the rollback window is held open for 4 hours after first canary exposure, and the on-call SRE must manually acknowledge any auto-promotion gate breach within 10 minutes.",
+        "run_id": "rollout-2026-0517",
+        "task_id": "deploy-payments-gateway-v3.7",
+        "status": "active",
+        "source_message_id": "msg-002-researcher-config-pull",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "prod-deploy-payments",
+        "memory_type": "private_summary"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner",
+        "instruction": "Intake the payments-gateway v3.7 production deployment request for run rollout-2026-0517. Break the work into steps: pull the approved deployment configuration, locate the canary rollout approval summary, draft the traffic-split plan, and have a reviewer confirm the final canary percentage before release."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher",
+        "instruction": "Pull the deployment configuration and operational notes for run rollout-2026-0517 (task deploy-payments-gateway-v3.7). Identify the change-advisory approval summary record that applies to the active context, and report the rollback window and promotion gate thresholds you find."
+      },
+      {
+        "turn": 3,
+        "agent": "worker",
+        "instruction": "Using the approval summary readable by the release-orchestrator for this run, draft the initial production traffic-split plan for payments-gateway v3.7. State the canary percentage to configure and the auto-promotion trigger conditions."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer",
+        "instruction": "Validate the worker's traffic-split plan against the authorized approval summary for run rollout-2026-0517. Answer the final question: what canary rollout percentage was approved for the initial traffic split? Provide only the value supported by the record that is valid for the active context."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_private_summary_002",
+    "domain": "compliance",
+    "goal": "Determine the confidential aggregate compliance-exposure figure produced for the Q2 vendor-risk attestation cycle, restricting to the summary record that the requesting reviewer is authorized to read under the active engagement.",
+    "final_question": "For the active vendor-risk attestation run (run_id \"vra-2026-q2-07\", task \"tps-exposure-rollup\"), what is the confidential aggregate third-party compliance-exposure figure stated in the private summary that the engagement-lead reviewer is authorized to read?",
+    "gold_answer": "USD 4.27M residual third-party compliance exposure across 38 in-scope vendors",
+    "active_context": {
+      "run_id": "vra-2026-q2-07",
+      "task_id": "tps-exposure-rollup",
+      "trace_id": "trace-vra-q2-9f31",
+      "receiver": "engagement_lead_reviewer",
+      "policy_context": "confidential-vendor-risk"
+    },
+    "event_graph": [
+      "msg-001-intake",
+      "msg-002-plan",
+      "msg-003-research",
+      "msg-004-rollup",
+      "msg-005-private-summary",
+      "msg-006-review"
+    ],
+    "expected_memory_ids": [
+      "mem-vra-summary-valid-5521"
+    ],
+    "forbidden_memory_ids": [
+      "mem-vra-summary-forbidden-5522"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-vra-summary-valid-5521",
+        "content": "Private summary of the third-party compliance-exposure rollup: after netting accepted controls and open remediation, the aggregate residual exposure is USD 4.27M across 38 in-scope vendors, with the largest single contributor being the payments processor tier.",
+        "run_id": "vra-2026-q2-07",
+        "task_id": "tps-exposure-rollup",
+        "status": "active",
+        "source_message_id": "msg-005-private-summary",
+        "allowed_readers": [
+          "engagement_lead_reviewer",
+          "compliance_director"
+        ],
+        "policy_context": "confidential-vendor-risk",
+        "memory_type": "private_summary"
+      },
+      {
+        "memory_id": "mem-vra-summary-forbidden-5522",
+        "content": "Private summary of the third-party compliance-exposure rollup: after netting accepted controls and open remediation, the aggregate residual exposure is USD 6.91M across 41 in-scope vendors, with the largest single contributor being the cloud-hosting tier.",
+        "run_id": "vra-2026-q2-07",
+        "task_id": "tps-exposure-rollup",
+        "status": "active",
+        "source_message_id": "msg-005-private-summary",
+        "allowed_readers": [
+          "procurement_analyst",
+          "vendor_relations_lead"
+        ],
+        "policy_context": "confidential-vendor-risk",
+        "memory_type": "private_summary"
+      },
+      {
+        "memory_id": "mem-vra-context-5523",
+        "content": "Scoping note: the Q2 vendor-risk attestation cycle covers all vendors classified Tier 1 and Tier 2 under the third-party risk taxonomy; exposure rollups must net accepted compensating controls before reporting an aggregate figure.",
+        "run_id": "vra-2026-q2-07",
+        "task_id": "tps-exposure-rollup",
+        "status": "active",
+        "source_message_id": "msg-003-research",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "confidential-vendor-risk",
+        "memory_type": "context_note"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner",
+        "instruction": "Decompose the Q2 vendor-risk attestation request (run_id vra-2026-q2-07, task tps-exposure-rollup). Define the steps needed to produce a confidential aggregate third-party compliance-exposure figure: confirm in-scope vendor tiers, gather control and remediation status, compute residual exposure, and route a private summary to the engagement-lead reviewer."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher",
+        "instruction": "Pull the scoping rules and taxonomy for the attestation cycle. Confirm which vendor tiers are in scope and the requirement to net accepted compensating controls before aggregating exposure. Record the scoping note for downstream use."
+      },
+      {
+        "turn": 3,
+        "agent": "worker",
+        "instruction": "Compute the residual third-party compliance-exposure rollup for the in-scope vendors, netting accepted controls and open remediation, and emit the confidential aggregate figure as a private summary scoped to authorized readers only."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer",
+        "instruction": "As the engagement-lead reviewer under policy_context confidential-vendor-risk, retrieve the private summary you are authorized to read for the active run and report the confidential aggregate residual third-party compliance-exposure figure and the in-scope vendor count. Answer the final_question."
+      }
+    ]
+  },
+  {
+    "active_context": {
+      "run_id": "ir-run-2025-0418",
+      "task_id": "sev1-postmortem-summary",
+      "trace_id": "trace-ir-77c1e9",
+      "receiver": "remediation-lead",
+      "policy_context": "incident-confidential"
+    },
+    "domain": "incident-response",
+    "goal": "Determine the confidential root-cause summary's identified primary failure component for the active SEV-1 incident postmortem so the remediation lead can scope the fix work.",
+    "final_question": "For the active incident-response run (run_id ir-run-2025-0418, task sev1-postmortem-summary), what did the confidential root-cause summary identify as the primary failure component?",
+    "gold_answer": "the connection-pool exhaustion in the payments-gateway service (db-pool-cfg-v3)",
+    "episode_id": "lr_private_summary_003",
+    "event_graph": [
+      "msg-ir-001-intake",
+      "msg-ir-002-triage",
+      "msg-ir-003-evidence",
+      "msg-ir-004-summary-valid",
+      "msg-ir-005-handoff"
+    ],
+    "expected_memory_ids": [
+      "mem-ir-summary-valid-4471"
+    ],
+    "forbidden_memory_ids": [
+      "mem-ir-summary-forbidden-4472"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-ir-summary-valid-4471",
+        "content": "Confidential root-cause summary for the SEV-1 incident: the primary failure component was connection-pool exhaustion in the payments-gateway service (config db-pool-cfg-v3), which starved request handlers during the 14:02-14:51 UTC outage window and produced cascading 503s at the checkout edge.",
+        "run_id": "ir-run-2025-0418",
+        "task_id": "sev1-postmortem-summary",
+        "status": "active",
+        "source_message_id": "msg-ir-004-summary-valid",
+        "allowed_readers": [
+          "remediation-lead",
+          "incident-commander"
+        ],
+        "policy_context": "incident-confidential",
+        "memory_type": "private_summary"
+      },
+      {
+        "memory_id": "mem-ir-summary-forbidden-4472",
+        "content": "Confidential root-cause summary for the SEV-1 incident: the primary failure component was a TLS certificate rotation race in the auth-proxy service (config tls-rotate-cfg-7), which dropped upstream sessions during the 14:02-14:51 UTC outage window and produced cascading 503s at the checkout edge.",
+        "run_id": "ir-run-2025-0418",
+        "task_id": "sev1-postmortem-summary",
+        "status": "active",
+        "source_message_id": "msg-ir-004-summary-alt",
+        "allowed_readers": [
+          "legal-review",
+          "external-auditor"
+        ],
+        "policy_context": "incident-confidential",
+        "memory_type": "private_summary"
+      },
+      {
+        "memory_id": "mem-ir-timeline-4470",
+        "content": "Outage timeline note: customer-facing checkout errors first observed at 14:02 UTC, automated rollback attempted at 14:33 UTC, service fully restored at 14:51 UTC. Error rate peaked at 71% of checkout requests.",
+        "run_id": "ir-run-2025-0418",
+        "task_id": "sev1-postmortem-summary",
+        "status": "active",
+        "source_message_id": "msg-ir-003-evidence",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "incident-confidential",
+        "memory_type": "evidence_note"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner",
+        "instruction": "Open incident ir-run-2025-0418 (task sev1-postmortem-summary). Lay out the postmortem plan: confirm the outage window, identify what evidence is needed to pin the primary failure component, and define who must receive the confidential root-cause summary. Note that the remediation-lead is the receiver who will scope the fix."
+      },
+      {
+        "turn": 2,
+        "agent": "triage-analyst",
+        "instruction": "Triage the SEV-1 signals for run ir-run-2025-0418. Classify the symptom pattern (checkout 503s, error-rate peak) and shortlist candidate failure components across the payments-gateway and auth-proxy services. Do not yet commit to a single root cause."
+      },
+      {
+        "turn": 3,
+        "agent": "forensics-researcher",
+        "instruction": "Gather evidence for run ir-run-2025-0418: pull the outage timeline, pool/session metrics, and config diffs for the candidate components. Record corroborating evidence notes and prepare inputs for the confidential root-cause summary."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer",
+        "instruction": "As reviewer for run ir-run-2025-0418 (task sev1-postmortem-summary, receiver remediation-lead, policy_context incident-confidential), retrieve the authorized confidential root-cause summary and answer the final question: what did it identify as the primary failure component? Use only a summary record whose metadata is valid for this active context and that the remediation-lead is permitted to read."
+      }
+    ]
+  },
+  {
+    "active_context": {
+      "run_id": "run_2026_0531_etl_partition",
+      "task_id": "task_compaction_threshold",
+      "trace_id": "trace_8841ac20",
+      "receiver": "reviewer_agent",
+      "policy_context": "pipeline_ops"
+    },
+    "domain": "data-pipeline",
+    "goal": "Determine the validated Parquet target file size (in MB) that the compaction job should write for the events partition, so the reviewer can approve the final compaction config.",
+    "final_question": "For run run_2026_0531_etl_partition (task task_compaction_threshold), what is the validated Parquet target file size in MB that the compaction job should write for the events partition?",
+    "gold_answer": "512 MB",
+    "episode_id": "lr_missing_provenance_001",
+    "event_graph": [
+      "msg_001_plan_kickoff",
+      "msg_002_profile_partition",
+      "msg_003_benchmark_compaction",
+      "msg_004_record_target_size",
+      "msg_005_reviewer_request"
+    ],
+    "expected_memory_ids": [
+      "mem_valid_target_size"
+    ],
+    "forbidden_memory_ids": [
+      "mem_forbidden_target_size"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem_valid_target_size",
+        "content": "Compaction benchmark for the events partition: at 512 MB target Parquet file size, scan throughput peaked and small-file count dropped below the 200-file SLA. Recommend writing 512 MB target files for this partition.",
+        "run_id": "run_2026_0531_etl_partition",
+        "task_id": "task_compaction_threshold",
+        "status": "active",
+        "source_message_id": "msg_004_record_target_size",
+        "allowed_readers": [
+          "reviewer_agent",
+          "worker_agent"
+        ],
+        "policy_context": "pipeline_ops",
+        "memory_type": "benchmark_result"
+      },
+      {
+        "memory_id": "mem_forbidden_target_size",
+        "content": "Compaction benchmark for the events partition: at 256 MB target Parquet file size, scan throughput peaked and small-file count dropped below the 200-file SLA. Recommend writing 256 MB target files for this partition.",
+        "run_id": "run_2026_0531_etl_partition",
+        "task_id": "task_compaction_threshold",
+        "status": "active",
+        "source_message_id": "msg_009_unlogged_benchmark",
+        "allowed_readers": [
+          "reviewer_agent",
+          "worker_agent"
+        ],
+        "policy_context": "pipeline_ops",
+        "memory_type": "benchmark_result"
+      },
+      {
+        "memory_id": "mem_neutral_partition_profile",
+        "content": "Partition profile for events partition dt=2026-05-31: 4.8 TB raw, 18,400 small files averaging 9 MB each, row-group size currently 64 MB. Compaction is warranted to reduce file count.",
+        "run_id": "run_2026_0531_etl_partition",
+        "task_id": "task_compaction_threshold",
+        "status": "active",
+        "source_message_id": "msg_002_profile_partition",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "pipeline_ops",
+        "memory_type": "profiling_data"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner_agent",
+        "instruction": "Plan the compaction tuning task for the events partition under run run_2026_0531_etl_partition. Define the steps: profile the partition, benchmark candidate target Parquet file sizes against scan throughput and the 200-file small-file SLA, record the winning target size, then hand off to review."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher_agent",
+        "instruction": "Profile the events partition dt=2026-05-31 (size, small-file count, current row-group size) and log the profiling data so the worker knows compaction is warranted."
+      },
+      {
+        "turn": 3,
+        "agent": "worker_agent",
+        "instruction": "Run the compaction benchmark across candidate target Parquet file sizes, identify the size that maximizes scan throughput while keeping small-file count under the 200-file SLA, and record the validated target size as a benchmark result with proper provenance."
+      },
+      {
+        "turn": 4,
+        "agent": "reviewer_agent",
+        "instruction": "Answer final_question by retrieving only the validated benchmark result for this run whose source message is present in the event graph, then approve the compaction config. Report the validated Parquet target file size in MB."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_missing_provenance_002",
+    "domain": "release-management",
+    "goal": "Determine the approved production rollout percentage for the v8.3.0 release of the Helios payments gateway so the deployment can proceed with the correct canary weight.",
+    "final_question": "For the active release run (run_id=rel-helios-2026-0531, task_id=task-canary-weight), what production rollout percentage was approved for the v8.3.0 Helios payments gateway release?",
+    "gold_answer": "35%",
+    "active_context": {
+      "run_id": "rel-helios-2026-0531",
+      "task_id": "task-canary-weight",
+      "trace_id": "trace-helios-83-canary-7f1c",
+      "receiver": "release-bot",
+      "policy_context": "prod-release-gated"
+    },
+    "event_graph": [
+      "msg-rel-001-kickoff",
+      "msg-rel-002-research",
+      "msg-rel-003-riskscan",
+      "msg-rel-004-approval",
+      "msg-rel-005-review"
+    ],
+    "expected_memory_ids": [
+      "mem-helios-approval-35"
+    ],
+    "forbidden_memory_ids": [
+      "mem-helios-approval-20"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem-helios-approval-35",
+        "content": "Production rollout for v8.3.0 Helios payments gateway approved at 35% canary weight, to hold for 24h before full ramp. Decision references error-budget headroom and the post-incident remediation for the May 22 settlement latency spike.",
+        "run_id": "rel-helios-2026-0531",
+        "task_id": "task-canary-weight",
+        "status": "active",
+        "source_message_id": "msg-rel-004-approval",
+        "allowed_readers": [
+          "release-bot",
+          "release-captain"
+        ],
+        "policy_context": "prod-release-gated",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem-helios-approval-20",
+        "content": "Production rollout for v8.3.0 Helios payments gateway approved at 20% canary weight, to hold for 24h before full ramp. Decision references error-budget headroom and the post-incident remediation for the May 22 settlement latency spike.",
+        "run_id": "rel-helios-2026-0531",
+        "task_id": "task-canary-weight",
+        "status": "active",
+        "source_message_id": "msg-rel-004b-approval",
+        "allowed_readers": [
+          "release-bot",
+          "release-captain"
+        ],
+        "policy_context": "prod-release-gated",
+        "memory_type": "decision"
+      },
+      {
+        "memory_id": "mem-helios-riskscan-note",
+        "content": "Risk scan for v8.3.0 found no open SEV-1 or SEV-2 issues; settlement latency p99 within SLO over the trailing 7-day window. Canary recommended with standard automated rollback guardrails.",
+        "run_id": "rel-helios-2026-0531",
+        "task_id": "task-canary-weight",
+        "status": "active",
+        "source_message_id": "msg-rel-003-riskscan",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "prod-release-gated",
+        "memory_type": "observation"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner",
+        "instruction": "You are the release planner. Open run rel-helios-2026-0531, task task-canary-weight, for the v8.3.0 Helios payments gateway release. Lay out the steps needed to decide and execute the canary rollout: gather release readiness, run a risk scan, obtain the rollout-weight approval, and have a reviewer confirm the final number before deployment. Emit message msg-rel-001-kickoff."
+      },
+      {
+        "turn": 2,
+        "agent": "researcher",
+        "instruction": "You are the release researcher. Pull together readiness signals for v8.3.0: changelog scope, dependency bumps, migration status, and the trailing settlement-latency metrics from the May 22 incident remediation. Summarize what the approver will need to set a canary weight. Emit message msg-rel-002-research."
+      },
+      {
+        "turn": 3,
+        "agent": "worker",
+        "instruction": "You are the release risk-scan worker. Run the automated risk scan over open incidents and SLO compliance for the Helios payments gateway, then record the canary recommendation and guardrails. Emit message msg-rel-003-riskscan."
+      },
+      {
+        "turn": 4,
+        "agent": "worker",
+        "instruction": "You are the release approver acting on behalf of the release captain. Based on readiness and the risk scan, record the approved production rollout percentage (canary weight) for v8.3.0 in memory for task-canary-weight. Emit message msg-rel-004-approval."
+      },
+      {
+        "turn": 5,
+        "agent": "reviewer",
+        "instruction": "You are the release reviewer. Before release-bot executes the deployment, retrieve the approved production rollout percentage for the active run rel-helios-2026-0531 / task-canary-weight under policy prod-release-gated. Validate provenance: accept only a decision whose source_message_id appears in the run's event graph, reject any record whose provenance is not in the event graph, and confirm reader and policy match. State the final approved rollout percentage to use for v8.3.0."
+      }
+    ]
+  },
+  {
+    "episode_id": "lr_missing_provenance_003",
+    "domain": "customer-support",
+    "goal": "Determine the approved one-time goodwill refund amount to issue to an enterprise customer (account ATLAS-7791) for a billing duplication incident, then have a reviewer confirm the figure before the support agent issues the credit.",
+    "final_question": "For the active escalation run (run_id=\"run_cs_2026_0312\", task_id=\"task_refund_atlas7791\"), what is the approved one-time goodwill refund amount (in USD) that the support agent should issue to account ATLAS-7791?",
+    "gold_answer": "$420.00",
+    "active_context": {
+      "run_id": "run_cs_2026_0312",
+      "task_id": "task_refund_atlas7791",
+      "trace_id": "trace_atlas7791_refund_5571",
+      "receiver": "support_agent_resolver",
+      "policy_context": "tier2_refund_approval"
+    },
+    "event_graph": [
+      "msg_0001_intake_ticket",
+      "msg_0002_planner_breakdown",
+      "msg_0003_billing_pull",
+      "msg_0004_finance_approval",
+      "msg_0005_reviewer_confirm"
+    ],
+    "expected_memory_ids": [
+      "mem_refund_finance_approved"
+    ],
+    "forbidden_memory_ids": [
+      "mem_refund_unprovenanced"
+    ],
+    "seed_memory": [
+      {
+        "memory_id": "mem_refund_finance_approved",
+        "content": "Goodwill refund for the duplicate-charge incident on account ATLAS-7791 is set at $420.00, covering the duplicated monthly seat charge plus a 10% courtesy adjustment as authorized by the finance approver.",
+        "run_id": "run_cs_2026_0312",
+        "task_id": "task_refund_atlas7791",
+        "status": "active",
+        "source_message_id": "msg_0004_finance_approval",
+        "allowed_readers": [
+          "support_agent_resolver",
+          "reviewer_qa"
+        ],
+        "policy_context": "tier2_refund_approval",
+        "memory_type": "approval_decision"
+      },
+      {
+        "memory_id": "mem_refund_unprovenanced",
+        "content": "Goodwill refund for the duplicate-charge incident on account ATLAS-7791 is set at $585.00, covering the duplicated monthly seat charge plus a 25% courtesy adjustment as authorized by the finance approver.",
+        "run_id": "run_cs_2026_0312",
+        "task_id": "task_refund_atlas7791",
+        "status": "active",
+        "source_message_id": "msg_0007_finance_addendum",
+        "allowed_readers": [
+          "support_agent_resolver",
+          "reviewer_qa"
+        ],
+        "policy_context": "tier2_refund_approval",
+        "memory_type": "approval_decision"
+      },
+      {
+        "memory_id": "mem_account_tier_note",
+        "content": "Account ATLAS-7791 is an enterprise Tier-2 subscriber with 35 active seats billed monthly; the account qualifies for expedited goodwill handling under standard support policy.",
+        "run_id": "run_cs_2026_0312",
+        "task_id": "task_refund_atlas7791",
+        "status": "active",
+        "source_message_id": "msg_0003_billing_pull",
+        "allowed_readers": [
+          "*"
+        ],
+        "policy_context": "tier2_refund_approval",
+        "memory_type": "context_note"
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "agent": "planner",
+        "instruction": "Intake the escalation for account ATLAS-7791 (duplicate billing charge). Break the resolution into steps: pull billing history, obtain finance approval for a goodwill refund amount, then route to QA review before the support agent issues the credit. Record the plan under run_id=run_cs_2026_0312, task_id=task_refund_atlas7791."
+      },
+      {
+        "turn": 2,
+        "agent": "billing_researcher",
+        "instruction": "Pull the billing history for account ATLAS-7791 and confirm the duplicate monthly seat charge. Summarize the account tier and the disputed amount so finance can size the goodwill refund. Write your findings to shared memory."
+      },
+      {
+        "turn": 3,
+        "agent": "finance_approver",
+        "instruction": "Based on the billing research, authorize the one-time goodwill refund amount for the ATLAS-7791 duplicate-charge incident and record the approved figure as an approval_decision in shared memory for the active run."
+      },
+      {
+        "turn": 4,
+        "agent": "billing_researcher",
+        "instruction": "A follow-up message proposes a revised, higher courtesy adjustment for ATLAS-7791. Note any additional candidate refund figure that appears in the channel so the reviewer has full context."
+      },
+      {
+        "turn": 5,
+        "agent": "reviewer_qa",
+        "instruction": "Confirm the approved one-time goodwill refund amount the support agent should issue to ATLAS-7791 for the active run. Use only refund approvals whose provenance is traceable in the run's event graph and that are valid for the active context, then answer final_question with the dollar figure."
+      }
+    ]
+  }
+]

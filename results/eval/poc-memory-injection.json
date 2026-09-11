@@ -1,0 +1,138 @@
+{
+  "scenario": "forged-field sibling-branch memory injection",
+  "active_message": "m3",
+  "causal_closure": [
+    "m0",
+    "m2",
+    "m3"
+  ],
+  "planted_record_source": "m1",
+  "planted_record_in_closure": false,
+  "no_gate": {
+    "admitted": [
+      "mem-good",
+      "mem-trap"
+    ],
+    "chosen_memory": "mem-trap",
+    "retention_days": 7,
+    "contaminated": true
+  },
+  "mbm_gate": {
+    "admitted": [
+      "mem-good"
+    ],
+    "audit": [
+      {
+        "memory_id": "mem-good",
+        "decision": "allow",
+        "reason": "message_bound_access_granted",
+        "content_hash": "sha256:9327237f37c763741af389208565ae82a5865da546081e9ab510c1229c32256b"
+      },
+      {
+        "memory_id": "mem-trap",
+        "decision": "deny",
+        "reason": "provenance_not_in_causal_graph",
+        "content_hash": "sha256:11ef6e2f15398fb1fc9357205fd6d353722e8eb7365f224fc73daac3226ee764"
+      }
+    ],
+    "chosen_memory": "mem-good",
+    "retention_days": 30,
+    "contaminated": false
+  },
+  "source_existence_only": {
+    "decision": "allow",
+    "reason": "message_bound_access_granted"
+  },
+  "tamper_evidence": {
+    "honest": {
+      "ok": true,
+      "issues": []
+    },
+    "forged_allow": {
+      "ok": false,
+      "issues": [
+        {
+          "memory_id": "mem-trap",
+          "kind": "forged_decision",
+          "logged": "allow",
+          "recomputed": "deny"
+        }
+      ]
+    },
+    "dropped_decision": {
+      "ok": false,
+      "issues": [
+        {
+          "memory_id": "mem-trap",
+          "kind": "missing_decision"
+        }
+      ]
+    },
+    "content_mutation": {
+      "ok": false,
+      "issues": [
+        {
+          "memory_id": "mem-good",
+          "kind": "forged_decision",
+          "logged": "allow",
+          "recomputed": "deny"
+        },
+        {
+          "memory_id": "mem-good",
+          "kind": "content_mutated",
+          "logged_hash": "sha256:9327237f37c763741af389208565ae82a5865da546081e9ab510c1229c32256b",
+          "recomputed_hash": "sha256:4411963c4b1b970e466e80632a3aad45e15c1fabfbe807cb84a58462882b56c6"
+        }
+      ]
+    },
+    "read_time_integrity": {
+      "decision": "deny",
+      "reason": "integrity_mismatch"
+    }
+  },
+  "checks": [
+    {
+      "name": "naive admits the plant",
+      "ok": true
+    },
+    {
+      "name": "naive executor takes WRONG action (contaminated)",
+      "ok": true
+    },
+    {
+      "name": "gate denies the plant via provenance_not_in_causal_graph",
+      "ok": true
+    },
+    {
+      "name": "gate executor takes CORRECT action (uncontaminated)",
+      "ok": true
+    },
+    {
+      "name": "source-existence check ALONE fails to catch the plant",
+      "ok": true
+    },
+    {
+      "name": "honest replay verifies clean",
+      "ok": true
+    },
+    {
+      "name": "replay detects forged-allow",
+      "ok": true
+    },
+    {
+      "name": "replay detects dropped decision",
+      "ok": true
+    },
+    {
+      "name": "replay detects content mutation",
+      "ok": true
+    },
+    {
+      "name": "read-time gate denies mutated record (integrity_mismatch)",
+      "ok": true
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "ok": true
+}

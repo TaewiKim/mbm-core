@@ -1,0 +1,23 @@
+{
+  "input": "coupled-memory-phase6-live-model",
+  "model": "gemini-2.5-flash",
+  "paired_n": 24,
+  "bootstrap_iterations": 5000,
+  "seed": 2629,
+  "c4_successes": 7,
+  "c4_cases": 24,
+  "c5_successes": 18,
+  "c5_cases": 24,
+  "c4_forbidden_memory": 17,
+  "c5_forbidden_memory": 0,
+  "paired_success_delta": 0.4583333333333333,
+  "paired_success_delta_ci95": [
+    0.16666666666666666,
+    0.7093749999999849
+  ],
+  "paired_forbidden_memory_delta": 0.7083333333333334,
+  "paired_forbidden_memory_delta_ci95": [
+    0.5,
+    0.875
+  ]
+}

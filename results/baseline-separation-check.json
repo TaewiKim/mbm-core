@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "total_cases": 180,
+    "treatment": "C5",
+    "treatment_passed": 180,
+    "baseline_totals": {
+      "C4+all-static-filters": 140,
+      "C4+all-static-filters+source-exists": 160,
+      "C4+abac": 160,
+      "C4+rebac-provenance-graph": 140,
+      "C4+capability-token": 20
+    },
+    "per_family": {
+      "twin_run_shared_memory_contamination": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 20,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 20,
+          "C4+capability-token": 0
+        }
+      },
+      "pause_resume_deferred_constraint": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 20,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 20,
+          "C4+capability-token": 0
+        }
+      },
+      "crash_retry_with_superseded_policy": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 20,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 0,
+          "C4+capability-token": 0
+        }
+      },
+      "branch_merge_with_conflicting_memories": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 20,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 20,
+          "C4+capability-token": 0
+        }
+      },
+      "artifact_dependent_handoff": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 20,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 20,
+          "C4+capability-token": 0
+        }
+      },
+      "private_memory_summary": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 20,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 20,
+          "C4+capability-token": 20
+        }
+      },
+      "long_horizon_drift": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 20,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 0,
+          "C4+capability-token": 0
+        }
+      },
+      "audit_reconstruction": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 0,
+          "C4+all-static-filters+source-exists": 20,
+          "C4+abac": 20,
+          "C4+rebac-provenance-graph": 20,
+          "C4+capability-token": 0
+        }
+      },
+      "graph_only_sibling_branch_provenance": {
+        "total": 20,
+        "pass": {
+          "C5": 20,
+          "C4+all-static-filters": 0,
+          "C4+all-static-filters+source-exists": 0,
+          "C4+abac": 0,
+          "C4+rebac-provenance-graph": 20,
+          "C4+capability-token": 0
+        }
+      }
+    }
+  }
+}

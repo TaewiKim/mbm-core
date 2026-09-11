@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "benchmark": "coupled-memory-twin-run-proof",
+    "condition_matrix_count": 6,
+    "c4_success": false,
+    "c4_wrong_scope_memory_use": 1,
+    "c5_success": true,
+    "c5_wrong_scope_memory_use": 0,
+    "c5_memory_access_decisions": 2
+  }
+}

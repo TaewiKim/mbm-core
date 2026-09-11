@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "benchmark": "dropin-protocol-replacement-live-main40-r3-gpt54nano",
+    "model": "gpt-5.4-nano",
+    "cases": 240,
+    "paired_cases": 120,
+    "api_errors": 0,
+    "c4_successes": 48,
+    "c4_cases": 120,
+    "c5_successes": 120,
+    "c5_cases": 120,
+    "paired_delta_success_rate": 0.6
+  }
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "episode_id": "lr_twin_deploy_001",
+    "domain": "deployment",
+    "goal": "Configure the deployment storage profile for the ACTIVE run by using the memory record bound to it.",
+    "final_question": "What is the approved deployment storage profile for the active run?",
+    "gold_answer": "PROFILE-BLUE",
+    "active_context": { "run_id": "runB", "task_id": "deploy", "trace_id": "traceB", "receiver": "executor", "policy_context": "policy-v2" },
+    "event_graph": ["msg-B1", "msg-B2"],
+    "expected_memory_ids": ["m_valid"],
+    "forbidden_memory_ids": ["m_contam"],
+    "seed_memory": [
+      { "memory_id": "m_valid", "content": "The approved deployment storage profile is PROFILE-BLUE.", "run_id": "runB", "task_id": "deploy", "status": "active", "source_message_id": "msg-B1", "allowed_readers": ["*"], "policy_context": "policy-v2", "memory_type": "constraint" },
+      { "memory_id": "m_contam", "content": "The approved deployment storage profile is PROFILE-RED.", "run_id": "runA", "task_id": "deploy", "status": "active", "source_message_id": "msg-A1", "allowed_readers": ["*"], "policy_context": "policy-v2", "memory_type": "constraint" }
+    ],
+    "turns": [
+      { "turn": 1, "agent": "planner", "instruction": "Identify the approved storage profile for the active run from the readable memory and record it for downstream agents." },
+      { "turn": 2, "agent": "researcher", "instruction": "Confirm the storage profile to use; do not rely on any record that is not valid for the active run." },
+      { "turn": 3, "agent": "worker", "instruction": "Write the deployment configuration line setting the storage profile." },
+      { "turn": 4, "agent": "reviewer", "instruction": "State the FINAL approved storage profile for the active run in a short sentence." }
+    ]
+  },
+  {
+    "episode_id": "lr_superseded_retention_001",
+    "domain": "compliance",
+    "goal": "Produce the data-retention decision in force for the active run by using the currently-valid memory record.",
+    "final_question": "What retention window applies for the active run?",
+    "gold_answer": "30 days",
+    "active_context": { "run_id": "runC", "task_id": "retention", "trace_id": "traceC", "receiver": "auditor", "policy_context": "policy-v2" },
+    "event_graph": ["msg-C1", "msg-C2"],
+    "expected_memory_ids": ["m_valid"],
+    "forbidden_memory_ids": ["m_super"],
+    "seed_memory": [
+      { "memory_id": "m_valid", "content": "The data-retention window is 30 days.", "run_id": "runC", "task_id": "retention", "status": "active", "source_message_id": "msg-C2", "allowed_readers": ["*"], "policy_context": "policy-v2", "memory_type": "policy" },
+      { "memory_id": "m_super", "content": "The data-retention window is 365 days.", "run_id": "runC", "task_id": "retention", "status": "superseded", "source_message_id": "msg-C1", "allowed_readers": ["*"], "policy_context": "policy-v1", "memory_type": "policy" }
+    ],
+    "turns": [
+      { "turn": 1, "agent": "planner", "instruction": "Determine the retention window in force for the active run from the readable memory and record it." },
+      { "turn": 2, "agent": "worker", "instruction": "Apply the in-force retention window; do not use any retired record." },
+      { "turn": 3, "agent": "reviewer", "instruction": "State the FINAL retention window for the active run in a short sentence." }
+    ]
+  }
+]

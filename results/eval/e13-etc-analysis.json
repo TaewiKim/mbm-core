@@ -1,0 +1,76 @@
+{
+  "experiment": "E13",
+  "metric": "End-Task Correctness (mechanism-blind judge)",
+  "threat": "T2 (FFCR presupposes the mechanism)",
+  "e1": {
+    "n_pairs": 240,
+    "etc": {
+      "c4": 0.475,
+      "c5": 0.8833,
+      "delta": 0.4083,
+      "ci95": [
+        0.3333,
+        0.4833
+      ]
+    },
+    "ffcr_for_reference": {
+      "c4": 0.2667,
+      "c5": 0.9708,
+      "delta": 0.7042
+    },
+    "mcnemar_etc": {
+      "b": 15,
+      "c": 113,
+      "discordant": 128,
+      "statistic": 73.5078125
+    }
+  },
+  "e3": {
+    "n_pairs": 200,
+    "etc": {
+      "c4": 0.7,
+      "c5": 0.905,
+      "delta": 0.205,
+      "ci95": [
+        0.145,
+        0.27
+      ]
+    },
+    "ffcr_for_reference": {
+      "c4": 0.6,
+      "c5": 1,
+      "delta": 0.4
+    },
+    "mcnemar_etc": {
+      "b": 4,
+      "c": 45,
+      "discordant": 49,
+      "statistic": 32.6530612244898
+    }
+  },
+  "combined": {
+    "n_pairs": 440,
+    "etc": {
+      "c4": 0.5773,
+      "c5": 0.8932,
+      "delta": 0.3159,
+      "ci95": [
+        0.2636,
+        0.3682
+      ]
+    },
+    "ffcr_for_reference": {
+      "c4": 0.4182,
+      "c5": 0.9841,
+      "delta": 0.5659
+    },
+    "mcnemar_etc": {
+      "b": 19,
+      "c": 158,
+      "discordant": 177,
+      "statistic": 107.59322033898304
+    }
+  },
+  "go": true,
+  "verdict": "GO: ETC delta CI lower bound > 0 and agrees with FFCR sign -> effect survives a mechanism-blind metric."
+}

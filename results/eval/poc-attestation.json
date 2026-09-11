@@ -1,0 +1,60 @@
+{
+  "scenario": "enforced trusted-write boundary (M1/M2/M3/M5/M6)",
+  "profile": "secure",
+  "admitted": [
+    "good",
+    "good2"
+  ],
+  "admitted_after_supersede": [
+    "good2"
+  ],
+  "checks": [
+    {
+      "name": "attested record admitted",
+      "ok": true
+    },
+    {
+      "name": "store-injected truthful-ancestor trap denied (no receipt)",
+      "ok": true
+    },
+    {
+      "name": "public/zero-key forged receipts denied (ephemeral key)",
+      "ok": true
+    },
+    {
+      "name": "unauthenticated write rejected (no signing oracle)",
+      "ok": true
+    },
+    {
+      "name": "arbitrary claim of another queue rejected",
+      "ok": true
+    },
+    {
+      "name": "stolen envelope without a lease cannot read",
+      "ok": true
+    },
+    {
+      "name": "no bypass surface (no-gate/disabled-check ignored)",
+      "ok": true
+    },
+    {
+      "name": "lifecycle authority required to supersede",
+      "ok": true
+    },
+    {
+      "name": "superseded record denied after authoritative supersede",
+      "ok": true
+    },
+    {
+      "name": "attestation-aware replay clean",
+      "ok": true
+    },
+    {
+      "name": "replay catches receipt tampering",
+      "ok": true
+    }
+  ],
+  "passed": 11,
+  "total": 11,
+  "ok": true
+}

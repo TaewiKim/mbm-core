@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "failures": [],
+  "checked": {
+    "benchmark": "coupled-memory-phase4-main-suite",
+    "scenario_family_count": 8,
+    "scenario_instance_count": 160,
+    "case_count": 960,
+    "c5_successes": 160,
+    "c5_cases": 160,
+    "c4_failures": 160,
+    "c4_cases": 160
+  }
+}

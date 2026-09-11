@@ -1,0 +1,23 @@
+{
+  "description": "Command manifest for the  artifact. Every result file is produced by one of these.",
+  "no_api_replay": [
+    "npm ci",
+    "npm run eval:artifact:check"
+  ],
+  "live_experiments": {
+    "E3_se_native": ["npm run eval:se:build", "npm run eval:e3:nano"],
+    "E5_strong_baseline": ["npm run eval:e5:nano", "npm run eval:e5:mini", "npm run eval:e5:combine"],
+    "E7_blinded_holdout": ["npm run eval:holdout:build", "npm run eval:e7:nano"],
+    "E9_negative_controls": ["npm run eval:e9:nano", "npm run eval:e9:analyze"],
+    "E10_stress": ["npm run eval:e10:nano", "npm run eval:e10:analyze"],
+    "E12_cost_pareto": ["npm run eval:e12:analyze"]
+  },
+  "analysis_and_outputs": {
+    "best_baseline_aggregate": "npm run eval:analyze:best-baseline",
+    "tables": "npm run eval:tables",
+    "figures": "npm run eval:figures",
+    "evidence_check": "npm run eval:check"
+  },
+  "models": ["gpt-5.4-nano", "gpt-5.4-mini"],
+  "env": ["OPENAI_API_KEY (live only)"]
+}

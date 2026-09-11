@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="248.4pt" height="252pt" viewBox="0 0 248.4 252" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 252 
+L 248.4 252 
+L 248.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 99.36 226.8 
+L 240.948 226.8 
+L 240.948 30.24 
+L 99.36 30.24 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 99.36 226.8 
+L 99.36 30.24 
+" clip-path="url(#pe291cecb7d)" style="fill: none; stroke: #d9dde3; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 134.757 226.8 
+L 134.757 30.24 
+" clip-path="url(#pe291cecb7d)" style="fill: none; stroke: #d9dde3; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 170.154 226.8 
+L 170.154 30.24 
+" clip-path="url(#pe291cecb7d)" style="fill: none; stroke: #d9dde3; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 205.551 226.8 
+L 205.551 30.24 
+" clip-path="url(#pe291cecb7d)" style="fill: none; stroke: #d9dde3; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 240.948 226.8 
+L 240.948 30.24 
+" clip-path="url(#pe291cecb7d)" style="fill: none; stroke: #d9dde3; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_6">
+      <defs>
+       <path id="m63a42a9cc2" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m63a42a9cc2" x="99.36" y="226.8" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 6.2px; font-family: 'DejaVu Sans'; text-anchor: middle" x="99.36" y="238.511031" transform="rotate(-0 99.36 238.511031)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m63a42a9cc2" x="170.154" y="226.8" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 6.2px; font-family: 'DejaVu Sans'; text-anchor: middle" x="170.154" y="238.511031" transform="rotate(-0 170.154 238.511031)">50</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m63a42a9cc2" x="240.948" y="226.8" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 6.2px; font-family: 'DejaVu Sans'; text-anchor: middle" x="240.948" y="238.511031" transform="rotate(-0 240.948 238.511031)">100%</text>
+     </g>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: middle" x="170.154" y="249.119344" transform="rotate(-0 170.154 249.119344)">Memory-Selection Accuracy</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1"/>
+    <g id="ytick_2"/>
+    <g id="ytick_3"/>
+    <g id="ytick_4"/>
+    <g id="ytick_5"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 99.36 226.8 
+L 240.948 226.8 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 0.75; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 99.36 55.72 
+L 223.645946 55.72 
+L 223.645946 43.344 
+L 99.36 43.344 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #d55e00; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 99.36 68.096 
+L 240.948 68.096 
+L 240.948 55.72 
+L 99.36 55.72 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #0072b2; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="220.814186" y="51.022063" transform="rotate(-0 220.814186 51.022063)">88%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="238.11624" y="63.398062" transform="rotate(-0 238.11624 63.398062)">100%</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 99.36 92.12 
+L 222.07432 92.12 
+L 222.07432 79.744 
+L 99.36 79.744 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #d55e00; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 99.36 104.496 
+L 240.948 104.496 
+L 240.948 92.12 
+L 99.36 92.12 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #0072b2; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="219.24256" y="87.422063" transform="rotate(-0 219.24256 87.422063)">87%</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="238.11624" y="99.798062" transform="rotate(-0 238.11624 99.798062)">100%</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 99.36 128.52 
+L 222.54156 128.52 
+L 222.54156 116.144 
+L 99.36 116.144 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #d55e00; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 99.36 140.896 
+L 240.948 140.896 
+L 240.948 128.52 
+L 99.36 128.52 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #0072b2; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="219.7098" y="123.822062" transform="rotate(-0 219.7098 123.822062)">87%</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="238.11624" y="136.198062" transform="rotate(-0 238.11624 136.198062)">100%</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 99.36 164.92 
+L 240.948 164.92 
+L 240.948 152.544 
+L 99.36 152.544 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #d55e00; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 99.36 177.296 
+L 240.948 177.296 
+L 240.948 164.92 
+L 99.36 164.92 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #0072b2; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="238.11624" y="160.222062" transform="rotate(-0 238.11624 160.222062)">100%</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="238.11624" y="172.598062" transform="rotate(-0 238.11624 172.598062)">100%</text>
+   </g>
+   <g id="patch_12">
+    <path d="M 99.36 201.32 
+L 227.355552 201.32 
+L 227.355552 188.944 
+L 99.36 188.944 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #d55e00; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 99.36 213.696 
+L 240.948 213.696 
+L 240.948 201.32 
+L 99.36 201.32 
+z
+" clip-path="url(#pe291cecb7d)" style="fill: #03406a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="224.523792" y="196.622062" transform="rotate(-0 224.523792 196.622062)">90%</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 5.4px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #ffffff" x="238.11624" y="208.998063" transform="rotate(-0 238.11624 208.998063)">100%</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 6.3px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #1a1a1a" x="95.11236" y="49.450406" transform="rotate(-0 95.11236 49.450406)">controlled protocol-swap (E1)</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 5.2px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #6b7280" x="95.11236" y="57.518875" transform="rotate(-0 95.11236 57.518875)">n=270</text>
+   </g>
+   <g id="text_17">
+    <!-- $\Delta$=0.12 [0.09,0.16] ★ -->
+    <g style="fill: #6b7280" transform="translate(38.74436 66.254875)">
+     <text>
+      <tspan x="0" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">Δ</tspan>
+      <tspan x="3.591431" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">=</tspan>
+      <tspan x="7.990356" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="11.330566" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="12.99939" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">1</tspan>
+      <tspan x="16.3396" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">2</tspan>
+      <tspan x="19.67981" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280"> </tspan>
+      <tspan x="21.348633" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">[</tspan>
+      <tspan x="23.396851" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="26.737061" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="28.405884" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="31.746094" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">9</tspan>
+      <tspan x="35.086304" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">,</tspan>
+      <tspan x="36.755127" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="40.095337" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="41.76416" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">1</tspan>
+      <tspan x="45.10437" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">6</tspan>
+      <tspan x="48.44458" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">]</tspan>
+      <tspan x="50.492798" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280"> </tspan>
+      <tspan x="52.161621" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">★</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 6.3px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #1a1a1a" x="95.11236" y="85.850406" transform="rotate(-0 95.11236 85.850406)">drop-in replacement (E2)</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 5.2px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #6b7280" x="95.11236" y="93.918875" transform="rotate(-0 95.11236 93.918875)">n=270</text>
+   </g>
+   <g id="text_20">
+    <!-- $\Delta$=0.13 [0.09,0.17] ★ -->
+    <g style="fill: #6b7280" transform="translate(38.74436 102.654875)">
+     <text>
+      <tspan x="0" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">Δ</tspan>
+      <tspan x="3.591431" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">=</tspan>
+      <tspan x="7.990356" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="11.330566" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="12.99939" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">1</tspan>
+      <tspan x="16.3396" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">3</tspan>
+      <tspan x="19.67981" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280"> </tspan>
+      <tspan x="21.348633" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">[</tspan>
+      <tspan x="23.396851" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="26.737061" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="28.405884" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="31.746094" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">9</tspan>
+      <tspan x="35.086304" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">,</tspan>
+      <tspan x="36.755127" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="40.095337" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="41.76416" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">1</tspan>
+      <tspan x="45.10437" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">7</tspan>
+      <tspan x="48.44458" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">]</tspan>
+      <tspan x="50.492798" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280"> </tspan>
+      <tspan x="52.161621" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">★</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 6.3px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #1a1a1a" x="95.11236" y="122.250406" transform="rotate(-0 95.11236 122.250406)">SE-native workflow (E3)</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 5.2px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #6b7280" x="95.11236" y="130.318875" transform="rotate(-0 95.11236 130.318875)">n=200</text>
+   </g>
+   <g id="text_23">
+    <!-- $\Delta$=0.13 [0.09,0.18] ★ -->
+    <g style="fill: #6b7280" transform="translate(38.74436 139.054875)">
+     <text>
+      <tspan x="0" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">Δ</tspan>
+      <tspan x="3.591431" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">=</tspan>
+      <tspan x="7.990356" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="11.330566" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="12.99939" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">1</tspan>
+      <tspan x="16.3396" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">3</tspan>
+      <tspan x="19.67981" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280"> </tspan>
+      <tspan x="21.348633" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">[</tspan>
+      <tspan x="23.396851" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="26.737061" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="28.405884" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="31.746094" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">9</tspan>
+      <tspan x="35.086304" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">,</tspan>
+      <tspan x="36.755127" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="40.095337" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="41.76416" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">1</tspan>
+      <tspan x="45.10437" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">8</tspan>
+      <tspan x="48.44458" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">]</tspan>
+      <tspan x="50.492798" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280"> </tspan>
+      <tspan x="52.161621" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">★</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 6.3px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #1a1a1a" x="95.11236" y="158.650406" transform="rotate(-0 95.11236 158.650406)">strong-baseline rescue (E5)</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 5.2px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #6b7280" x="95.11236" y="166.718875" transform="rotate(-0 95.11236 166.718875)">n=90</text>
+   </g>
+   <g id="text_26">
+    <!-- $\Delta$=0.00 [0.00,0.00] -->
+    <g style="fill: #6b7280" transform="translate(45.08836 175.454875)">
+     <text>
+      <tspan x="0" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">Δ</tspan>
+      <tspan x="3.591431" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">=</tspan>
+      <tspan x="7.990356" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="11.330566" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="12.99939" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="16.3396" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="19.67981" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280"> </tspan>
+      <tspan x="21.348633" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">[</tspan>
+      <tspan x="23.396851" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="26.737061" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="28.405884" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="31.746094" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="35.086304" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">,</tspan>
+      <tspan x="36.755127" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="40.095337" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">.</tspan>
+      <tspan x="41.76416" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="45.10437" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">0</tspan>
+      <tspan x="48.44458" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #6b7280">]</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 6.3px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #1a1a1a" x="95.11236" y="195.022352" transform="rotate(-0 95.11236 195.022352)">aggregate (E6)</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 5.2px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #6b7280" x="95.11236" y="203.118875" transform="rotate(-0 95.11236 203.118875)">n=990</text>
+   </g>
+   <g id="text_29">
+    <!-- $\Delta$=0.10 [0.08,0.12] ★ -->
+    <g style="fill: #1a1a1a" transform="translate(33.64836 211.854875)">
+     <text>
+      <tspan x="0" y="-0.203125" style="font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">Δ</tspan>
+      <tspan x="3.591431" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">=</tspan>
+      <tspan x="7.990356" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">0</tspan>
+      <tspan x="11.643311" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">.</tspan>
+      <tspan x="13.637695" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">1</tspan>
+      <tspan x="17.290649" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">0</tspan>
+      <tspan x="20.943604" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a"> </tspan>
+      <tspan x="22.771362" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">[</tspan>
+      <tspan x="25.170776" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">0</tspan>
+      <tspan x="28.82373" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">.</tspan>
+      <tspan x="30.818115" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">0</tspan>
+      <tspan x="34.471069" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">8</tspan>
+      <tspan x="38.124023" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">,</tspan>
+      <tspan x="40.118408" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">0</tspan>
+      <tspan x="43.771362" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">.</tspan>
+      <tspan x="45.765747" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">1</tspan>
+      <tspan x="49.418701" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">2</tspan>
+      <tspan x="53.071655" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">]</tspan>
+      <tspan x="55.471069" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a"> </tspan>
+      <tspan x="57.298828" y="-0.203125" style="font-weight: 700; font-size: 5.2px; font-family: 'DejaVu Sans'; fill: #1a1a1a">★</tspan>
+     </text>
+    </g>
+   </g>
+  </g>
+  <g id="legend_1">
+   <g id="patch_14">
+    <path d="M 102.684109 14.071031 
+L 108.884109 14.071031 
+L 108.884109 9.731031 
+L 102.684109 9.731031 
+z
+" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 6.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #1a1a1a" x="113.844109" y="14.071031" transform="rotate(-0 113.844109 14.071031)">best baseline</text>
+   </g>
+   <g id="patch_15">
+    <path d="M 162.635203 14.071031 
+L 168.835203 14.071031 
+L 168.835203 9.731031 
+L 162.635203 9.731031 
+z
+" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 6.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #1a1a1a" x="173.795203" y="14.071031" transform="rotate(-0 173.795203 14.071031)">MBM-Core</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe291cecb7d">
+   <rect x="99.36" y="30.24" width="141.588" height="196.56"/>
+  </clipPath>
+ </defs>
+</svg>

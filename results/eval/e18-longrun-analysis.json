@@ -1,0 +1,43 @@
+{
+  "experiment": "E18",
+  "benchmark": "Long-running multi-agent workflow (multi-turn, multiple agent roles, shared accumulating memory, mid-workflow contamination)",
+  "metric": "end-to-end workflow success (final answer correct AND no turn acted on a contaminating record)",
+  "unique_episodes": 2,
+  "families": 2,
+  "models": 2,
+  "model_episode_units": 4,
+  "n_episodes": 4,
+  "c4_success": 0.5,
+  "c5_success": 1,
+  "delta": 0.5,
+  "ci95": [
+    0,
+    1
+  ],
+  "mcnemar": {
+    "b": 0,
+    "c": 2,
+    "discordant": 2,
+    "statistic": 0.5
+  },
+  "c4_contamination_rate": 0.5,
+  "c5_contamination_rate": 0,
+  "by_model": {
+    "gpt-5.4-nano": {
+      "n": 2,
+      "c4_success": 0,
+      "c5_success": 1,
+      "c4_contamination_rate": 1,
+      "c5_contamination_rate": 0
+    },
+    "gpt-5.4-mini": {
+      "n": 2,
+      "c4_success": 1,
+      "c5_success": 1,
+      "c4_contamination_rate": 0,
+      "c5_contamination_rate": 0
+    }
+  },
+  "go": false,
+  "verdict": "NULL/NEG: delta 0.5 [0,1] -- report honestly."
+}

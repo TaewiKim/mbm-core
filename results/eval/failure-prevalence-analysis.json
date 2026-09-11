@@ -1,0 +1,119 @@
+{
+  "experiment": "E15b",
+  "description": "Prevalence of communication-memory mismatch failures under the non-binding baseline (C4).",
+  "prereg_threshold": "mismatch-attributable C4 failures >= 15%",
+  "external_prevalence_gap": "True in-the-wild prevalence requires external non-constructed agent traces; deferred (no internet in build env). SE-native (E3) is the real-artifact-derived lower-bound proxy.",
+  "constructed_E1": {
+    "label": "constructed (E1)",
+    "file": "results/coupled-memory-phase6-live-main40-r3-combined-2models.json",
+    "real_derived": false,
+    "c4_cases": 240,
+    "c4_failures": 176,
+    "c4_failure_rate": 0.7333,
+    "by_scenario_type": {
+      "twin_run_shared_memory_contamination": {
+        "total": 30,
+        "fail": 30,
+        "family": "twin_run",
+        "mast": "FC1",
+        "failure_rate": 1
+      },
+      "pause_resume_deferred_constraint": {
+        "total": 30,
+        "fail": 29,
+        "family": "pause_resume",
+        "mast": "FC1",
+        "failure_rate": 0.9667
+      },
+      "crash_retry_with_superseded_policy": {
+        "total": 30,
+        "fail": 21,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.7
+      },
+      "branch_merge_with_conflicting_memories": {
+        "total": 30,
+        "fail": 30,
+        "family": "branch_merge",
+        "mast": "FC2",
+        "failure_rate": 1
+      },
+      "artifact_dependent_handoff": {
+        "total": 30,
+        "fail": 29,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.9667
+      },
+      "private_memory_summary": {
+        "total": 30,
+        "fail": 2,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.0667
+      },
+      "long_horizon_drift": {
+        "total": 30,
+        "fail": 10,
+        "family": "long_horizon_drift",
+        "mast": "FC1",
+        "failure_rate": 0.3333
+      },
+      "audit_reconstruction": {
+        "total": 30,
+        "fail": 25,
+        "family": "audit_reconstruction",
+        "mast": "FC3",
+        "failure_rate": 0.8333
+      }
+    }
+  },
+  "se_native_E3": {
+    "label": "SE-native / GitHub-derived (E3)",
+    "file": "results/eval/e3-se-native-combined.json",
+    "real_derived": true,
+    "c4_cases": 200,
+    "c4_failures": 80,
+    "c4_failure_rate": 0.4,
+    "by_scenario_type": {
+      "issue_triage_capability": {
+        "total": 40,
+        "fail": 25,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.625
+      },
+      "bug_evidence_conflict": {
+        "total": 40,
+        "fail": 19,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.475
+      },
+      "pr_delegation_drift": {
+        "total": 40,
+        "fail": 17,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.425
+      },
+      "incident_memory_privacy": {
+        "total": 40,
+        "fail": 1,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.025
+      },
+      "ci_context_manifest": {
+        "total": 40,
+        "fail": 18,
+        "family": null,
+        "mast": null,
+        "failure_rate": 0.45
+      }
+    }
+  },
+  "se_native_c4_failure_rate": 0.4,
+  "passes_prereg_15pct": true
+}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="345.6pt" height="216pt" viewBox="0 0 345.6 216" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 216 
+L 345.6 216 
+L 345.6 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #1a1a1a" x="172.8" y="27.987437" transform="rotate(-0 172.8 27.987437)">Six communication-memory failure modes → scenario families</text>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m43b2cf3671" d="M 0 2 
+C 0.530406 2 1.03916 1.789267 1.414214 1.414214 
+C 1.789267 1.03916 2 0.530406 2 0 
+C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 
+C 1.03916 -1.789267 0.530406 -2 0 -2 
+C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 
+C -1.789267 -1.03916 -2 -0.530406 -2 0 
+C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 
+C -1.03916 1.789267 -0.530406 2 0 2 
+z
+" style="stroke: #d55e00"/>
+    </defs>
+    <g clip-path="url(#pe4c08f604b)">
+     <use xlink:href="#m43b2cf3671" x="24.192" y="51.84" style="fill: #d55e00; stroke: #d55e00"/>
+    </g>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #d55e00" x="38.016" y="53.716875" transform="rotate(-0 38.016 53.716875)">wrong-run</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 6.4px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #6b7280" x="155.52" y="53.517" transform="rotate(-0 155.52 53.517)">twin_run, branch_merge, artifact</text>
+   </g>
+   <g id="PathCollection_2">
+    <g clip-path="url(#pe4c08f604b)">
+     <use xlink:href="#m43b2cf3671" x="24.192" y="75.6" style="fill: #d55e00; stroke: #d55e00"/>
+    </g>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #d55e00" x="38.016" y="77.504219" transform="rotate(-0 38.016 77.504219)">wrong-task / scope</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 6.4px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #6b7280" x="155.52" y="77.277" transform="rotate(-0 155.52 77.277)">private_summary, branch_merge</text>
+   </g>
+   <g id="PathCollection_3">
+    <g clip-path="url(#pe4c08f604b)">
+     <use xlink:href="#m43b2cf3671" x="24.192" y="99.36" style="fill: #d55e00; stroke: #d55e00"/>
+    </g>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #d55e00" x="38.016" y="101.291562" transform="rotate(-0 38.016 101.291562)">stale / superseded</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 6.4px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #6b7280" x="155.52" y="101.037" transform="rotate(-0 155.52 101.037)">superseded_policy, pause_resume</text>
+   </g>
+   <g id="PathCollection_4">
+    <g clip-path="url(#pe4c08f604b)">
+     <use xlink:href="#m43b2cf3671" x="24.192" y="123.12" style="fill: #d55e00; stroke: #d55e00"/>
+    </g>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #d55e00" x="38.016" y="125.051562" transform="rotate(-0 38.016 125.051562)">unauthorized</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 6.4px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #6b7280" x="155.52" y="124.797" transform="rotate(-0 155.52 124.797)">private_summary</text>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#pe4c08f604b)">
+     <use xlink:href="#m43b2cf3671" x="24.192" y="146.88" style="fill: #d55e00; stroke: #d55e00"/>
+    </g>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #d55e00" x="38.016" y="148.784219" transform="rotate(-0 38.016 148.784219)">missing critical</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 6.4px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #6b7280" x="155.52" y="148.557" transform="rotate(-0 155.52 148.557)">context_manifest, artifact</text>
+   </g>
+   <g id="PathCollection_6">
+    <g clip-path="url(#pe4c08f604b)">
+     <use xlink:href="#m43b2cf3671" x="24.192" y="170.64" style="fill: #d55e00; stroke: #d55e00"/>
+    </g>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #d55e00" x="38.016" y="172.571562" transform="rotate(-0 38.016 172.571562)">unreconstructable</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 6.4px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #6b7280" x="155.52" y="172.317" transform="rotate(-0 155.52 172.317)">audit_reconstruction</text>
+   </g>
+   <g id="text_14">
+    <text style="font-style: italic; font-size: 6.4px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #6b7280" x="172.8" y="202.646" transform="rotate(-0 172.8 202.646)">FFCR = completion AND none of the six modes AND reconstructable</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe4c08f604b">
+   <rect x="0" y="0" width="345.6" height="216"/>
+  </clipPath>
+ </defs>
+</svg>

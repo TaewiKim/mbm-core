@@ -1,0 +1,384 @@
+{
+  "input": "results/hotpotqa-validation-live-gpt54-mini-nano-c20-r1-repair1-combined.json",
+  "benchmark": "protocol-memory",
+  "model": "gpt-5.4-mini, gpt-5.4-nano",
+  "live": true,
+  "health": {
+    "cases": 480,
+    "parse_errors": 0,
+    "invalid": 0,
+    "api_errors": 0
+  },
+  "contrasts": [
+    {
+      "name": "H1 Evidence Capsules",
+      "scenario": "evidence_conflict",
+      "metric": "success",
+      "direction": "higher",
+      "treatment": {
+        "protocol": "evidence-capsule",
+        "scenario": "evidence_conflict",
+        "metric": "success",
+        "n": 40,
+        "mean": 0.85
+      },
+      "control": {
+        "protocol": "typed-envelope",
+        "scenario": "evidence_conflict",
+        "metric": "success",
+        "n": 40,
+        "mean": 0
+      },
+      "delta": 0.85,
+      "paired_n": 40,
+      "bootstrap_ci_95": {
+        "low": 0.725,
+        "high": 0.95
+      },
+      "sign_test_p_value": 1.1642e-10,
+      "available": true
+    },
+    {
+      "name": "H1 Provenance",
+      "scenario": "evidence_conflict",
+      "metric": "claim_provenance_coverage",
+      "direction": "higher",
+      "treatment": {
+        "protocol": "evidence-capsule",
+        "scenario": "evidence_conflict",
+        "metric": "claim_provenance_coverage",
+        "n": 40,
+        "mean": 1
+      },
+      "control": {
+        "protocol": "typed-envelope",
+        "scenario": "evidence_conflict",
+        "metric": "claim_provenance_coverage",
+        "n": 40,
+        "mean": 0.95
+      },
+      "delta": 0.05,
+      "paired_n": 40,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0.1125
+      },
+      "sign_test_p_value": 0.25,
+      "available": true
+    },
+    {
+      "name": "H2 Proof Capability",
+      "scenario": "capability_deception",
+      "metric": "success",
+      "direction": "higher",
+      "treatment": {
+        "protocol": "proof-capability",
+        "scenario": "capability_deception",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "typed-envelope",
+        "scenario": "capability_deception",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "H3 Commitment Receipt",
+      "scenario": "delegation_drift",
+      "metric": "success",
+      "direction": "higher",
+      "treatment": {
+        "protocol": "commitment-receipt",
+        "scenario": "delegation_drift",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "proof-capability",
+        "scenario": "delegation_drift",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "H4 Scoped Memory",
+      "scenario": "scoped_memory_privacy",
+      "metric": "secret_leak_events",
+      "direction": "lower",
+      "treatment": {
+        "protocol": "scoped-memory",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "commitment-receipt",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "H4 Full Policy Trace",
+      "scenario": "scoped_memory_privacy",
+      "metric": "secret_leak_events",
+      "direction": "lower",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "scoped-memory",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "H5 Context Manifest",
+      "scenario": "context_manifest_stress",
+      "metric": "wire_bytes",
+      "direction": "lower",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "context_manifest_stress",
+        "metric": "wire_bytes",
+        "n": 40,
+        "mean": 2771.5
+      },
+      "control": {
+        "protocol": "evidence-capsule",
+        "scenario": "context_manifest_stress",
+        "metric": "wire_bytes",
+        "n": 40,
+        "mean": 50764.2
+      },
+      "delta": 47992.7,
+      "paired_n": 40,
+      "bootstrap_ci_95": {
+        "low": 47965.3,
+        "high": 48024.025
+      },
+      "sign_test_p_value": 1.819e-12,
+      "available": true
+    },
+    {
+      "name": "Ablation Evidence",
+      "scenario": "evidence_conflict",
+      "metric": "success",
+      "direction": "higher",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "evidence_conflict",
+        "metric": "success",
+        "n": 40,
+        "mean": 0.825
+      },
+      "control": {
+        "protocol": "acmcp-no-evidence",
+        "scenario": "evidence_conflict",
+        "metric": "success",
+        "n": 40,
+        "mean": 0
+      },
+      "delta": 0.825,
+      "paired_n": 40,
+      "bootstrap_ci_95": {
+        "low": 0.7,
+        "high": 0.925
+      },
+      "sign_test_p_value": 2.3283e-10,
+      "available": true
+    },
+    {
+      "name": "Ablation Proof",
+      "scenario": "capability_deception",
+      "metric": "success",
+      "direction": "higher",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "capability_deception",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "acmcp-no-proof",
+        "scenario": "capability_deception",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "Ablation Commitment",
+      "scenario": "delegation_drift",
+      "metric": "success",
+      "direction": "higher",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "delegation_drift",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "acmcp-no-commitment",
+        "scenario": "delegation_drift",
+        "metric": "success",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "Ablation Scope",
+      "scenario": "scoped_memory_privacy",
+      "metric": "secret_leak_events",
+      "direction": "lower",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "acmcp-no-scope",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "Ablation Policy Trace",
+      "scenario": "scoped_memory_privacy",
+      "metric": "secret_leak_events",
+      "direction": "lower",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "control": {
+        "protocol": "acmcp-no-policy-trace",
+        "scenario": "scoped_memory_privacy",
+        "metric": "secret_leak_events",
+        "n": 0,
+        "mean": 0
+      },
+      "delta": 0,
+      "paired_n": 0,
+      "bootstrap_ci_95": {
+        "low": 0,
+        "high": 0
+      },
+      "sign_test_p_value": 1,
+      "available": false
+    },
+    {
+      "name": "Ablation Context Manifest",
+      "scenario": "context_manifest_stress",
+      "metric": "wire_bytes",
+      "direction": "lower",
+      "treatment": {
+        "protocol": "acmcp-full",
+        "scenario": "context_manifest_stress",
+        "metric": "wire_bytes",
+        "n": 40,
+        "mean": 2771.5
+      },
+      "control": {
+        "protocol": "acmcp-no-context-manifest",
+        "scenario": "context_manifest_stress",
+        "metric": "wire_bytes",
+        "n": 40,
+        "mean": 50882.525
+      },
+      "delta": 48111.025,
+      "paired_n": 40,
+      "bootstrap_ci_95": {
+        "low": 48079.775,
+        "high": 48143.825
+      },
+      "sign_test_p_value": 1.819e-12,
+      "available": true
+    }
+  ],
+  "notes": [
+    "Bootstrap intervals are paired by case_id and run_index.",
+    "Sign-test p-values are nonparametric diagnostics over paired deltas, not a substitute for preregistered confirmatory testing.",
+    "A positive delta means the treatment improved the metric in the requested direction.",
+    "For leak and wire-byte metrics, lower is better and delta is computed as control minus treatment."
+  ]
+}
